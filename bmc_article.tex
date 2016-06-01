@@ -62,7 +62,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%From Notebook%%%%%%%%%%%%%%%%%%%%%%%%%%
 
     \usepackage{graphicx} % Used to insert images
-    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{adjustbox} % Used to constrain images to a maximum size
     \usepackage{color} % Allow colors to be defined
     \usepackage{enumerate} % Needed for markdown enumerations to work
     % \usepackage{geometry} % Used to adjust the document margins
@@ -72,8 +72,8 @@
     \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
     \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
     \usepackage{fancyvrb} % verbatim replacement that allows latex
-    \usepackage{grffile} % extends the file name processing of package graphics 
-                         % to support a larger range 
+    \usepackage{grffile} % extends the file name processing of package graphics
+                         % to support a larger range
     % The hyperref package gives us a pdf with properly built
     % internal navigation ('pdf bookmarks' for the table of contents,
     % internal cross-reference links, web links for URLs, etc.)
@@ -81,10 +81,10 @@
     \usepackage{longtable} % longtable support required by pandoc >1.10
     \usepackage{booktabs}  % table support for pandoc > 1.12.2
     \usepackage{ulem} % ulem is needed to support strikethroughs (\sout)
-    
 
-    
-    
+
+
+
     \definecolor{orange}{cmyk}{0,0.4,0.8,0.2}
     \definecolor{darkorange}{rgb}{.71,0.21,0.01}
     \definecolor{darkgreen}{rgb}{.12,.54,.11}
@@ -103,7 +103,7 @@
     \definecolor{purple}{rgb}{.698,.145,.698}
     \definecolor{cyan}{rgb}{0,.698,.698}
     \definecolor{lightgray}{gray}{0.5}
-    
+
     % bright ansi colors
     \definecolor{darkgray}{gray}{0.25}
     \definecolor{lightred}{rgb}{1.0,0.39,0.28}
@@ -111,7 +111,7 @@
     \definecolor{lightblue}{rgb}{0.53,0.81,0.92}
     \definecolor{lightpurple}{rgb}{0.87,0.63,0.87}
     \definecolor{lightcyan}{rgb}{0.5,1.0,0.83}
-    
+
     % commands and environments needed by pandoc snippets
     % extracted from the output of `pandoc -s`
     \providecommand{\tightlist}{%
@@ -133,7 +133,7 @@
     \newcommand{\RegionMarkerTok}[1]{{#1}}
     \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
     \newcommand{\NormalTok}[1]{{#1}}
-    
+
     % Additional commands for more recent versions of Pandoc
     \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
     \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
@@ -152,8 +152,8 @@
     \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
     \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
     \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
-    
-    
+
+
     % Define a nice break command that doesn't care if a line doesn't already
     % exist.
     \def\br{\hspace*{\fill} \\* }
@@ -264,9 +264,9 @@
 
 
 
-    
+
     % Prevent overflowing lines due to hard-to-break entities
-    \sloppy 
+    \sloppy
     % Setup hyperref package
     % \hypersetup{
     %   breaklinks=true,  % so long urls are correctly broken across lines
@@ -276,7 +276,7 @@
     %   citecolor=darkgreen,
     %   }
     % Slightly bigger margins than the latex defaults
-    
+
     % \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -343,7 +343,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \author[
-   addressref={aff1},                   
+   addressref={aff1},
    email={davidbrough.net}   % email address
 ]{\inits{DB}\fnm{David B} \snm{Brough}}
 \author[
@@ -352,7 +352,7 @@
 ]{\inits{DW}\fnm{Daniel} \snm{Wheeler}}
 \author[
    addressref={aff1,aff3},
-   corref={aff1},  
+   corref={aff1},
    email={surya.kalidindi@me.gatech.edu}
 ]{\inits{SRK}\fnm{Surya R.} \snm{Kalidindi}}
 
@@ -450,7 +450,7 @@ To Do
 % the stochastic nature of these data at multiple length scales in order to extract
 % relevant and transferable knowledge. Data driven Process-Structure-Property (PSP)
 % linkages provide systemic, modular and hierarchical protocols for community engagement
-% (i.e., several people making complementary or overlapping contributions to the 
+% (i.e., several people making complementary or overlapping contributions to the
 % overall curation of materials knowledge). Computationally cheap PSP linkages exact
 % valuable materials knowledge from these heterogeneous datasets and provide a
 % format that is usable and valuable for design and manufacturing experts.
@@ -557,9 +557,9 @@ The Materials Knowledge Systems in Python project (PyMKS) is the first open sour
 \section{Current Materials Innovation Ecosystem}
 
 
-% Traditionally the development materials data analytics toolsets and data repositories are highly localized within a few individual groups resulting in major inefficiency (unnecessary duplication of codes, inadequate verification and validation of multiple instantiations of code, not engaging the right talent for the right task, etc.)  
+% Traditionally the development materials data analytics toolsets and data repositories are highly localized within a few individual groups resulting in major inefficiency (unnecessary duplication of codes, inadequate verification and validation of multiple instantiations of code, not engaging the right talent for the right task, etc.)
 
-Open access materials databases and computational tools are critical components of the cyber-infrastructure needed to curate materials knowledge through effective e-collaborations \cite{bhat2015strategy}. Several materials science open source computational toolsets and databases have emerged in recent years to help realize the vision outlined in the Materials Genome Initiative (MGI) and the Integrated Computational Materials Engineering (ICME) paradigm \cite{ward2012materials, allison2006integrated, MGIwhite, MGI2014, allison2011integrated, olson2000designing, national2008integrated, schmitz2012integrative, robinson2013tms, allisonintegrated, TMSfieldstudy}. Yet, the creation and adoption of a standard materials taxonomy and database schema has not been established due to the unwieldy size of material descriptors and heterogeneous data. Additionally, the coupled physical phenomena that govern material properties is too complex to model all aspects of a material simultaneously using a single computational tool. Consequently, current practices have resulted in the development of computation tools and databases with a narrow focus on specific length/structure scales, material classes, or properties. 
+Open access materials databases and computational tools are critical components of the cyber-infrastructure needed to curate materials knowledge through effective e-collaborations \cite{bhat2015strategy}. Several materials science open source computational toolsets and databases have emerged in recent years to help realize the vision outlined in the Materials Genome Initiative (MGI) and the Integrated Computational Materials Engineering (ICME) paradigm \cite{ward2012materials, allison2006integrated, MGIwhite, MGI2014, allison2011integrated, olson2000designing, national2008integrated, schmitz2012integrative, robinson2013tms, allisonintegrated, TMSfieldstudy}. Yet, the creation and adoption of a standard materials taxonomy and database schema has not been established due to the unwieldy size of material descriptors and heterogeneous data. Additionally, the coupled physical phenomena that govern material properties is too complex to model all aspects of a material simultaneously using a single computational tool. Consequently, current practices have resulted in the development of computation tools and databases with a narrow focus on specific length/structure scales, material classes, or properties.
 
 NIST Data Gateway contains over 100 free and paid query-able web-based materials databases. These databases contain atomic structure, thermodynamics, kinetics, fundamental physical constants, x-ray spectroscopy, among other features \cite{NISTgateway}. NIST DSpace provides a curation of links to several materials community databases \cite{nist2015dspace}. NIST Materials Data Curation Systems (MDCS) is a general online database that aims to facilitate the capturing, sharing, and transforming of materials data \cite{NISTDCS}. Open Quantum Materials Database (OQMD) is an open source data repository for phase diagrams and electronic ground states computed using density functional theory \cite{saal2013materials}. MatWeb is a database containing materials properties for over 100,000 materials \cite{matweb}.
 Atomic FLOW of Materials Discovery (AFLOW) databases millions of materials and properties and hosts computational tools that can be used for atomic simulations \cite{curtarolo2012aflow}. The Materials Project (and the tool pyMatgen) \cite{ong2013python, jain2013commentary} provides open web-based access to computed information on known and predicted materials as well as analysis tools for electronic band structures. The Knowledgebase of Interatomic Models (OpenKIM) hosts open source tools for potentials for molecular simulation of materials \cite{kim2010project}. PRedictive Integrated Structural Materials Science (PRISMS) hosts a suite of ICME tools and datastorage for the metals community focused on microstructure evolution and mechanical properties \cite{prism}.
@@ -575,13 +575,13 @@ While there exits a sizable number of standard analytics tools \cite{littell2006
 Material properties are controlled by their internal structure and the diverse physical phenomena occurring at multiple time and length scales. Generalized composite theories \cite{hill1963elastic, hashin1983analysis} have been developed for hierarchical materials exhibiting well separated length scales in their internal structure. Generally speaking, these theories either address homogenization (i.e., communication of effective properties associated with the structure at a given length scale to a higher length scale) or localization (i.e., spatiotemporal distribution of the imposed macroscale loading conditions to the lower length scale). Consequently, homogenization and localization are the essential building blocks in communicating the salient information in both directions between hierarchical length/structure scales in multiscale materials modeling. It is also pointed out that localization is significantly more difficult to establish, and implicitly provides a solution to homogenization.
 
 The most sophisticated composite theory available today that explicitly accounts for the full details of the material internal structure (also simply referred as microstructure) comes from the use of perturbation theories and Green's functions \cite{brown1955solid, hill1963elastic, kroner1986statistical, kroner1977bounds, kroner1972statistical, etingof1993representations, adams1998mesostructure, fullwood2008strong, torquato2013random, li2006quantitative, milhans2011prediction, adams2013microstructure, garmestani2001statistical}. In this formalism, one usually arrives at a series expansion for both homogenization and localization, where the individual terms in the series involve convolution integrals with kernels based  on  Green's functions. This series expansion was refined and generalized by Adams and co-workers \cite{adams2005finite, adams2013microstructure, binci2008new} through the introduction of the concept of a microstructure function, which conveniently separates each term in the series into a physics-dependent kernel (based on Green's functions) and a microstructure-dependent function (based on the formalism of n-point spatial correlations \cite{etingof1993representations, adams1998mesostructure, fullwood2008strong, torquato2013random, li2006quantitative, milhans2011prediction}).
- 
+
  Materials Knowledge Systems (MKS) \cite{landi2010multi, kalidindi2010novel, yabansu2014calibrated, al2012multi, kalidindi2011microstructure, gupta2015structure,  cceccen2014data} complements these sophisticated physics-based materials composite theories with a modern data science approach to create a versatile framework for extracting and curating multiscale PSP linkages. More specifically, MKS employs a discretized version of the composite theories mentioned earlier to gain major computational advantages. As a result, highly adaptable and templatable protocols have been created and used successfully to extract robust and versatile homogenization and localization metamodels with impressive accuracy and broad applicability over large microstructure spaces.
- 
- The MKS framework starts with a discretized description of the microstructure function denoted as $m[s, l]$, where $s$ and $l$ index suitable decompositions of the physical space (occupied by a representative volume element of the microstructure) and the local state space of interest. In most applications, the physical space is simply tessellated into voxels on a regular (uniform) grid. On the other hand, the local states encountered in the description of the microstructure often need a combination of diverse attributes (these might include phase identifiers, lattice orientation, chemical composition, defect types and densities, among others). The introduction of the microstructure function allows a stochastic interpretation of the microstructure, where $m[s, l]$ reflects a probability distribution of the distinct local states in each voxel of the microstructure \cite{niezgoda2013novel, niezgoda2011understanding, qidwai2012estimating,niezgoda2010optimized}. Furthermore, the introduction of the local state space (i.e., the complete set of all potential local states) provides a consolidate variable space for combining the diverse attributes (often a combination of scalar and tensor quantities)  needed to describe the  local states in the material structure.   
- 
+
+ The MKS framework starts with a discretized description of the microstructure function denoted as $m[s, l]$, where $s$ and $l$ index suitable decompositions of the physical space (occupied by a representative volume element of the microstructure) and the local state space of interest. In most applications, the physical space is simply tessellated into voxels on a regular (uniform) grid. On the other hand, the local states encountered in the description of the microstructure often need a combination of diverse attributes (these might include phase identifiers, lattice orientation, chemical composition, defect types and densities, among others). The introduction of the microstructure function allows a stochastic interpretation of the microstructure, where $m[s, l]$ reflects a probability distribution of the distinct local states in each voxel of the microstructure \cite{niezgoda2013novel, niezgoda2011understanding, qidwai2012estimating,niezgoda2010optimized}. Furthermore, the introduction of the local state space (i.e., the complete set of all potential local states) provides a consolidate variable space for combining the diverse attributes (often a combination of scalar and tensor quantities)  needed to describe the  local states in the material structure.
+
  As noted earlier, the local state space in most advanced materials is likely to demand sophisticated representations. In prior work \cite{yabansu2014calibrated, yabansu2015representation, brough2016microstructure}, it was found that spectral representations on functions on the local state space offered many advantages both in compact representation as well as in reducing the computational cost. In such cases, $l$ indexes the spectral basis functions employed. The selection of these functions depends on the nature of local state descriptors. Examples of these functions include: (i) the Primitive basis (or indicator functions) used to represent simple tessellation schemes \cite{landi2010multi, kalidindi2010novel, al2012multi, kalidindi2011microstructure, gupta2015structure,  cceccen2014data, niezgoda2013novel, niezgoda2011understanding, cecen2016versatile}, (ii) generalized spherical harmonics used to represent functions over the orientation space \cite{yabansu2014calibrated, yabansu2015representation}, and (iii) Legendre polynomials used to represent functions over the concentration space \cite{brough2016microstructure}.
- 
+
 Comparing different microstructures is quite difficult even after expressing them in convenient discretized descriptions, mainly due to the lack of a reference point or a natural origin for the index $s$ in the tessellation of the microstructure volume. Yet the relative spatial distributions of the local states provide a valuable representation of the microstructure that can be used effectively to quantify the microstructure and compare it with other microstructures in  robust and meaningful ways \cite{niezgoda2011understanding, niezgoda2010optimized, niezgoda2013novel, cceccen2014data, cecen2016versatile}. The lowest order of spatial correlations comes in the form of 2-point statistics and can be computed as a correlation of a microstructure function as
 \begin{equation}\label{eq:stats}
     f[l, l'| r] = \frac{1}{\Omega[ r]} \sum_{s} m[s, l] m[s +  r, l']
@@ -594,26 +594,26 @@ Comparing different microstructures is quite difficult even after expressing the
 \end{figure}
 where $r$, is a discrete spatial vector within the voxelated domain specified by $s$, $f[l, l'|  r]$ is one set of 2-point statistics for the local stats $l$ and $l'$, and $\Omega[ r]$ is a normalization factor that depends on $ r$ \cite{cecen2016versatile}. The physical interpretation of the 2-point statistics is explained in Fig. \ref{fig:stats} with a highly simplified two-phase microstructure (the two phases are colored white and gray). Using the Primitive basis for both the spatial domain and the local state space, $f[l, l'|  r]$ can be interpreted at the probability of finding local states $l$ and $l'$ at the tail and head of the vector $ r$.
 
-2-Point statistics provide a meaningful representation of the microstructure, but create an extremely large feature space that often contains redundant information. Dimensionality reduction can be used to create low dimensional microstructure descriptors from the sets of spatial correlations (based on different selections of $l$ and $l'$) with principal component analysis (PCA). This dimensionality reduction can be mathematically expressed as  
+2-Point statistics provide a meaningful representation of the microstructure, but create an extremely large feature space that often contains redundant information. Dimensionality reduction can be used to create low dimensional microstructure descriptors from the sets of spatial correlations (based on different selections of $l$ and $l'$) with principal component analysis (PCA). This dimensionality reduction can be mathematically expressed as
 \begin{equation} \label{eq:struc}
     f[ r] \approx \sum_{k} \mu[k] \phi[k,  r] + \overline{f[ r]}
 \end{equation}
 In Eq. \ref{eq:struc}, $f[r]$ is a feature vector consisting of the selected sets of spatial correlations, and $\mu[k]$ are low dimensional microstructure descriptors or principal component scores (PC scores). $\phi[k, r]$ and $\overline{f[r]}$ are the calibrated principal components (PCs) and the mean values for each feature. The central advantage of this approach is that it has been demonstrated that the individual elements of a large ensemble of microstructures can often be represented to sufficient fidelity with only a handful of PC scores [ADDREFS].
- 
+
 After obtaining the needed dimenisonality reduction in the representation of the material structure, machine learning models can be used to create homogenization or localization PSP linkages of interest. As an example, a generic homogenization linkage can be expressed as
 \begin{equation} \label{eq:hom}
     p_{eff} = \mathcal{F}(\mu[k])
 \end{equation}
  In Eq. \ref{eq:hom}, $p_{eff}$ is the effective materials response (reflecting an effective property in structure-property linkages or an evolved low dimensional microstructure descriptor in process-structure linkages), and $\mathcal{F}$ is a machine learning function that links $\mu[k]$ to $p_{eff}$.
 
-MKS Localization linkages are significantly more complex than the homogenization linkages. These are usually expressed in the same series forms that are derived in the general composite theories, while employing discretized kernels based on Green's functions \cite{brown1955solid, hill1963elastic, kroner1986statistical, kroner1977bounds, kroner1972statistical, etingof1993representations, adams1998mesostructure, fullwood2008strong, torquato2013random, li2006quantitative, milhans2011prediction, adams2013microstructure, garmestani2001statistical}. Mathematically, the MKS localization linkages are expressed as 
+MKS Localization linkages are significantly more complex than the homogenization linkages. These are usually expressed in the same series forms that are derived in the general composite theories, while employing discretized kernels based on Green's functions \cite{brown1955solid, hill1963elastic, kroner1986statistical, kroner1977bounds, kroner1972statistical, etingof1993representations, adams1998mesostructure, fullwood2008strong, torquato2013random, li2006quantitative, milhans2011prediction, adams2013microstructure, garmestani2001statistical}. Mathematically, the MKS localization linkages are expressed as
 \begin{multline}
     \label{eq:series}
     p[s] = \sum_{r, l} \alpha[r, l] m[s - r, l] + \sum_{r, r', l, l'} \alpha[r, r', l, l'] m[s - r, l]m[s-r', l'] + ...
 \end{multline}
 In Eq. \ref{eq:series}, $p[s]$ is the spatially resolved (localized) response field (could be a response variable such as stress or strain rate, or an evolved microstructure function),  and $\alpha[r, l]$ are the Green's function based discretized influence kernels. These digital kernels are calibrated using regression methods \cite{al2012multi, kalidindi2010novel, landi2010multi, yabansu2014calibrated, yabansu2015representation, brough2016microstructure}.
 
-Figs. \ref{fig:hom} and \ref{fig:loc} provide schematic overviews of the MKS homogenization and localization workflows. THE CURRENT IMAGES ARE JUST PLACE HOLDERS. More detailed explanations on the MKS homogenization and localization linkages can be found in prior literature \cite{landi2010multi, kalidindi2010novel, yabansu2014calibrated, al2012multi, kalidindi2011microstructure, gupta2015structure,  cceccen2014data, niezgoda2013novel, niezgoda2011understanding, cecen2016versatile}. 
+Figs. \ref{fig:hom} and \ref{fig:loc} provide schematic overviews of the MKS homogenization and localization workflows. THE CURRENT IMAGES ARE JUST PLACE HOLDERS. More detailed explanations on the MKS homogenization and localization linkages can be found in prior literature \cite{landi2010multi, kalidindi2010novel, yabansu2014calibrated, al2012multi, kalidindi2011microstructure, gupta2015structure,  cceccen2014data, niezgoda2013novel, niezgoda2011understanding, cecen2016versatile}.
 
 % \begin{equation}
 %     \label{eq:loc}
@@ -637,16 +637,30 @@ Figs. \ref{fig:hom} and \ref{fig:loc} provide schematic overviews of the MKS hom
   \label{fig:hom}
 \end{figure}
 
-% Homogenization linkages are created by taking the ensemble average of Eq. \ref{eq:series}. With the ensemble average, the $N^{th}$ term in the series containing the microstructure function $m[s, l]$ becomes the set of $N$-point statistics. It follows that the linear combinations of these $N$-point statistics provide the necessary structure information to predict effect properties, but present an extremely large feature space with redundant information. Low dimensional linearly independent microstructure descriptors are created using the global linear unsupervised dimensionality reduction technique Principal Component Analysis (PCA). These reduced features as well as effective properties serve as inputs and outputs to calibrate machine learning models for homogenization linkages. 
+% Homogenization linkages are created by taking the ensemble average of Eq. \ref{eq:series}. With the ensemble average, the $N^{th}$ term in the series containing the microstructure function $m[s, l]$ becomes the set of $N$-point statistics. It follows that the linear combinations of these $N$-point statistics provide the necessary structure information to predict effect properties, but present an extremely large feature space with redundant information. Low dimensional linearly independent microstructure descriptors are created using the global linear unsupervised dimensionality reduction technique Principal Component Analysis (PCA). These reduced features as well as effective properties serve as inputs and outputs to calibrate machine learning models for homogenization linkages.
 
 
 \section{Materials Knowledge Systems in Python}
 
-PyMKS is designed to provide flexible yet high-level APIs to access the MKS framework in order to create computationally efficient multiscale PSP linkages for hierarchical materials as well as objective data driven methods to catalogue, quantify, and classify materials structures. The programming language Python was chosen because of it's portability, human readable syntax, holistic design, optimized libraries, and the  broad adoption and support from the scientific and data science communities. PyMKS is licensed under the permissive MIT license \cite{MIT} which allows for unrestricted distribution in commercial and non-commercial systems.
+PyMKS is an object-oriented numerical implementation to the MKS theory
+developed in the literature~\cite{kalidindi2010novel}. It provides a
+high-level, computational efficient framework to implement data
+pipelines for classification, cataloging and quantifying materials
+structures for PSP relationships. PyMKS is written in Python, a
+natural choice for scientific computing due to its ubiquitous use
+among the data science community as well as many other favorable
+attributes~\cite{perez2011python}. PyMKS is licensed under the
+permissive MIT license \cite{MIT} which allows for unrestricted
+distribution in commercial and non-commercial systems.
 
 \subsection{Core Functionality}
 
-PyMKS modules include an object oriented set of tools to compute 2-point statistics, obtain objective low-dimensional measures of the material internal structure at different length scales, and create homogenization and localization PSP linkages, functionality to use different basis functions to describe the microstructure function, data generation, and plotting/visualization. 
+PyMKS consists of four main components including a set of tools to
+compute 2-point statistics, tools to obtain low-dimensional
+microstructure descriptors and tools for both homogenization and
+localization. In addition, PyMKS has modules for generating data sets
+using conventional numerical simulations and a module for plotting and
+visualizing customized for microstructures.
 
 The functions \texttt{autocorrelate}, \texttt{crosscorrelate}, and \texttt{correlate} provies APIs to compute the 2-point statistics for a given microstructure as outlined in Eq. \ref{eq:stats}. The \texttt{MKSStructureAnalysis} class provides access to the objective low dimensional structure descriptors, $\mu[k]$. While the default dimensionality reduction technique is PCA, any model from Scikit-learn that has a \texttt{transform\_fit} method can be used. The \texttt{MKSHomogenizationModel} creates a linkage between $\mu[k]$ and a effective material response, $p_{eff}$ as indicated in Eq. \ref{eq:hom}. The default machine learning function is a polynomial regression, but any estimator from Scikit-learn that has \texttt{fit} and \texttt{predict} methods can be used to predict effective material responses or microstructure classes. The \texttt{MKSLocalizationModel} provides the API to calibrate the first order influence kernels $\alpha[r, l]$ in order to predict local materials responses $p[s]$ as indicated by Eq. \ref{eq:series}. The calibration of the influence kernels is done using the multiple linear regression techniques outlined in previous studies \cite{landi2010multi, kalidindi2010novel, yabansu2014calibrated, brough2016microstructure}. The localization model has \texttt{fit} and \texttt{predict} methods to follow the standard API for an estimator.
 
@@ -675,11 +689,11 @@ Additional packages that can be used with PyMKS include Simple Finite Element in
 
 \subsection{Development Practices}
 
-The development team for PyMKS is an open community that uses Github for pull-requests, code review, issue tracking and release management - \\ \url{https://github.com/materialsinnovation/pymks}. Additionally a Google group is used as a public forum to discuss the project development, support and announcements \url{pymks-general@googlegroups.com}. 
+The development team for PyMKS is an open community that uses Github for pull-requests, code review, issue tracking and release management - \\ \url{https://github.com/materialsinnovation/pymks}. Additionally a Google group is used as a public forum to discuss the project development, support and announcements \url{pymks-general@googlegroups.com}.
 
 ADD CONTENT ABOUT TRAVIS CI, etc.
 
-PyMKS follows PEP8 standards and uses pull request to ensure code integrity, and combines overlapping functionality between classes using abstractions. Detailed administrative guidelines are outlined in the \texttt{ADMINISTRATA.md} document on Github, and potential developers are encouraged to follow them. 
+PyMKS follows PEP8 standards and uses pull request to ensure code integrity, and combines overlapping functionality between classes using abstractions. Detailed administrative guidelines are outlined in the \texttt{ADMINISTRATA.md} document on Github, and potential developers are encouraged to follow them.
 
 \section{Examples of Homogenization and Localization with PyMKS}
 
@@ -709,13 +723,13 @@ different microstructure feature size. The function will return and the
 microstructures and their associated volume averaged stress values.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-    
+
 \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k+kn}{as} \PY{n+nn}{np}
 \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{from} \PY{n+nn}{pymks.datasets} \PY{k+kn}{import} \PY{n}{make\PYZus{}elastic\PYZus{}stress\PYZus{}random}
-        
+
 \PY{n}{sample\PYZus{}size} \PY{o}{=} \PY{l+m+mi}{200}
 \PY{n}{grain\PYZus{}size} \PY{o}{=} \PY{p}{[}\PY{p}{(}\PY{l+m+mi}{15}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{15}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{7}\PY{p}{,} \PY{l+m+mi}{7}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{8}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{9}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{)}\PY{p}{]}
 \PY{n}{n\PYZus{}samples} \PY{o}{=} \PY{p}{[}\PY{n}{sample\PYZus{}size}\PY{p}{]} \PY{o}{*} \PY{l+m+mi}{6}
@@ -723,10 +737,10 @@ microstructures and their associated volume averaged stress values.
 \PY{n}{poissons\PYZus{}ratio} \PY{o}{=} \PY{p}{(}\PY{l+m+mf}{0.28}\PY{p}{,} \PY{l+m+mf}{0.3}\PY{p}{)}
 \PY{n}{macro\PYZus{}strain} \PY{o}{=} \PY{l+m+mf}{0.001}
         \PY{n}{size} \PY{o}{=} \PY{p}{(}\PY{l+m+mi}{21}\PY{p}{,} \PY{l+m+mi}{21}\PY{p}{)}
-        
+
 \PY{n}{X}\PY{p}{,} \PY{n}{y} \PY{o}{=} \PY{n}{make\PYZus{}elastic\PYZus{}stress\PYZus{}random}\PY{p}{(}
-    \PY{n}{n\PYZus{}samples}\PY{o}{=}\PY{n}{n\PYZus{}samples}\PY{p}{,} \PY{n}{size}\PY{o}{=}\PY{n}{size}\PY{p}{,} \PY{n}{grain\PYZus{}size}\PY{o}{=}\PY{n}{grain\PYZus{}size}\PY{p}{,} 
-    \PY{n}{elastic\PYZus{}modulus}\PY{o}{=}\PY{n}{elastic\PYZus{}modulus}\PY{p}{,} \PY{n}{poissons\PYZus{}ratio}\PY{o}{=}\PY{n}{poissons\PYZus{}ratio}\PY{p}{,} 
+    \PY{n}{n\PYZus{}samples}\PY{o}{=}\PY{n}{n\PYZus{}samples}\PY{p}{,} \PY{n}{size}\PY{o}{=}\PY{n}{size}\PY{p}{,} \PY{n}{grain\PYZus{}size}\PY{o}{=}\PY{n}{grain\PYZus{}size}\PY{p}{,}
+    \PY{n}{elastic\PYZus{}modulus}\PY{o}{=}\PY{n}{elastic\PYZus{}modulus}\PY{p}{,} \PY{n}{poissons\PYZus{}ratio}\PY{o}{=}\PY{n}{poissons\PYZus{}ratio}\PY{p}{,}
     \PY{n}{macro\PYZus{}strain}\PY{o}{=}\PY{n}{macro\PYZus{}strain}\PY{p}{,} \PY{n}{seed}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}
 
 \end{Verbatim}
@@ -739,7 +753,7 @@ what they look like. We can do this by importing
     \begin{Verbatim}[commandchars=\\\{\}]
 
 \PY{k+kn}{from} \PY{n+nn}{pymks.tools} \PY{k+kn}{import} \PY{n}{draw\PYZus{}microstructures}
-        
+
 \PY{n}{X\PYZus{}examples} \PY{o}{=} \PY{n}{X}\PY{p}{[}\PY{p}{:}\PY{p}{:}\PY{n}{sample\PYZus{}size}\PY{p}{]}
 \PY{n}{draw\PYZus{}microstructures}\PY{p}{(}\PY{n}{X\PYZus{}examples}\PY{p}{[}\PY{p}{:}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{)}
 \end{Verbatim}
@@ -748,7 +762,7 @@ what they look like. We can do this by importing
     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{homogenization_stress_2D_files/homogenization_stress_2D_8_0.png}
     \end{center}
     { \hspace*{\fill} \\}
-    
+
 
     \subsubsection{Calibration of Homogenization Model}\label{modeling-with-mkshomogenizationmodel}
 
@@ -763,7 +777,7 @@ states and our domain is 0 to 1. Let's make an instance of the \texttt{MKSHomgen
 
 \PY{k+kn}{from} \PY{n+nn}{pymks} \PY{k+kn}{import} \PY{n}{MKSHomogenizationModel}
 \PY{k+kn}{from} \PY{n+nn}{pymks.bases} \PY{k+kn}{import} \PY{n}{PrimitiveBasis}
-        
+
 \PY{n}{p\PYZus{}basis} \PY{o}{=} \PY{n}{PrimitiveBasis}\PY{p}{(}\PY{n}{n\PYZus{}states}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{,} \PY{n}{domain}\PY{o}{=}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
 \PY{n}{model} \PY{o}{=} \PY{n}{MKSHomogenizationModel}\PY{p}{(}\PY{n}{basis}\PY{o}{=}\PY{n}{p\PYZus{}basis}\PY{p}{,} \PY{n}{periodic\PYZus{}axes}\PY{o}{=}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}
                                \PY{n}{correlations}\PY{o}{=}\PY{p}{[}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{)}\PY{p}{]}\PY{p}{)}
@@ -779,7 +793,7 @@ sets. This can be done using the
     \begin{Verbatim}[commandchars=\\\{\}]
 
 \PY{k+kn}{from} \PY{n+nn}{sklearn.cross\PYZus{}validation} \PY{k+kn}{import} \PY{n}{train\PYZus{}test\PYZus{}split}
-         
+
 \PY{n}{flat\PYZus{}shape} \PY{o}{=} \PY{p}{(}\PY{n}{X}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{p}{)} \PY{o}{+} \PY{p}{(}\PY{n}{X}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{.}\PY{n}{size}\PY{p}{,}\PY{p}{)}
 \PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}test} \PY{o}{=} \PY{n}{train\PYZus{}test\PYZus{}split}\PY{p}{(}
     \PY{n}{X}\PY{o}{.}\PY{n}{reshape}\PY{p}{(}\PY{n}{flat\PYZus{}shape}\PY{p}{)}\PY{p}{,} \PY{n}{y}\PY{p}{,}\PY{n}{test\PYZus{}size}\PY{o}{=}\PY{l+m+mf}{0.2}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{)}
@@ -801,7 +815,7 @@ we want to search. Let's vary \texttt{n\_components} from 1 to 11 and \texttt{de
     \begin{Verbatim}[commandchars=\\\{\}]
 
 \PY{k+kn}{from} \PY{n+nn}{sklearn.grid\PYZus{}search} \PY{k+kn}{import} \PY{n}{GridSearchCV}
-         
+
 \PY{n}{params\PYZus{}to\PYZus{}tune} \PY{o}{=} \PY{p}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{degree}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{np}\PY{o}{.}\PY{n}{arange}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{)}\PY{p}{,}
                   \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{n\PYZus{}components}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{np}\PY{o}{.}\PY{n}{arange}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{12}\PY{p}{)}\PY{p}{\PYZcb{}}
 \PY{n}{fit\PYZus{}params} \PY{o}{=} \PY{p}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{size}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{X}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{.}\PY{n}{shape}\PY{p}{\PYZcb{}}
@@ -820,7 +834,7 @@ we want to search. Let's vary \texttt{n\_components} from 1 to 11 and \texttt{de
 %     \begin{Verbatim}[commandchars=\\\{\}]
 
 % {\color{incolor}In [{\color{incolor}12}]:} \PY{k+kn}{from} \PY{n+nn}{pymks.tools} \PY{k+kn}{import} \PY{n}{draw\PYZus{}gridscores\PYZus{}matrix}
-         
+
 %          \PY{n}{draw\PYZus{}gridscores\PYZus{}matrix}\PY{p}{(}\PY{n}{gs}\PY{p}{,} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{n\PYZus{}components}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{degree}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{score\PYZus{}label}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{R\PYZhy{}Squared}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
 %                                 \PY{n}{param\PYZus{}labels}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Number of Components}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Order of Polynomial}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
 % \end{Verbatim}
@@ -852,18 +866,18 @@ value. Let's look at the results using \texttt{draw\_grid\_scores}, and set the 
     \begin{Verbatim}[commandchars=\\\{\}]
 
 \PY{k+kn}{from} \PY{n+nn}{pymks.tools} \PY{k+kn}{import} \PY{n}{draw\PYZus{}gridscores}
-         
+
 \PY{n}{gs\PYZus{}deg\PYZus{}1} \PY{o}{=} \PY{p}{[}\PY{n}{x} \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{gs}\PY{o}{.}\PY{n}{grid\PYZus{}scores\PYZus{}}
             \PY{k}{if} \PY{n}{x}\PY{o}{.}\PY{n}{parameters}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{degree}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{==} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{:}\PY{p}{]}
 \PY{n}{gs\PYZus{}deg\PYZus{}2} \PY{o}{=} \PY{p}{[}\PY{n}{x} \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{gs}\PY{o}{.}\PY{n}{grid\PYZus{}scores\PYZus{}}
             \PY{k}{if} \PY{n}{x}\PY{o}{.}\PY{n}{parameters}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{degree}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{==} \PY{l+m+mi}{2}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{:}\PY{p}{]}
 \PY{n}{gs\PYZus{}deg\PYZus{}3} \PY{o}{=} \PY{p}{[}\PY{n}{x} \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{gs}\PY{o}{.}\PY{n}{grid\PYZus{}scores\PYZus{}}
             \PY{k}{if} \PY{n}{x}\PY{o}{.}\PY{n}{parameters}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{degree}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{==} \PY{l+m+mi}{3}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{:}\PY{p}{]}
- 
-\PY{n}{draw\PYZus{}gridscores}\PY{p}{(}\PY{p}{[}\PY{n}{gs\PYZus{}deg\PYZus{}1}\PY{p}{,}  \PY{n}{gs\PYZus{}deg\PYZus{}2}\PY{p}{,} \PY{n}{gs\PYZus{}deg\PYZus{}3}\PY{p}{]}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{n\PYZus{}components}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} 
+
+\PY{n}{draw\PYZus{}gridscores}\PY{p}{(}\PY{p}{[}\PY{n}{gs\PYZus{}deg\PYZus{}1}\PY{p}{,}  \PY{n}{gs\PYZus{}deg\PYZus{}2}\PY{p}{,} \PY{n}{gs\PYZus{}deg\PYZus{}3}\PY{p}{]}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{n\PYZus{}components}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
                  \PY{n}{data\PYZus{}labels}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{1st Order}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
                               \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{2nd Order}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{3rd Order}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,}
-                 \PY{n}{param\PYZus{}label}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Number of Components}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} 
+                 \PY{n}{param\PYZus{}label}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Number of Components}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
                  \PY{n}{score\PYZus{}label}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{R\PYZhy{}Squared}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
 
 \end{Verbatim}
@@ -893,20 +907,20 @@ six different types of microstructures using the same
 \texttt{make\_elastic\_stress\_random} function.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-    
+
 \PY{n}{test\PYZus{}sample\PYZus{}size} \PY{o}{=} \PY{l+m+mi}{20}
 \PY{n}{n\PYZus{}samples} \PY{o}{=} \PY{p}{[}\PY{n}{test\PYZus{}sample\PYZus{}size}\PY{p}{]} \PY{o}{*} \PY{l+m+mi}{6}
 \PY{n}{X\PYZus{}new}\PY{p}{,} \PY{n}{y\PYZus{}new} \PY{o}{=} \PY{n}{make\PYZus{}elastic\PYZus{}stress\PYZus{}random}\PY{p}{(}
-    \PY{n}{n\PYZus{}samples}\PY{o}{=}\PY{n}{n\PYZus{}samples}\PY{p}{,} \PY{n}{size}\PY{o}{=}\PY{n}{size}\PY{p}{,} \PY{n}{grain\PYZus{}size}\PY{o}{=}\PY{n}{grain\PYZus{}size}\PY{p}{,} 
-    \PY{n}{elastic\PYZus{}modulus}\PY{o}{=}\PY{n}{elastic\PYZus{}modulus}\PY{p}{,} \PY{n}{poissons\PYZus{}ratio}\PY{o}{=}\PY{n}{poissons\PYZus{}ratio}\PY{p}{,} 
+    \PY{n}{n\PYZus{}samples}\PY{o}{=}\PY{n}{n\PYZus{}samples}\PY{p}{,} \PY{n}{size}\PY{o}{=}\PY{n}{size}\PY{p}{,} \PY{n}{grain\PYZus{}size}\PY{o}{=}\PY{n}{grain\PYZus{}size}\PY{p}{,}
+    \PY{n}{elastic\PYZus{}modulus}\PY{o}{=}\PY{n}{elastic\PYZus{}modulus}\PY{p}{,} \PY{n}{poissons\PYZus{}ratio}\PY{o}{=}\PY{n}{poissons\PYZus{}ratio}\PY{p}{,}
     \PY{n}{macro\PYZus{}strain}\PY{o}{=}\PY{n}{macro\PYZus{}strain}\PY{p}{,} \PY{n}{seed}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
-            
+
 \end{Verbatim}
 
     Now let's predict the stress values for the new microstructures using the \texttt{predict} method.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-    
+
 \PY{n}{y\PYZus{}predict} \PY{o}{=} \PY{n}{model}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}new}\PY{p}{)}
 
 \end{Verbatim}
@@ -917,20 +931,20 @@ used to fit the model using \texttt{draw\_components\_scatter} from
 \texttt{pymks.tools}.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-    
+
 \PY{k+kn}{from} \PY{n+nn}{pymks.tools} \PY{k+kn}{import} \PY{n}{draw\PYZus{}components\PYZus{}scatter}
-         
-\PY{n}{draw\PYZus{}components\PYZus{}scatter}\PY{p}{(}\PY{p}{[}\PY{n}{model}\PY{o}{.}\PY{n}{reduced\PYZus{}fit\PYZus{}data}\PY{p}{[}\PY{p}{:}\PY{p}{,} \PY{p}{:}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,} 
+
+\PY{n}{draw\PYZus{}components\PYZus{}scatter}\PY{p}{(}\PY{p}{[}\PY{n}{model}\PY{o}{.}\PY{n}{reduced\PYZus{}fit\PYZus{}data}\PY{p}{[}\PY{p}{:}\PY{p}{,} \PY{p}{:}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,}
                          \PY{n}{model}\PY{o}{.}\PY{n}{reduced\PYZus{}predict\PYZus{}data}\PY{p}{[}\PY{p}{:}\PY{p}{,} \PY{p}{:}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{]}\PY{p}{,}
                          \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Training Data}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Test Data}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
-                                 
+
 \end{Verbatim}
 
     \begin{center}
     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{homogenization_stress_2D_files/homogenization_stress_2D_41_0.png}
     \end{center}
     { \hspace*{\fill} \\}
-    
+
     The predicted data seems to be reasonably similar to the data we used to
 fit the model with. Now let's look at the score value for the predicted
 data. We can evaluate our prediction by looking at a
@@ -939,7 +953,7 @@ goodness-of-fit plot. We can do this by importing
 
     \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{from} \PY{n+nn}{pymks.tools} \PY{k+kn}{import} \PY{n}{draw\PYZus{}goodness\PYZus{}of\PYZus{}fit}
-         
+
  \PY{n}{fit\PYZus{}data} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{n}{y}\PY{p}{,} \PY{n}{model}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X}\PY{p}{)}\PY{p}{]}\PY{p}{)}
  \PY{n}{pred\PYZus{}data} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{n}{y\PYZus{}new}\PY{p}{,} \PY{n}{y\PYZus{}predict}\PY{p}{]}\PY{p}{)}
  \PY{n}{draw\PYZus{}goodness\PYZus{}of\PYZus{}fit}\PY{p}{(}\PY{n}{fit\PYZus{}data}\PY{p}{,} \PY{n}{pred\PYZus{}data}\PY{p}{,}
@@ -969,7 +983,7 @@ goodness-of-fit plot. We can do this by importing
 % SfePy to generate the data.
 
 %     \begin{Verbatim}[commandchars=\\\{\}]
-% {\color{incolor}In [{\color{incolor}1}]:} 
+% {\color{incolor}In [{\color{incolor}1}]:}
 %         \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k+kn}{as} \PY{n+nn}{np}
 %         \PY{k+kn}{import} \PY{n+nn}{matplotlib.pyplot} \PY{k+kn}{as} \PY{n+nn}{plt}
 % \end{Verbatim}
@@ -977,7 +991,7 @@ goodness-of-fit plot. We can do this by importing
 %     \begin{Verbatim}[commandchars=\\\{\}]
 % {\color{incolor}In [{\color{incolor}2}]:} \PY{k+kn}{from} \PY{n+nn}{pymks.tools} \PY{k+kn}{import} \PY{n}{draw\PYZus{}microstructures}
 %         \PY{k+kn}{from} \PY{n+nn}{pymks.datasets} \PY{k+kn}{import} \PY{n}{make\PYZus{}delta\PYZus{}microstructures}
-        
+
 %         \PY{n}{n} \PY{o}{=} \PY{l+m+mi}{21}
 %         \PY{n}{n\PYZus{}phases} \PY{o}{=} \PY{l+m+mi}{3}
 % \end{Verbatim}
@@ -993,7 +1007,7 @@ goodness-of-fit plot. We can do this by importing
 %     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{localization_elasticity_multiphase_2D_files/localization_elasticity_multiphase_2D_6_0.png}
 %     \end{center}
 %     { \hspace*{\fill} \\}
-    
+
 %     Using delta microstructures for the calibration of the first-order
 % influence coefficients is essentially the same as using a unit
 % impulse response to find the kernel of a system in signal processing. Any given delta
@@ -1008,7 +1022,7 @@ goodness-of-fit plot. We can do this by importing
 % The \texttt{make\_elasticFEstrain\_delta} function from
 % \texttt{pymks.datasets} provides an easy interface to generate delta
 % microstructures and their strain fields, which can then be used for
-% calibration of the influence coefficients. 
+% calibration of the influence coefficients.
 
 In this example, lets look at a three phase microstructure with elastic
 moduli values of 80, 100 and 120 and Poisson's ratio values all equal to
@@ -1026,7 +1040,7 @@ ratio values and elastic moduli values indicates the number of phases.
     \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{from} \PY{n+nn}{pymks.tools} \PY{k+kn}{import} \PY{n}{draw\PYZus{}microstructures}
 \PY{k+kn}{from} \PY{n+nn}{pymks.datasets} \PY{k+kn}{import} \PY{n}{make\PYZus{}delta\PYZus{}microstructures}
-        
+
 \PY{n}{n} \PY{o}{=} \PY{l+m+mi}{21}
 \PY{n}{n\PYZus{}phases} \PY{o}{=} \PY{l+m+mi}{3}
 \end{Verbatim}
@@ -1093,11 +1107,11 @@ and use it to create an instance of \texttt{MKSLocalizationModel}.
 look at them.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-    
+
 \PY{k+kn}{from} \PY{n+nn}{pymks.tools} \PY{k+kn}{import} \PY{n}{draw\PYZus{}coeff}
-        
+
 \PY{n}{draw\PYZus{}coeff}\PY{p}{(}\PY{n}{model}\PY{o}{.}\PY{n}{coef\PYZus{}}\PY{p}{)}
-        
+
 \end{Verbatim}
 \begin{center}
 \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{localization_elasticity_multiphase_2D_files/localization_elasticity_multiphase_2D_18_0.png}
@@ -1118,27 +1132,27 @@ microstructure and its strain field results from finite element
 analysis.
     \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{from} \PY{n+nn}{pymks.datasets} \PY{k+kn}{import} \PY{n}{make\PYZus{}elastic\PYZus{}FE\PYZus{}strain\PYZus{}random}
-        
+
 \PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{seed}\PY{p}{(}\PY{l+m+mi}{101}\PY{p}{)}
 \PY{n}{X}\PY{p}{,} \PY{n}{strain} \PY{o}{=} \PY{n}{make\PYZus{}elastic\PYZus{}FE\PYZus{}strain\PYZus{}random}\PY{p}{(}
     \PY{n}{n\PYZus{}samples}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{elastic\PYZus{}modulus}\PY{o}{=}\PY{n}{elastic\PYZus{}modulus}\PY{p}{,}
-    \PY{n}{poissons\PYZus{}ratio}\PY{o}{=}\PY{n}{poissons\PYZus{}ratio}\PY{p}{,} \PY{n}{size}\PY{o}{=}\PY{n}{size}\PY{p}{,} 
+    \PY{n}{poissons\PYZus{}ratio}\PY{o}{=}\PY{n}{poissons\PYZus{}ratio}\PY{p}{,} \PY{n}{size}\PY{o}{=}\PY{n}{size}\PY{p}{,}
     \PY{n}{macro\PYZus{}strain}\PY{o}{=}\PY{n}{macro\PYZus{}strain}\PY{p}{)}
 \PY{n}{draw\PYZus{}microstructure\PYZus{}strain}\PY{p}{(}\PY{n}{X}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{p}{,} \PY{n}{strain}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
-        
+
 \end{Verbatim}
 
     \begin{center}
     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{localization_elasticity_multiphase_2D_files/localization_elasticity_multiphase_2D_21_0.png}
     \end{center}
     { \hspace*{\fill} \\}
-    
+
 
 Now, to get the strain field from the \texttt{MKSLocalizationModel},
 just pass the same microstructure to the \texttt{predict} method.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-    
+
 \PY{n}{strain\PYZus{}pred} \PY{o}{=} \PY{n}{model}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X}\PY{p}{)}
 
 \end{Verbatim}
@@ -1147,22 +1161,22 @@ just pass the same microstructure to the \texttt{predict} method.
 MKS model.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-    
+
 \PY{k+kn}{from} \PY{n+nn}{pymks.tools} \PY{k+kn}{import} \PY{n}{draw\PYZus{}strains\PYZus{}compare}
-         
+
 \PY{n}{draw\PYZus{}strains\PYZus{}compare}\PY{p}{(}\PY{n}{strain}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{strain\PYZus{}pred}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
-         
+
 \end{Verbatim}
 
     \begin{center}
     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{localization_elasticity_multiphase_2D_files/localization_elasticity_multiphase_2D_25_0.png}
     \end{center}
     { \hspace*{\fill} \\}
-    
+
 \section{Conclusion}
 
 To Do
-    
+
 % \subsubsection{Resizing the Coefficeints to use on Larger
 % Microstructures}\label{resizing-the-coefficeints-to-use-on-larger-microstructures}
 
@@ -1173,12 +1187,12 @@ To Do
 % generate a new larger random microstructure and its strain field.
 
 %     \begin{Verbatim}[commandchars=\\\{\}]
-    
-% {\color{incolor}In [{\color{incolor}13}]:} \PY{n}{m} \PY{o}{=} \PY{l+m+mi}{3} \PY{o}{*} \PY{n}{n} 
+
+% {\color{incolor}In [{\color{incolor}13}]:} \PY{n}{m} \PY{o}{=} \PY{l+m+mi}{3} \PY{o}{*} \PY{n}{n}
 %          \PY{n}{size} \PY{o}{=} \PY{p}{(}\PY{n}{m}\PY{p}{,} \PY{n}{m}\PY{p}{)}
 %          \PY{k}{print} \PY{n}{size}
 %          \PY{n}{X}\PY{p}{,} \PY{n}{strain} \PY{o}{=} \PY{n}{make\PYZus{}elastic\PYZus{}FE\PYZus{}strain\PYZus{}random}\PY{p}{(}\PY{n}{n\PYZus{}samples}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{elastic\PYZus{}modulus}\PY{o}{=}\PY{n}{elastic\PYZus{}modulus}\PY{p}{,}
-%                                                   \PY{n}{poissons\PYZus{}ratio}\PY{o}{=}\PY{n}{poissons\PYZus{}ratio}\PY{p}{,} \PY{n}{size}\PY{o}{=}\PY{n}{size}\PY{p}{,} 
+%                                                   \PY{n}{poissons\PYZus{}ratio}\PY{o}{=}\PY{n}{poissons\PYZus{}ratio}\PY{p}{,} \PY{n}{size}\PY{o}{=}\PY{n}{size}\PY{p}{,}
 %                                                   \PY{n}{macro\PYZus{}strain}\PY{o}{=}\PY{n}{macro\PYZus{}strain}\PY{p}{)}
 %          \PY{n}{draw\PYZus{}microstructure\PYZus{}strain}\PY{p}{(}\PY{n}{X}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{p}{,} \PY{n}{strain}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
 % \end{Verbatim}
@@ -1191,7 +1205,7 @@ To Do
 %     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{localization_elasticity_multiphase_2D_files/localization_elasticity_multiphase_2D_30_1.png}
 %     \end{center}
 %     { \hspace*{\fill} \\}
-    
+
 %     The influence coefficients that have already been calibrated on a $n$ by
 % $n$ delta microstructures, need to be resized to match the shape of the
 % new larger $m$ by $m$ microstructure that we want to compute the strain
@@ -1215,7 +1229,7 @@ To Do
 %     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{localization_elasticity_multiphase_2D_files/localization_elasticity_multiphase_2D_34_0.png}
 %     \end{center}
 %     { \hspace*{\fill} \\}
-    
+
 %     Because the coefficients have been resized, they will no longer work for
 % our original $n$ by $n$ sized microstructures they were calibrated on,
 % but they can now be used on the $m$ by $m$ microstructures. Just like
@@ -1224,7 +1238,7 @@ To Do
 
 %     \begin{Verbatim}[commandchars=\\\{\}]
 % {\color{incolor}In [{\color{incolor}16}]:} \PY{n}{strain\PYZus{}pred} \PY{o}{=} \PY{n}{model}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X}\PY{p}{)}
-         
+
 %          \PY{n}{draw\PYZus{}strains\PYZus{}compare}\PY{p}{(}\PY{n}{strain}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{strain\PYZus{}pred}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
 % \end{Verbatim}
 
@@ -1232,7 +1246,7 @@ To Do
 %     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{localization_elasticity_multiphase_2D_files/localization_elasticity_multiphase_2D_36_0.png}
 %     \end{center}
 %     { \hspace*{\fill} \\}
-    
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                          %%
