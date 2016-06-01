@@ -578,13 +578,59 @@ The most sophisticated composite theory available today that explicitly accounts
 
  Materials Knowledge Systems (MKS) \cite{landi2010multi, kalidindi2010novel, yabansu2014calibrated, al2012multi, kalidindi2011microstructure, gupta2015structure,  cceccen2014data} complements these sophisticated physics-based materials composite theories with a modern data science approach to create a versatile framework for extracting and curating multiscale PSP linkages. More specifically, MKS employs a discretized version of the composite theories mentioned earlier to gain major computational advantages. As a result, highly adaptable and templatable protocols have been created and used successfully to extract robust and versatile homogenization and localization metamodels with impressive accuracy and broad applicability over large microstructure spaces.
 
- The MKS framework starts with a discretized description of the microstructure function denoted as $m[s, l]$, where $s$ and $l$ index suitable decompositions of the physical space (occupied by a representative volume element of the microstructure) and the local state space of interest. In most applications, the physical space is simply tessellated into voxels on a regular (uniform) grid. On the other hand, the local states encountered in the description of the microstructure often need a combination of diverse attributes (these might include phase identifiers, lattice orientation, chemical composition, defect types and densities, among others). The introduction of the microstructure function allows a stochastic interpretation of the microstructure, where $m[s, l]$ reflects a probability distribution of the distinct local states in each voxel of the microstructure \cite{niezgoda2013novel, niezgoda2011understanding, qidwai2012estimating,niezgoda2010optimized}. Furthermore, the introduction of the local state space (i.e., the complete set of all potential local states) provides a consolidate variable space for combining the diverse attributes (often a combination of scalar and tensor quantities)  needed to describe the  local states in the material structure.
+The MKS framework is based on the notion of a microstructure function
+that describes many attributes and combinations of attributes in
+materials systems including phase identifiers, lattice orientation,
+chemical composition, defect types and densities, among others. The
+microstructure function, $m \left(h; s\right)$, represents a
+probability distribution for the given local state, $h \in H$, at each
+position, $s \in S$, in the microstructure \cite{niezgoda2013novel,
+  niezgoda2011understanding,
+  qidwai2012estimating,niezgoda2010optimized}.  The MKS framework
+requires a discretized description of $m$, which is denoted here as
+$m\left[h; s\right]$, where the $\left[\cdot;\cdot\right]$ represent
+the discretized space (in contrast to $\left(\cdot;\cdot\right)$,
+which defines the continuous space).  In most applications, $S$ is
+simply tessellated into voxels on a regular (uniform) grid such that
+the position can be given by $s = i, j, k$ in three dimensions. On the
+other hand $H$ often needs a more sophisticated decomposition than
+simple linear elements.
 
- As noted earlier, the local state space in most advanced materials is likely to demand sophisticated representations. In prior work \cite{yabansu2014calibrated, yabansu2015representation, brough2016microstructure}, it was found that spectral representations on functions on the local state space offered many advantages both in compact representation as well as in reducing the computational cost. In such cases, $l$ indexes the spectral basis functions employed. The selection of these functions depends on the nature of local state descriptors. Examples of these functions include: (i) the Primitive basis (or indicator functions) used to represent simple tessellation schemes \cite{landi2010multi, kalidindi2010novel, al2012multi, kalidindi2011microstructure, gupta2015structure,  cceccen2014data, niezgoda2013novel, niezgoda2011understanding, cecen2016versatile}, (ii) generalized spherical harmonics used to represent functions over the orientation space \cite{yabansu2014calibrated, yabansu2015representation}, and (iii) Legendre polynomials used to represent functions over the concentration space \cite{brough2016microstructure}.
+As noted earlier, the local state space in most advanced materials is
+likely to demand sophisticated representations. In prior work
+\cite{yabansu2014calibrated, yabansu2015representation,
+  brough2016microstructure}, it was found that spectral
+representations on functions on the local state space offered many
+advantages both in compact representation as well as in reducing the
+computational cost. In such cases, $h$ indexes the spectral basis
+functions employed. The selection of these functions depends on the
+nature of local state descriptors. Examples include: (i) the primitive
+basis (or indicator functions) used to represent simple tessellation
+schemes \cite{landi2010multi, kalidindi2010novel, al2012multi,
+  kalidindi2011microstructure, gupta2015structure, cceccen2014data,
+  niezgoda2013novel, niezgoda2011understanding, cecen2016versatile},
+(ii) generalized spherical harmonics used to represent functions over
+the orientation space \cite{yabansu2014calibrated,
+  yabansu2015representation}, and (iii) Legendre polynomials used to
+represent functions over the concentration space
+\cite{brough2016microstructure}.
 
-Comparing different microstructures is quite difficult even after expressing them in convenient discretized descriptions, mainly due to the lack of a reference point or a natural origin for the index $s$ in the tessellation of the microstructure volume. Yet the relative spatial distributions of the local states provide a valuable representation of the microstructure that can be used effectively to quantify the microstructure and compare it with other microstructures in  robust and meaningful ways \cite{niezgoda2011understanding, niezgoda2010optimized, niezgoda2013novel, cceccen2014data, cecen2016versatile}. The lowest order of spatial correlations comes in the form of 2-point statistics and can be computed as a correlation of a microstructure function as
+\subsection{Homogenization}
+
+Comparing different microstructures is quite difficult even after
+expressing them in convenient discretized descriptions mainly due to
+the lack of a reference point or a natural origin for the index $s$ in
+the tessellation of the microstructure volume. Yet the relative
+spatial distributions of the local states provide a valuable
+representation of the microstructure that can be used effectively to
+quantify the microstructure and compare it with other microstructures
+in robust and meaningful ways \cite{niezgoda2011understanding,
+  niezgoda2010optimized, niezgoda2013novel, cceccen2014data,
+  cecen2016versatile}. The lowest order of spatial correlations comes
+in the form of 2-point statistics and can be computed as a correlation
+of a microstructure function such that
 \begin{equation}\label{eq:stats}
-    f[l, l'| r] = \frac{1}{\Omega[ r]} \sum_{s} m[s, l] m[s +  r, l']
+    f_j[h, h'; r] = \frac{1}{\Omega_j\left[r\right]} \sum_{s} m_j[h; s] m_j[h'; s +  r]
 \end{equation}
 \begin{figure}
     \centering
@@ -592,26 +638,86 @@ Comparing different microstructures is quite difficult even after expressing the
     \caption{Caption}
     \label{fig:stats}
 \end{figure}
-where $r$, is a discrete spatial vector within the voxelated domain specified by $s$, $f[l, l'|  r]$ is one set of 2-point statistics for the local stats $l$ and $l'$, and $\Omega[ r]$ is a normalization factor that depends on $ r$ \cite{cecen2016versatile}. The physical interpretation of the 2-point statistics is explained in Fig. \ref{fig:stats} with a highly simplified two-phase microstructure (the two phases are colored white and gray). Using the Primitive basis for both the spatial domain and the local state space, $f[l, l'|  r]$ can be interpreted at the probability of finding local states $l$ and $l'$ at the tail and head of the vector $ r$.
+where $r$ is a discrete spatial vector within the voxelated domain
+specified by $s$, $f_j[h, h'; r]$ is one set of 2-point statistics for
+the local stats $h$ and $h'$ and $\Omega_j\left[r\right]$ is a
+normalization factor that depends on
+$r$~\cite{cecen2016versatile}. The subscript $j$ refers to independent
+ensembles of sample microstructures used for analysis (each $j$ could
+refer to a separate microstructure image).  The physical
+interpretation of the 2-point statistics is explained in
+Fig. \ref{fig:stats} with a highly simplified two-phase microstructure
+(the two phases are colored white and gray). Using the primitive basis
+for both the spatial domain and the local state space, $f_j[h, h'; r]$
+can be interpreted as the probability of finding local states $h$ and
+$h'$ at the tail and head of the vector $r$, respectively.
 
-2-Point statistics provide a meaningful representation of the microstructure, but create an extremely large feature space that often contains redundant information. Dimensionality reduction can be used to create low dimensional microstructure descriptors from the sets of spatial correlations (based on different selections of $l$ and $l'$) with principal component analysis (PCA). This dimensionality reduction can be mathematically expressed as
+2-Point statistics provide a meaningful representation of the
+microstructure, but create an extremely large feature space that often
+contains redundant information. Dimensionality reduction can be used
+to create low dimensional microstructure descriptors from the sets of
+spatial correlations (based on different selections of $h$ and $h'$)
+with principal component analysis (PCA). As a convenience for PCA, the
+$f_j\left[h, h; r\right]$ indices are expressed as a single index given
+by $f_j\left[k\right]$ where $k$ is an unraveling, such that
+$k=k\left(h, h', r\right)$ is a unique integer for every combination
+of $h$, $h'$ and $r$. The PCA dimensionality reduction can be
+mathematically expressed as
 \begin{equation} \label{eq:struc}
-    f[ r] \approx \sum_{k} \mu[k] \phi[k,  r] + \overline{f[ r]}
+    f_j\left[k\right] \approx \sum_{k'\in K'} \mu_j\left[k'\right] \phi\left[k',
+      k\right] + \overline{f_j\left[k\right]}
 \end{equation}
-In Eq. \ref{eq:struc}, $f[r]$ is a feature vector consisting of the selected sets of spatial correlations, and $\mu[k]$ are low dimensional microstructure descriptors or principal component scores (PC scores). $\phi[k, r]$ and $\overline{f[r]}$ are the calibrated principal components (PCs) and the mean values for each feature. The central advantage of this approach is that it has been demonstrated that the individual elements of a large ensemble of microstructures can often be represented to sufficient fidelity with only a handful of PC scores [ADDREFS].
+In Eq. \ref{eq:struc}, $f_j\left[k\right]$ are the reconstructed
+2-point statistics. The $\mu_j[k']$ are low dimensional microstructure
+descriptors (the transformed 2-point statistics) or principal
+component scores (PC scores). The $\phi\left[k', k\right]$ are the
+calibrated principle components (PCs) and the
+$\overline{f_j\left[k\right]}$ are the mean values for each $j$ and
+independent of $k$. The $k' \in K'$ indices refer to the
+$\mu_j\left[k'\right]$ in decreasing order of significance and are
+independent of $l$, $l'$ and $r$. The main advantage of this approach
+is that the $f_j\left[k\right]$ can be reconstructed to sufficient
+fidelity with only a small subset of the $K'$ indices [ADDREFS].
 
-After obtaining the needed dimenisonality reduction in the representation of the material structure, machine learning models can be used to create homogenization or localization PSP linkages of interest. As an example, a generic homogenization linkage can be expressed as
+After obtaining the needed dimensionality reduction in the
+representation of the material structure, machine learning models can
+be used to create homogenization or localization PSP linkages of
+interest. As an example, a generic homogenization linkage can be
+expressed as
 \begin{equation} \label{eq:hom}
-    p_{eff} = \mathcal{F}(\mu[k])
+    p_j^{\text{eff}} = \mathcal{F}(\mu_j[k'])
 \end{equation}
- In Eq. \ref{eq:hom}, $p_{eff}$ is the effective materials response (reflecting an effective property in structure-property linkages or an evolved low dimensional microstructure descriptor in process-structure linkages), and $\mathcal{F}$ is a machine learning function that links $\mu[k]$ to $p_{eff}$.
+In Eq. \ref{eq:hom}, $p_j^{\text{eff}}$ is the effective materials
+response (reflecting an effective property in structure-property
+linkages or an evolved low dimensional microstructure descriptor in
+process-structure linkages), and $\mathcal{F}$ is a machine learning
+function that links $\mu_j[k]$ to $p_j^{\text{eff}}$.
 
-MKS Localization linkages are significantly more complex than the homogenization linkages. These are usually expressed in the same series forms that are derived in the general composite theories, while employing discretized kernels based on Green's functions \cite{brown1955solid, hill1963elastic, kroner1986statistical, kroner1977bounds, kroner1972statistical, etingof1993representations, adams1998mesostructure, fullwood2008strong, torquato2013random, li2006quantitative, milhans2011prediction, adams2013microstructure, garmestani2001statistical}. Mathematically, the MKS localization linkages are expressed as
+\subsection{Localization}
+
+MKS Localization linkages are significantly more complex than the
+homogenization linkages. These are usually expressed in the same
+series forms that are derived in the general composite theories, while
+employing discretized kernels based on Green's functions
+\cite{brown1955solid, hill1963elastic, kroner1986statistical,
+  kroner1977bounds, kroner1972statistical, etingof1993representations,
+  adams1998mesostructure, fullwood2008strong, torquato2013random,
+  li2006quantitative, milhans2011prediction, adams2013microstructure,
+  garmestani2001statistical}. Mathematically, the MKS localization
+linkages are expressed as
 \begin{multline}
     \label{eq:series}
-    p[s] = \sum_{r, l} \alpha[r, l] m[s - r, l] + \sum_{r, r', l, l'} \alpha[r, r', l, l'] m[s - r, l]m[s-r', l'] + ...
+    p_i[s] = \sum_{h; r} \alpha[h; r] m_i[h; s - r] + \sum_{h, h'; r, r'}
+    \alpha[h, h'; r, r'] m_i[h; s - r] m_i[h'; s - r'] + ...
 \end{multline}
-In Eq. \ref{eq:series}, $p[s]$ is the spatially resolved (localized) response field (could be a response variable such as stress or strain rate, or an evolved microstructure function),  and $\alpha[r, l]$ are the Green's function based discretized influence kernels. These digital kernels are calibrated using regression methods \cite{al2012multi, kalidindi2010novel, landi2010multi, yabansu2014calibrated, yabansu2015representation, brough2016microstructure}.
+In Eq. \ref{eq:series}, $p_i[s]$ is the spatially resolved (localized)
+response field (e.g. a response variable such as stress or strain
+rate, or an evolved microstructure function), and $\alpha[h; r]$ are
+the Green's function based discretized influence kernels. These
+digital kernels are calibrated using regression methods
+\cite{al2012multi, kalidindi2010novel, landi2010multi,
+  yabansu2014calibrated, yabansu2015representation,
+  brough2016microstructure}.
 
 Figs. \ref{fig:hom} and \ref{fig:loc} provide schematic overviews of the MKS homogenization and localization workflows. THE CURRENT IMAGES ARE JUST PLACE HOLDERS. More detailed explanations on the MKS homogenization and localization linkages can be found in prior literature \cite{landi2010multi, kalidindi2010novel, yabansu2014calibrated, al2012multi, kalidindi2011microstructure, gupta2015structure,  cceccen2014data, niezgoda2013novel, niezgoda2011understanding, cecen2016versatile}.
 
