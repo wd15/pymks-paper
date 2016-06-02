@@ -665,19 +665,19 @@ of $h$, $h'$ and $r$. The PCA dimensionality reduction can be
 mathematically expressed as
 \begin{equation} \label{eq:struc}
     f_j\left[k\right] \approx \sum_{k'\in K'} \mu_j\left[k'\right] \phi\left[k',
-      k\right] + \overline{f_j\left[k\right]}
+      k\right] + \overline{f_j}
 \end{equation}
 In Eq. \ref{eq:struc}, $f_j\left[k\right]$ are the reconstructed
 2-point statistics. The $\mu_j[k']$ are low dimensional microstructure
 descriptors (the transformed 2-point statistics) or principal
 component scores (PC scores). The $\phi\left[k', k\right]$ are the
-calibrated principle components (PCs) and the
-$\overline{f_j\left[k\right]}$ are the mean values for each $j$ and
-independent of $k$. The $k' \in K'$ indices refer to the
-$\mu_j\left[k'\right]$ in decreasing order of significance and are
-independent of $l$, $l'$ and $r$. The main advantage of this approach
-is that the $f_j\left[k\right]$ can be reconstructed to sufficient
-fidelity with only a small subset of the $K'$ indices [ADDREFS].
+calibrated principle components (PCs) and the $\overline{f_j}$ are the
+mean values of $f_j\left[k\right]$ for each $j$, independent of
+$k$. The $k' \in K'$ indices refer to the $\mu_j\left[k'\right]$ in
+decreasing order of significance and are independent of $l$, $l'$ and
+$r$. The main advantage of this approach is that the
+$f_j\left[k\right]$ can be reconstructed to sufficient fidelity with
+only a small subset of the $K'$ indices [ADDREFS].
 
 After obtaining the needed dimensionality reduction in the
 representation of the material structure, machine learning models can
