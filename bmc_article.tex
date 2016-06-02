@@ -691,7 +691,7 @@ In Eq. \ref{eq:hom}, $p_j^{\text{eff}}$ is the effective materials
 response (reflecting an effective property in structure-property
 linkages or an evolved low dimensional microstructure descriptor in
 process-structure linkages), and $\mathcal{F}$ is a machine learning
-function that links $\mu_j[k]$ to $p_j^{\text{eff}}$.
+function that links $\mu_j[k']$ to $p_j^{\text{eff}}$.
 
 \subsection{Localization}
 
@@ -707,10 +707,10 @@ employing discretized kernels based on Green's functions
 linkages are expressed as
 \begin{multline}
     \label{eq:series}
-    p_i[s] = \sum_{h; r} \alpha[h; r] m_i[h; s - r] + \sum_{h, h'; r, r'}
-    \alpha[h, h'; r, r'] m_i[h; s - r] m_i[h'; s - r'] + ...
+    p_j[s] = \sum_{h; r} \alpha[h; r] m_j[h; s - r] + \sum_{h, h'; r, r'}
+    \alpha[h, h'; r, r'] m_j[h; s - r] m_j[h'; s - r'] + ...
 \end{multline}
-In Eq. \ref{eq:series}, $p_i[s]$ is the spatially resolved (localized)
+In Eq. \ref{eq:series}, $p_j[s]$ is the spatially resolved (localized)
 response field (e.g. a response variable such as stress or strain
 rate, or an evolved microstructure function), and $\alpha[h; r]$ are
 the Green's function based discretized influence kernels. These
