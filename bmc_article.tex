@@ -415,6 +415,18 @@
 %%                                          %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+RANDOM IDEAS
+
+TALK ABOUT PYTHON, SCIKIT-LEARN METHODOLOGY BEING A WAY TO UNIFY
+DIFFERENT MATERIALS SCIENCE LEARNING AND DATA TRANSFORMS INTO SINGLE
+PIPELINES (EITHER ABSTRACT OR CONCLUSION OR ELSEWHERE). EASY TO SHARE
+PIPELINES AND EMBED IN OTHER MORE COMPLEX PIPELINES.
+
+TALK ABOUT WHAT PYMKS ADDS ABOVE AND BEYOND SCIKIT-LEARN IN
+ABSTRACT. IT ADDS BOTH THE CONVOLUTION LEARNING AND
+PERIODICTY/INDEXING ISSUES TO DO WITH MICROSTRUCTURE. ANSWER QUESTION
+OF WHY NOT JUST USE SCIKIT-LEARN? NEEDS TO BE CLEAR.
+
 \begin{abstractbox}
 
 \begin{abstract} % abstract
@@ -582,18 +594,20 @@ The MKS framework is based on the notion of a microstructure function
 that describes many attributes and combinations of attributes in
 materials systems including phase identifiers, lattice orientation,
 chemical composition, defect types and densities, among others. The
-microstructure function, $m \left(h; s\right)$, represents a
+microstructure function, $m_j \left(h; s\right)$, represents a
 probability distribution for the given local state, $h \in H$, at each
-position, $s \in S$, in the microstructure \cite{niezgoda2013novel,
-  niezgoda2011understanding,
+position, $s \in S$, in a given microstructure,
+$j$~\cite{niezgoda2013novel, niezgoda2011understanding,
   qidwai2012estimating,niezgoda2010optimized}.  The MKS framework
-requires a discretized description of $m$, which is denoted here as
-$m\left[h; s\right]$, where the $\left[\cdot;\cdot\right]$ represent
+requires a discretized description of $m_j$, which is denoted here as
+$m_j\left[h; s\right]$, where the $\left[\cdot;\cdot\right]$ represent
 the discretized space (in contrast to $\left(\cdot;\cdot\right)$,
-which defines the continuous space).  In most applications, $S$ is
-simply tessellated into voxels on a regular (uniform) grid such that
-the position can be given by $s = i, j, k$ in three dimensions. On the
-other hand $H$ often needs a more sophisticated decomposition than
+which defines the continuous space). The ``$;$'' symbol divides
+indices in physical space to the left of ``$;$'' from indices in state
+space to the right of ``$;$''. In most applications, $S$ is simply
+tessellated into voxels on a regular (uniform) grid such that the
+position can be given by $s\rightarrow i,j,k$ in three dimensions. On
+the other hand $H$ often needs a more sophisticated decomposition than
 simple linear elements.
 
 As noted earlier, the local state space in most advanced materials is
@@ -761,22 +775,87 @@ distribution in commercial and non-commercial systems.
 
 \subsection{Core Functionality}
 
+
 PyMKS consists of four main components including a set of tools to
-compute 2-point statistics, tools to obtain low-dimensional
-microstructure descriptors and tools for both homogenization and
-localization. In addition, PyMKS has modules for generating data sets
-using conventional numerical simulations and a module for plotting and
-visualizing customized for microstructures.
+compute 2-point statistics, tools for both homogenization and
+localization and tools for discretizing the microstructure. In
+addition, PyMKS has modules for generating data sets using
+conventional numerical simulations and a module for custom
+visualization of microstructures. PyMKS is based on the Scikit-learn
+data pipelining methdology. This is a high level system for combining
+multiple data and machine learning transformations into a single
+customizable pipeline with only minimal required code. This approach
+makes cross-validation and parameter searches simple to implement and
+avoids the complicated book keeping issues associated with training,
+testing and validating data pipelines in machine learning.
 
-The functions \texttt{autocorrelate}, \texttt{crosscorrelate}, and \texttt{correlate} provies APIs to compute the 2-point statistics for a given microstructure as outlined in Eq. \ref{eq:stats}. The \texttt{MKSStructureAnalysis} class provides access to the objective low dimensional structure descriptors, $\mu[k]$. While the default dimensionality reduction technique is PCA, any model from Scikit-learn that has a \texttt{transform\_fit} method can be used. The \texttt{MKSHomogenizationModel} creates a linkage between $\mu[k]$ and a effective material response, $p_{eff}$ as indicated in Eq. \ref{eq:hom}. The default machine learning function is a polynomial regression, but any estimator from Scikit-learn that has \texttt{fit} and \texttt{predict} methods can be used to predict effective material responses or microstructure classes. The \texttt{MKSLocalizationModel} provides the API to calibrate the first order influence kernels $\alpha[r, l]$ in order to predict local materials responses $p[s]$ as indicated by Eq. \ref{eq:series}. The calibration of the influence kernels is done using the multiple linear regression techniques outlined in previous studies \cite{landi2010multi, kalidindi2010novel, yabansu2014calibrated, brough2016microstructure}. The localization model has \texttt{fit} and \texttt{predict} methods to follow the standard API for an estimator.
+The starting point for an MKS homogenization analysis is to use
+2-point statisics as outlined in Eq.~\ref{eq:stats} and provided in
+PyMKS by the \texttt{MKSStructureAnalysis} object, which calculates
+the objective low dimensional structure descriptors, $\mu_j[k']$. The
+default dimensionality reduction technique is PCA, but any model that
+uses the \texttt{transform\_fit} or a ``transformer'' object can be
+substituted. After calculating the descriptors, the
+\texttt{MKSHomogenizationModel} is used to create linkages between the
+$\mu_j[k']$ and the effective material response, $p_j^{\text{eff}}$,
+as indicated in Eq.~\ref{eq:hom}. The default machine learning
+algorithm is a polynomial regression, but any estimator with the
+\texttt{fit} and \texttt{predict} methods can be substitued to create
+the linkages between $\mu_j[k']$ and $p_j^{\text{eff}}$.
 
-Classes in the module \texttt{bases} have methods to discretize the raw structure data and introduce the local state variable $l$. The four basis classes are designed to efficiently discretize different types of local state variables \cite{landi2010multi, kalidindi2010novel, yabansu2014calibrated, al2012multi, kalidindi2011microstructure, gupta2015structure,  cceccen2014data, brough2016microstructure}. The \texttt{PrimitiveBasis} class uses indicator (or hat) functions and it is well suited for microstructures that have discrete local states (e.g., distinct thermodynamic phases encountered in describing the microstructure). The \texttt{LegendreBasis} and \texttt{FourierBasis} create spectral representations of functions defined on nonperiodic and periodic continuous local state spaces, respectively. For example, functions over a range of chemical compositions can be described using \texttt{LegendreBasis}, while functions over orientations in two-dimensional space can be described using \texttt{FourierBasis}. As another option, \texttt{GSHBasis} creates compact spectral representations for functions over lattice orientation space (such as those needed to describe polycrystalline microstructures) \cite{ kalidindi2006spectral, shaffer2010building, knezevic2010deformation, al2010spectral, duvvuru2007application, li2003evolution, li2005texture, li2007processing, li2005processing, creuziger2014crystallographic, sundararaghavan2008multi, sundararaghavan2007linear}.
+The \texttt{MKSLocalizationModel} object provides the MKS localization
+functionality. It calibrates the first order influence kernels
+$\alpha[h; r]$ used to predict local materials responses, $p_j[s]$, as
+outlined in Eq.~\ref{eq:series}. The calibration of the influence
+kernels is achieved using a variety of linear regression techniques
+described in numerous previous studies~\cite{landi2010multi,
+  kalidindi2010novel, yabansu2014calibrated,
+  brough2016microstructure}. The \texttt{MKSLocalizationModel} object
+uses \texttt{fit} and \texttt{predict} methods to follow the standard
+interface for a Scikit-learn estimator object.
 
-PyMKS also contains modest data generation tools that are used in both examples and in unit tests, and can be found in the module \texttt{datasets}. The \texttt{MicrostructureGenerator} class creates stochastic microstructures using digital filters. A phase field and finite element simulation are implemented with the \texttt{CahnHilliardSimulation} and \texttt{ElasticFESimulation} classes. The microstructures and simulations can be accessed using the functions which have names starting with \texttt{make}. Lastly PyMKS contains some plotting tools that are used throughout the examples which can be found in the module \texttt{tools}.
+To use either the homogenization or the localization models in PyMKS,
+the microstructure first needs to be represented by a microstructure
+function, $m_j\left[h, s\right]$. The \texttt{bases} module in PyMKS
+contains four objects for generating the $m_j\left[h, s\right]$ using
+a varietly of discretizations~\cite{landi2010multi,
+  kalidindi2010novel, yabansu2014calibrated, al2012multi,
+  kalidindi2011microstructure, gupta2015structure, cceccen2014data,
+  brough2016microstructure}. A \texttt{PrimitiveBasis} object uses
+indicator (or hat) functions and is well suited for microstructures
+that have discrete local states (e.g., distinct thermodynamic
+phases). The \texttt{LegendreBasis} and \texttt{FourierBasis} objects
+create spectral representations of microstucture functions defined on
+nonperiodic and periodic continuous local state spaces,
+respectively. For example, functions over a range of chemical
+compositions can be described using \texttt{LegendreBasis}, while
+functions over orientations in two-dimensional space can be described
+using \texttt{FourierBasis}. Furthermore, \texttt{GSHBasis} creates
+compact spectral representations for functions over lattice
+orientation space (such as those needed to describe polycrystalline
+microstructures)~\cite{ kalidindi2006spectral, shaffer2010building,
+  knezevic2010deformation, al2010spectral, duvvuru2007application,
+  li2003evolution, li2005texture, li2007processing, li2005processing,
+  creuziger2014crystallographic, sundararaghavan2008multi,
+  sundararaghavan2007linear}.
+
+PyMKS contains modest data generation tools (in the \texttt{datasets}
+module) that are used in both the PyMKS examples and the PyMKS test
+suite. The \texttt{MicrostructureGenerator} object creates stochastic
+microstructures using digital filters. This assists users in creating
+PyMKS workflows even when data is unavailable. PyMKS has objects for
+generating sample data from both a spinodal decomposition simulation
+(using the \texttt{CahnHilliardSimulation} object) and a linear
+elasticity simulation (using the \texttt{ElasticFESimulation}
+object). PyMKS comes with custom functions for visualizing
+microstructures in elegant ways (in the \texttt{tools} module). These
+are are used extensively in the PyMKS example notebooks to minimize
+incidental code associated with visualization.
 
 \subsection{Code Design}
 
-ADD MORE ABOUT ABSTRACTIONS HERE.
+ADD MORE ABOUT ABSTRACTIONS HERE. I DON'T THINK THAT WE NEED THIS
+SECTION.
 
 \begin{figure}[h!]
   \caption{\csentence{PyMKS Design}
@@ -789,22 +868,53 @@ ADD MORE ABOUT ABSTRACTIONS HERE.
 
 \subsection{Underlying Technologies}
 
-PyMKS is built on highly optimized Python packages NumPy \cite{van2011numpy}, SciPy \cite{jones2014scipy}, and Scikit-learn \cite{pedregosa2011scikit}. NumPy arrays are the primary data structure used throughout PyMKS and provide basic algorithmic functionality. SciPy's signal processing and numerical linear algebra functions are used to calibrate models and generate synthetic data. PyMKS is highly integrated with Scikit-learn and mimics its simple API in order to leverage models for dimensionality reduction, regression, classification, and model selection. In addition, PyMKS uses the Python testing framework nose for unit-tests and doc-tests.
+PyMKS is built upon the highly optimized Python packages
+NumPy~\cite{van2011numpy}, SciPy~\cite{jones2014scipy}, and
+Scikit-learn~\cite{pedregosa2011scikit}. NumPy arrays are the primary
+data structure used throughout PyMKS and provide the basic vector and
+matrix manipulation operations. SciPy's signal processing and
+numerical linear algebra functions are used to calibrate models and
+generate synthetic data. PyMKS is highly integrated with Scikit-learn
+and mimics its simple API in order to leverage from Scikit-learn's
+data pipeling methodology for machine learning and data
+transformations. In addition, PyMKS uses the Pytest framework nose to
+automate execution of the test suite~\cite{pytest2016}.
 
-Additional packages that can be used with PyMKS include Simple Finite Element in Python (SfePy) \cite{cimrman2014sfepy}, the python wrapper for the FFTW library (pyFFTW) \cite{frigo1998fftw} and the plotting package Matplotlib \cite{hunter2007matplotlib}. SfePy is used for data generation to simulate the linear elastic response of composite materials, and is not necessary for analysis using external data. PyFFTW is an optional package that can be used to reduce run time of Fast Fourier Transforms (FFTs) through the optimized FFTW library and allows for the computation to be run in parallel with simple high level API arguments. If pyFFTW is not installed, NumPy's \texttt{fft} module is used. Matplotlib is used to generate plots found throughout the examples.
+Optional packages that can be used with PyMKS include Simple Finite
+Elements in Python (SfePy)~\cite{cimrman2014sfepy}, the python wrapper
+for the FFTW library (pyFFTW)~\cite{frigo1998fftw} and the plotting
+package Matplotlib~\cite{hunter2007matplotlib}. SfePy is used to
+simulate linear elasticity to create sample response field
+data. PyFFTW is a hightly optimized Fast Fourier Transform library
+that enhances the efficiency of PyMKS and enables parallel
+computations in PyMKS. Matplotlib is used to generate custom
+microstructure visualizations.
 
 \subsection{Development Practices}
 
-The development team for PyMKS is an open community that uses Github for pull-requests, code review, issue tracking and release management - \\ \url{https://github.com/materialsinnovation/pymks}. Additionally a Google group is used as a public forum to discuss the project development, support and announcements \url{pymks-general@googlegroups.com}.
-
-ADD CONTENT ABOUT TRAVIS CI, etc.
-
-PyMKS follows PEP8 standards and uses pull request to ensure code integrity, and combines overlapping functionality between classes using abstractions. Detailed administrative guidelines are outlined in the \texttt{ADMINISTRATA.md} document on Github, and potential developers are encouraged to follow them.
+PyMKS leverages from existing tools, standards and web resources
+wherever possible. In particular the developers are an open community
+that use GitHub for issue tracking and release management
+(see~\url{https://github.com/materialsinnovation/pymks}). Additionally
+a Google group is used as a public forum to discuss the project
+development, support and announcements
+(see~\url{pymks-general@googlegroups.com}). The Travis CI continuous
+integration tool is used to automate running the test suite for
+branches of the code on GitHub. Code standards are maintained by
+following the Python PEP8 standards and by reviewing code using pull
+requests on GitHub. Detailed administrative guidelines are outlined in
+the \texttt{ADMINISTRATA.md} document and potential developers are
+encouraged to follow them.
 
 \section{Examples of Homogenization and Localization with PyMKS}
 
-%DAVE - THE PRESENTATION STYLE OF THE EXAMPLES FEELS VERY ADHOC. CAN YOU LOOK AT OTHER PAPERS OR BOOKS TO SEE WHAT ARE SOME GOOD STYLES TO PRESENT THIS WITHOUT MAKING THIS LOOK TOO ADHOC OR INFORMAL. PERHAPS THERE IS A WAY TO DESCRIBE THE CODING PARTS AS BOXED SELF-STANDING DESCRIPTIONS AND THE TEXT CAN THEN FOCUS MAINLY ON THE LOGIC AND EXPLANATIONS. AS WRITTEN I AM AFRAID THAT THE MATERIALS FOLKS WILL NOT BE ABLE TO FOLLOW WHAT YOU ARE SAYING.
-
+%DAVE - THE PRESENTATION STYLE OF THE EXAMPLES FEELS VERY ADHOC. CAN
+%YOU LOOK AT OTHER PAPERS OR BOOKS TO SEE WHAT ARE SOME GOOD STYLES TO
+%PRESENT THIS WITHOUT MAKING THIS LOOK TOO ADHOC OR INFORMAL. PERHAPS
+%THERE IS A WAY TO DESCRIBE THE CODING PARTS AS BOXED SELF-STANDING
+%DESCRIPTIONS AND THE TEXT CAN THEN FOCUS MAINLY ON THE LOGIC AND
+%EXPLANATIONS. AS WRITTEN I AM AFRAID THAT THE MATERIALS FOLKS WILL
+%NOT BE ABLE TO FOLLOW WHAT YOU ARE SAYING.
 
     \subsection{Prediction of Effective Stiffness using Homogenization}\label{effective-stiffness-of-composite-material}
 
