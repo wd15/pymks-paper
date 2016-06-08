@@ -590,25 +590,27 @@ The most sophisticated composite theory available today that explicitly accounts
 
  Materials Knowledge Systems (MKS) \cite{landi2010multi, kalidindi2010novel, yabansu2014calibrated, al2012multi, kalidindi2011microstructure, gupta2015structure,  cceccen2014data} complements these sophisticated physics-based materials composite theories with a modern data science approach to create a versatile framework for extracting and curating multiscale PSP linkages. More specifically, MKS employs a discretized version of the composite theories mentioned earlier to gain major computational advantages. As a result, highly adaptable and templatable protocols have been created and used successfully to extract robust and versatile homogenization and localization metamodels with impressive accuracy and broad applicability over large microstructure spaces.
 
-The MKS framework is based on the notion of a microstructure function
-that describes many attributes and combinations of attributes in
-materials systems including phase identifiers, lattice orientation,
-chemical composition, defect types and densities, among others. The
-microstructure function, $m_j \left(h; s\right)$, represents a
+The MKS framework is based on the notion of a microstructure function.
+The microstructure function provides a framework to represent material
+structure terms of quantities such as phase identifiers, lattice orientation,
+chemical composition, defect types and densities, among others refered to as
+local states. The microstructure function, $m_j \left(h; s\right)$, represents a
 probability distribution for the given local state, $h \in H$, at each
-position, $s \in S$, in a given microstructure,
-$j$~\cite{niezgoda2013novel, niezgoda2011understanding,
-  qidwai2012estimating,niezgoda2010optimized}.  The MKS framework
-requires a discretized description of $m_j$, which is denoted here as
-$m_j\left[h; s\right]$, where the $\left[\cdot;\cdot\right]$ represent
-the discretized space (in contrast to $\left(\cdot;\cdot\right)$,
-which defines the continuous space). The ``$;$'' symbol divides
-indices in physical space to the left of ``$;$'' from indices in state
-space to the right of ``$;$''. In most applications, $S$ is simply
-tessellated into voxels on a regular (uniform) grid such that the
-position can be given by $s\rightarrow i,j,k$ in three dimensions. On
-the other hand $H$ often needs a more sophisticated decomposition than
-simple linear elements.
+position, $s \in S$, in a given microstructure, $j$~\cite{niezgoda2013novel,
+niezgoda2011understanding,qidwai2012estimating, niezgoda2010optimized}. The
+introduction of the local state space $H$ (i.e., the complete set of
+all potential local states) provides a consolidate variable space for
+combining the diverse attributes (often a combination of scalar and tensor
+quantities) needed to describe the  local states in the material structure.
+The MKS framework requires a discretized description of $m_j$, which is
+denoted here as $m_j\left[h; s\right]$, where the
+$\left[\cdot;\cdot\right]$ represent the discretized space (in contrast
+to $\left(\cdot;\cdot\right)$, which defines the continuous space).
+The ``$;$'' symbol divides indices in physical space to the right of
+``$;$'' from indices in state space to the left of ``$;$''. In most
+applications, $S$ is simply tessellated into voxels on a regular (uniform)
+grid such that the position can be given by $s\rightarrow i,j,k$ in
+three dimensions.
 
 As noted earlier, the local state space in most advanced materials is
 likely to demand sophisticated representations. In prior work
@@ -625,7 +627,7 @@ schemes \cite{landi2010multi, kalidindi2010novel, al2012multi,
   niezgoda2013novel, niezgoda2011understanding, cecen2016versatile},
 (ii) generalized spherical harmonics used to represent functions over
 the orientation space \cite{yabansu2014calibrated,
-  yabansu2015representation}, and (iii) Legendre polynomials used to
+ yabansu2015representation}, and (iii) Legendre polynomials used to
 represent functions over the concentration space
 \cite{brough2016microstructure}.
 
@@ -644,7 +646,8 @@ in robust and meaningful ways \cite{niezgoda2011understanding,
 in the form of 2-point statistics and can be computed as a correlation
 of a microstructure function such that
 \begin{equation}\label{eq:stats}
-    f_j[h, h'; r] = \frac{1}{\Omega_j\left[r\right]} \sum_{s} m_j[h; s] m_j[h'; s +  r]
+    f_j[h, h'; r] = \frac{1}{\Omega_j\left[r\right]}
+    \sum_{s} m_j[h; s] m_j[h'; s +  r]
 \end{equation}
 \begin{figure}
     \centering
@@ -656,57 +659,56 @@ where $r$ is a discrete spatial vector within the voxelated domain
 specified by $s$, $f_j[h, h'; r]$ is one set of 2-point statistics for
 the local stats $h$ and $h'$ and $\Omega_j\left[r\right]$ is a
 normalization factor that depends on
-$r$~\cite{cecen2016versatile}. The subscript $j$ refers to independent
-ensembles of sample microstructures used for analysis (each $j$ could
-refer to a separate microstructure image).  The physical
-interpretation of the 2-point statistics is explained in
-Fig. \ref{fig:stats} with a highly simplified two-phase microstructure
-(the two phases are colored white and gray). If the the primitive
-basis is used to discretize both the spatial domain and the local
-state space then $f_j[h, h'; r]$ can be interpreted as the probability
-of finding local states $h$ and $h'$ at the tail and head of the
-vector $r$, respectively.
+$r$~\cite{cecen2016versatile}. The subscript $j$ refers to a sample
+microstructure used for analysis (i.e. each $j$ could refer to a
+microstructure image). The physical interpretation of the 2-point
+statistics is explained in Fig. \ref{fig:stats} with a highly
+simplified two-phase microstructure (the two phases are colored white
+and gray). If the the primitive basis is used to discretize both the
+spatial domain and the local state space then $f_j[h, h'; r]$ can be
+interpreted as the probability of finding local states $h$ and $h'$ at
+the tail and head of the vector $r$, respectively.
 
 2-Point statistics provide a meaningful representation of the
 microstructure, but create an extremely large feature space that often
 contains redundant information. Dimensionality reduction can be used
 to create low dimensional microstructure descriptors from the sets of
 spatial correlations (based on different selections of $h$ and $h'$)
-with principal component analysis (PCA). As a convenience for PCA, the
-$f_j\left[h, h; r\right]$ indices are expressed as a single index given
-by $f_j\left[k\right]$ where $k$ is an unraveling, such that
-$k=k\left(h, h', r\right)$ is a unique integer for every combination
-of $h$, $h'$ and $r$. The PCA dimensionality reduction can be
-mathematically expressed as
+with principal component analysis (PCA). The PCA dimensionality
+reduction can be mathematically expressed as
 \begin{equation} \label{eq:struc}
-    f_j\left[k\right] \approx \sum_{k'\in K'} \mu_j\left[k'\right] \phi\left[k',
-      k\right] + \overline{f_j}
+    f_j\left[l\right] \approx \sum_{k\in K} \mu_j\left[k\right]
+    \phi\left[k,l\right] + \overline{f[l]}
 \end{equation}
-In Eq. \ref{eq:struc}, $f_j\left[k\right]$ are the reconstructed
-2-point statistics. The $\mu_j[k']$ are low dimensional microstructure
-descriptors (the transformed 2-point statistics) or principal
-component scores (PC scores). The $\phi\left[k', k\right]$ are the
-calibrated principle components (PCs) and the $\overline{f_j}$ are the
-mean values of $f_j\left[k\right]$ for each $j$, independent of
-$k$. The $k' \in K'$ indices refer to the $\mu_j\left[k'\right]$ in
+In Eq. \ref{eq:struc}, $f_j\left[l\right]$ are the low rank
+approximations of 2-point statistics, where the
+$f_j\left[h, h'; r\right]$ indices from Eq. \ref{eq:stats}
+are represented as a vector with single index given by
+$f_j\left[l\right]$ where $l$ is a unique integer for every combination
+of $h$, $h'$ and $r$. The $\mu_j[k]$ are low dimensional microstructure
+descriptors (the transformed 2-point statistics) or principal component
+scores (PC scores). The $\phi\left[k, l\right]$ are the calibrated
+principle components (PCs) and the $\overline{f[l]}$ are the mean
+values  from the calibration ensemble of $f_j\left[l\right]$ for each
+$l$. The $k \in K$ indices refer to the $\mu_j\left[k\right]$ in
 decreasing order of significance and are independent of $l$, $l'$ and
 $r$. The main advantage of this approach is that the
-$f_j\left[k\right]$ can be reconstructed to sufficient fidelity with
-only a small subset of the $K'$ indices [ADDREFS].
+$f_j\left[l\right]$ can be reconstructed to sufficient fidelity with
+only a small subset of $\mu_j\left[k\right]$
+\cite{hotelling1933analysis}.
 
 After obtaining the needed dimensionality reduction in the
 representation of the material structure, machine learning models can
-be used to create homogenization or localization PSP linkages of
-interest. As an example, a generic homogenization linkage can be
-expressed as
+be used to create homogenization PSP linkages of interest.
+As an example, a generic homogenization linkage can be expressed as
 \begin{equation} \label{eq:hom}
-    p_j^{\text{eff}} = \mathcal{F}(\mu_j[k'])
+    p_j^{\text{eff}} = \mathcal{F}(\mu_j[k])
 \end{equation}
 In Eq. \ref{eq:hom}, $p_j^{\text{eff}}$ is the effective materials
 response (reflecting an effective property in structure-property
 linkages or an evolved low dimensional microstructure descriptor in
 process-structure linkages), and $\mathcal{F}$ is a machine learning
-function that links $\mu_j[k']$ to $p_j^{\text{eff}}$.
+function that links $\mu_j[k]$ to $p_j^{\text{eff}}$.
 
 \subsection{Localization}
 
@@ -727,21 +729,22 @@ linkages are expressed as
 \end{multline}
 In Eq. \ref{eq:series}, $p_j[s]$ is the spatially resolved (localized)
 response field (e.g. a response variable such as stress or strain
-rate, or an evolved microstructure function), and $\alpha[h; r]$ are
+rate in a structure-property linkage, or an evolved microstructure
+function in a process-structure linkage), and $\alpha[h; r]$ are
 the Green's function based discretized influence kernels. These
 digital kernels are calibrated using regression methods
 \cite{al2012multi, kalidindi2010novel, landi2010multi,
   yabansu2014calibrated, yabansu2015representation,
   brough2016microstructure}.
 
-Figs. \ref{fig:hom} and \ref{fig:loc} provide schematic overviews of the MKS homogenization and localization workflows. THE CURRENT IMAGES ARE JUST PLACE HOLDERS. More detailed explanations on the MKS homogenization and localization linkages can be found in prior literature \cite{landi2010multi, kalidindi2010novel, yabansu2014calibrated, al2012multi, kalidindi2011microstructure, gupta2015structure,  cceccen2014data, niezgoda2013novel, niezgoda2011understanding, cecen2016versatile}.
-
-% \begin{equation}
-%     \label{eq:loc}
-%     p[s] = \sum_{ r, l} \alpha[r, l] m[s -  r, l]
-% \end{equation}
-
-
+Figs. \ref{fig:hom} and \ref{fig:loc} provide schematic overviews of
+the MKS homogenization and localization workflows. THE CURRENT
+IMAGES ARE JUST PLACE HOLDERS. More detailed explanations on the
+MKS homogenization and localization linkages can be found in prior
+literature \cite{landi2010multi, kalidindi2010novel,
+yabansu2014calibrated, al2012multi, kalidindi2011microstructure,
+gupta2015structure,  cceccen2014data, niezgoda2013novel,
+niezgoda2011understanding, cecen2016versatile}.
 
 \begin{figure}[h!]
   \caption{\csentence{Localization Figure}
@@ -757,8 +760,6 @@ Figs. \ref{fig:hom} and \ref{fig:loc} provide schematic overviews of the MKS hom
     \includegraphics[scale=.18]{fig/homogenization.png}
   \label{fig:hom}
 \end{figure}
-
-% Homogenization linkages are created by taking the ensemble average of Eq. \ref{eq:series}. With the ensemble average, the $N^{th}$ term in the series containing the microstructure function $m[s, l]$ becomes the set of $N$-point statistics. It follows that the linear combinations of these $N$-point statistics provide the necessary structure information to predict effect properties, but present an extremely large feature space with redundant information. Low dimensional linearly independent microstructure descriptors are created using the global linear unsupervised dimensionality reduction technique Principal Component Analysis (PCA). These reduced features as well as effective properties serve as inputs and outputs to calibrate machine learning models for homogenization linkages.
 
 
 \section{Materials Knowledge Systems in Python}
@@ -779,7 +780,7 @@ distribution in commercial and non-commercial systems.
 
 PyMKS consists of four main components including a set of tools to
 compute 2-point statistics, tools for both homogenization and
-localization and tools for discretizing the microstructure. In
+localization linkages and tools for discretizing the microstructure. In
 addition, PyMKS has modules for generating data sets using
 conventional numerical simulations and a module for custom
 visualization of microstructures. PyMKS is based on the Scikit-learn
@@ -793,16 +794,16 @@ testing and validating data pipelines in machine learning.
 The starting point for an MKS homogenization analysis is to use
 2-point statisics as outlined in Eq.~\ref{eq:stats} and provided in
 PyMKS by the \texttt{MKSStructureAnalysis} object, which calculates
-the objective low dimensional structure descriptors, $\mu_j[k']$. The
+the objective low dimensional structure descriptors, $\mu_j[k]$. The
 default dimensionality reduction technique is PCA, but any model that
 uses the \texttt{transform\_fit} or a ``transformer'' object can be
 substituted. After calculating the descriptors, the
 \texttt{MKSHomogenizationModel} is used to create linkages between the
-$\mu_j[k']$ and the effective material response, $p_j^{\text{eff}}$,
+$\mu_j[k]$ and the effective material response, $p_j^{\text{eff}}$,
 as indicated in Eq.~\ref{eq:hom}. The default machine learning
 algorithm is a polynomial regression, but any estimator with the
 \texttt{fit} and \texttt{predict} methods can be substitued to create
-the linkages between $\mu_j[k']$ and $p_j^{\text{eff}}$.
+the linkages between $\mu_j[k]$ and $p_j^{\text{eff}}$.
 
 The \texttt{MKSLocalizationModel} object provides the MKS localization
 functionality. It calibrates the first order influence kernels
@@ -819,7 +820,7 @@ To use either the homogenization or the localization models in PyMKS,
 the microstructure first needs to be represented by a microstructure
 function, $m_j\left[h, s\right]$. The \texttt{bases} module in PyMKS
 contains four objects for generating the $m_j\left[h, s\right]$ using
-a varietly of discretizations~\cite{landi2010multi,
+a varietly of discretization methods~\cite{landi2010multi,
   kalidindi2010novel, yabansu2014calibrated, al2012multi,
   kalidindi2011microstructure, gupta2015structure, cceccen2014data,
   brough2016microstructure}. A \texttt{PrimitiveBasis} object uses
@@ -853,20 +854,6 @@ microstructures in elegant ways (in the \texttt{tools} module). These
 are are used extensively in the PyMKS example notebooks to minimize
 incidental code associated with visualization.
 
-\subsection{Code Design}
-
-ADD MORE ABOUT ABSTRACTIONS HERE. I DON'T THINK THAT WE NEED THIS
-SECTION.
-
-\begin{figure}[h!]
-  \caption{\csentence{PyMKS Design}
-      AGAIN A PLACE HOLDER - An illustration of the design for PyMKS. The four blocks represent the main functionalists in PyMKS. The modules listed on the far left are exposed in the API  while the other plots are private. The arrows indicate module from
-      that is either imported.}
-    \includegraphics[scale=.5]{fig/pymksOrganization3.png}
-  \label{fig:pymks_design}
-\end{figure}
-
-
 \subsection{Underlying Technologies}
 
 PyMKS is built upon the highly optimized Python packages
@@ -878,7 +865,7 @@ numerical linear algebra functions are used to calibrate models and
 generate synthetic data. PyMKS is highly integrated with Scikit-learn
 and mimics its simple API in order to leverage from Scikit-learn's
 data pipeling methodology for machine learning and data
-transformations. In addition, PyMKS uses the Pytest framework nose to
+transformations. In addition, PyMKS uses the Pytest framework to
 automate execution of the test suite~\cite{pytest2016}.
 
 Optional packages that can be used with PyMKS include Simple Finite
@@ -934,9 +921,10 @@ indicate the material property for each of the phases,
 the \texttt{seed} can be used to change the the random number generator
 seed.
 
-Let's go ahead and create 6 different types of microstructures each with
-200 samples with dimensions 21 x 21. Each of the 6 samples will have a
-different microstructure feature size. The function will return and the
+In this homogenization example, 200 samples from six
+different microstructures classes with dimensions 21 x 21 were
+created totaling 1,200. Each of the six classes have
+different microstructure feature sizes. The function will return and the
 microstructures and their associated volume averaged stress values.
 
     \begin{Verbatim}[commandchars=\\\{\}]
