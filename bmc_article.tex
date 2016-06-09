@@ -415,18 +415,6 @@
 %%                                          %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-RANDOM IDEAS
-
-TALK ABOUT PYTHON, SCIKIT-LEARN METHODOLOGY BEING A WAY TO UNIFY
-DIFFERENT MATERIALS SCIENCE LEARNING AND DATA TRANSFORMS INTO SINGLE
-PIPELINES (EITHER ABSTRACT OR CONCLUSION OR ELSEWHERE). EASY TO SHARE
-PIPELINES AND EMBED IN OTHER MORE COMPLEX PIPELINES.
-
-TALK ABOUT WHAT PYMKS ADDS ABOVE AND BEYOND SCIKIT-LEARN IN
-ABSTRACT. IT ADDS BOTH THE CONVOLUTION LEARNING AND
-PERIODICTY/INDEXING ISSUES TO DO WITH MICROSTRUCTURE. ANSWER QUESTION
-OF WHY NOT JUST USE SCIKIT-LEARN? NEEDS TO BE CLEAR.
-
 \begin{abstractbox}
 
 \begin{abstract} % abstract
@@ -568,9 +556,6 @@ The Materials Knowledge Systems in Python project (PyMKS) is the first open sour
 
 \section{Current Materials Innovation Ecosystem}
 
-
-% Traditionally the development materials data analytics toolsets and data repositories are highly localized within a few individual groups resulting in major inefficiency (unnecessary duplication of codes, inadequate verification and validation of multiple instantiations of code, not engaging the right talent for the right task, etc.)
-
 Open access materials databases and computational tools are critical components of the cyber-infrastructure needed to curate materials knowledge through effective e-collaborations \cite{bhat2015strategy}. Several materials science open source computational toolsets and databases have emerged in recent years to help realize the vision outlined in the Materials Genome Initiative (MGI) and the Integrated Computational Materials Engineering (ICME) paradigm \cite{ward2012materials, allison2006integrated, MGIwhite, MGI2014, allison2011integrated, olson2000designing, national2008integrated, schmitz2012integrative, robinson2013tms, allisonintegrated, TMSfieldstudy}. Yet, the creation and adoption of a standard materials taxonomy and database schema has not been established due to the unwieldy size of material descriptors and heterogeneous data. Additionally, the coupled physical phenomena that govern material properties is too complex to model all aspects of a material simultaneously using a single computational tool. Consequently, current practices have resulted in the development of computation tools and databases with a narrow focus on specific length/structure scales, material classes, or properties.
 
 NIST Data Gateway contains over 100 free and paid query-able web-based materials databases. These databases contain atomic structure, thermodynamics, kinetics, fundamental physical constants, x-ray spectroscopy, among other features \cite{NISTgateway}. NIST DSpace provides a curation of links to several materials community databases \cite{nist2015dspace}. NIST Materials Data Curation Systems (MDCS) is a general online database that aims to facilitate the capturing, sharing, and transforming of materials data \cite{NISTDCS}. Open Quantum Materials Database (OQMD) is an open source data repository for phase diagrams and electronic ground states computed using density functional theory \cite{saal2013materials}. MatWeb is a database containing materials properties for over 100,000 materials \cite{matweb}.
@@ -580,9 +565,7 @@ SPPARKS Kinetic Monte Carlo Simulator (SPPARKS) is a parallel Monte Carlo code f
 
 While there exits a sizable number of standard analytics tools \cite{littell2006sas, seabold2010statsmodels, pedregosa2011scikit, albanese2012mlpy, goodfellow2013pylearn2, mckinney2012python, muller2014pystruct, demvsar2004orange, abadi2016tensorflow, van2014scikit}, none of them are tailored to create PSP linkages from materials structure image data and their associated properties. PyMKS aims to seed and nurture an emergent user group in the materials data analytics for establishing homogenization and localization (PSP) linkages by leveraging open source signal processing and machine learning packages in Python. An overview of the PyMKS project accompanied with several examples is presented here. This paper is a call to others interested in participating in this open science activity.
 
-
 \section{Theoretical Foundations of Materials Knowledge Systems}
-
 
 Material properties are controlled by their internal structure and the diverse physical phenomena occurring at multiple time and length scales. Generalized composite theories \cite{hill1963elastic, hashin1983analysis} have been developed for hierarchical materials exhibiting well separated length scales in their internal structure. Generally speaking, these theories either address homogenization (i.e., communication of effective properties associated with the structure at a given length scale to a higher length scale) or localization (i.e., spatiotemporal distribution of the imposed macroscale loading conditions to the lower length scale). Consequently, homogenization and localization are the essential building blocks in communicating the salient information in both directions between hierarchical length/structure scales in multiscale materials modeling. It is also pointed out that localization is significantly more difficult to establish, and implicitly provides a solution to homogenization.
 
@@ -592,30 +575,33 @@ The most sophisticated composite theory available today that explicitly accounts
 
 The MKS framework is based on the notion of a microstructure function.
 The microstructure function provides a framework to represent material
-structure terms of quantities such as phase identifiers, lattice orientation,
-chemical composition, defect types and densities, among others refered to as
-local states. The microstructure function, $m_j \left(h; s\right)$, represents a
-probability distribution for the given local state, $h \in H$, at each
-position, $s \in S$, in a given microstructure, $j$~\cite{niezgoda2013novel,
-niezgoda2011understanding,qidwai2012estimating, niezgoda2010optimized}. The
+structure terms of quantities such as phase identifiers, lattice
+orientation, chemical composition, defect types and densities,
+among others refered to as local states. The microstructure function,
+$m_j \left(h; s\right)$, represents a
+probability distribution for the given local state, $h \in H$, at
+each position, $s \in S$, in a given microstructure,
+$j$~\cite{niezgoda2013novel, niezgoda2011understanding,
+qidwai2012estimating, niezgoda2010optimized}. The
 introduction of the local state space $H$ (i.e., the complete set of
 all potential local states) provides a consolidate variable space for
-combining the diverse attributes (often a combination of scalar and tensor
-quantities) needed to describe the  local states in the material structure.
+combining the diverse attributes (often a combination of
+scalar and tensor quantities) needed to describe the
+local states in the material structure.
 The MKS framework requires a discretized description of $m_j$, which is
 denoted here as $m_j\left[h; s\right]$, where the
 $\left[\cdot;\cdot\right]$ represent the discretized space (in contrast
 to $\left(\cdot;\cdot\right)$, which defines the continuous space).
 The ``$;$'' symbol divides indices in physical space to the right of
 ``$;$'' from indices in state space to the left of ``$;$''. In most
-applications, $S$ is simply tessellated into voxels on a regular (uniform)
-grid such that the position can be given by $s\rightarrow i,j,k$ in
-three dimensions.
+applications, $S$ is simply tessellated into voxels
+on a regular (uniform) grid such that the position can
+be given by $s\rightarrow i,j,k$ in three dimensions.
 
 As noted earlier, the local state space in most advanced materials is
 likely to demand sophisticated representations. In prior work
 \cite{yabansu2014calibrated, yabansu2015representation,
-  brough2016microstructure}, it was found that spectral
+brough2016microstructure}, it was found that spectral
 representations on functions on the local state space offered many
 advantages both in compact representation as well as in reducing the
 computational cost. In such cases, $h$ indexes the spectral basis
@@ -623,11 +609,11 @@ functions employed. The selection of these functions depends on the
 nature of local state descriptors. Examples include: (i) the primitive
 basis (or indicator functions) used to represent simple tessellation
 schemes \cite{landi2010multi, kalidindi2010novel, al2012multi,
-  kalidindi2011microstructure, gupta2015structure, cceccen2014data,
-  niezgoda2013novel, niezgoda2011understanding, cecen2016versatile},
+kalidindi2011microstructure, gupta2015structure, cceccen2014data,
+niezgoda2013novel, niezgoda2011understanding, cecen2016versatile},
 (ii) generalized spherical harmonics used to represent functions over
 the orientation space \cite{yabansu2014calibrated,
- yabansu2015representation}, and (iii) Legendre polynomials used to
+yabansu2015representation}, and (iii) Legendre polynomials used to
 represent functions over the concentration space
 \cite{brough2016microstructure}.
 
@@ -641,8 +627,8 @@ spatial distributions of the local states provide a valuable
 representation of the microstructure that can be used effectively to
 quantify the microstructure and compare it with other microstructures
 in robust and meaningful ways \cite{niezgoda2011understanding,
-  niezgoda2010optimized, niezgoda2013novel, cceccen2014data,
-  cecen2016versatile}. The lowest order of spatial correlations comes
+niezgoda2010optimized, niezgoda2013novel, cceccen2014data,
+cecen2016versatile}. The lowest order of spatial correlations comes
 in the form of 2-point statistics and can be computed as a correlation
 of a microstructure function such that
 \begin{equation}\label{eq:stats}
@@ -652,7 +638,8 @@ of a microstructure function such that
 \begin{figure}
     \centering
     \includegraphics{fig/stats_micro_example.png}
-    \caption{Caption}
+    \caption{The microstructure function (also referred to as the discretized microstructure) for a two phase composite material.
+    The enumerated with a spatial index $s$. Discrete vectors $r$ describe the relative positions between different spatial locations.}
     \label{fig:stats}
 \end{figure}
 where $r$ is a discrete spatial vector within the voxelated domain
@@ -737,28 +724,28 @@ digital kernels are calibrated using regression methods
   yabansu2014calibrated, yabansu2015representation,
   brough2016microstructure}.
 
-Figs. \ref{fig:hom} and \ref{fig:loc} provide schematic overviews of
-the MKS homogenization and localization workflows. THE CURRENT
-IMAGES ARE JUST PLACE HOLDERS. More detailed explanations on the
-MKS homogenization and localization linkages can be found in prior
-literature \cite{landi2010multi, kalidindi2010novel,
+Fig. \ref{fig:workflows} provides a schematic overviews of
+the MKS homogenization and localization workflows. More detailed
+explanations on the MKS homogenization and localization linkages
+can be found in prior literature \cite{landi2010multi, kalidindi2010novel,
 yabansu2014calibrated, al2012multi, kalidindi2011microstructure,
-gupta2015structure,  cceccen2014data, niezgoda2013novel,
-niezgoda2011understanding, cecen2016versatile}.
+gupta2015structure, brough2016microstructure, cceccen2014data,
+niezgoda2013novel, niezgoda2011understanding, cecen2016versatile}.
 
 \begin{figure}[h!]
-  \caption{\csentence{Localization Figure}
-     To Do - Place holder}
-    \includegraphics[scale=.18]{fig/localization.png}
-  \label{fig:loc}
-\end{figure}
-
-
-\begin{figure}[h!]
-  \caption{\csentence{Homogenization Figure}
-     To Do - Place holder}
-    \includegraphics[scale=.18]{fig/homogenization.png}
-  \label{fig:hom}
+  \caption{
+     The MKS Homogenization workflow (left) consists of four steps. 1.
+     Discretize the raw microstructure with the microstructure function.
+     2. Compute 2-point statistics using local states (Eq. \ref{eq:stats}).
+     3. Create low dimensional microstructure descriptors using dimensionality
+     reduction technques (Eq. \ref{eq:struc}).
+     4. Use machine learning model to establish a linkage with low dimensional 
+     microtructure descriptors. (Eq. \ref{eq:hom}).
+     The MKS Localization workflow (right) constists of 2 steps. 
+     1. Discretize the raw microstructure with the microstructure function.
+     2. Calibrated physics-based kernels (Eq. \ref{eq:series}).}
+    \includegraphics[scale=.22]{fig/mks_workflows.png}
+  \label{fig:workflows}
 \end{figure}
 
 
@@ -783,8 +770,9 @@ compute 2-point statistics, tools for both homogenization and
 localization linkages and tools for discretizing the microstructure. In
 addition, PyMKS has modules for generating data sets using
 conventional numerical simulations and a module for custom
-visualization of microstructures. PyMKS is based on the Scikit-learn
-data pipelining methdology. This is a high level system for combining
+visualization of microstructures. PyMKS builds on Scikit-Learn's
+pipelining methodology to create materials specific machine learning
+models. This is a high level system for combining
 multiple data and machine learning transformations into a single
 customizable pipeline with only minimal required code. This approach
 makes cross-validation and parameter searches simple to implement and
@@ -811,19 +799,22 @@ $\alpha[h; r]$ used to predict local materials responses, $p_j[s]$, as
 outlined in Eq.~\ref{eq:series}. The calibration of the influence
 kernels is achieved using a variety of linear regression techniques
 described in numerous previous studies~\cite{landi2010multi,
-  kalidindi2010novel, yabansu2014calibrated,
-  brough2016microstructure}. The \texttt{MKSLocalizationModel} object
-uses \texttt{fit} and \texttt{predict} methods to follow the standard
-interface for a Scikit-learn estimator object.
+kalidindi2010novel, yabansu2014calibrated, brough2016microstructure}.
+The \texttt{MKSLocalizationModel} object uses \texttt{fit} and
+\texttt{predict} methods to follow the standard interface for a
+Scikit-learn estimator object.
 
 To use either the homogenization or the localization models in PyMKS,
 the microstructure first needs to be represented by a microstructure
 function, $m_j\left[h, s\right]$. The \texttt{bases} module in PyMKS
-contains four objects for generating the $m_j\left[h, s\right]$ using
-a varietly of discretization methods~\cite{landi2010multi,
-  kalidindi2010novel, yabansu2014calibrated, al2012multi,
-  kalidindi2011microstructure, gupta2015structure, cceccen2014data,
-  brough2016microstructure}. A \texttt{PrimitiveBasis} object uses
+contains four transformer objects for generating the
+$m_j\left[h,s\right]$ using a varietly of discretization
+methods~\cite{landi2010multi, kalidindi2010novel,
+yabansu2014calibrated, al2012multi, kalidindi2011microstructure,
+gupta2015structure, cceccen2014data, brough2016microstructure}.
+These four objects can be thought of as materials specific
+extension to the feature extraction
+module in Scikit-Learn. A \texttt{PrimitiveBasis} object uses
 indicator (or hat) functions and is well suited for microstructures
 that have discrete local states (e.g., distinct thermodynamic
 phases). The \texttt{LegendreBasis} and \texttt{FourierBasis} objects
@@ -836,10 +827,10 @@ using \texttt{FourierBasis}. Furthermore, \texttt{GSHBasis} creates
 compact spectral representations for functions over lattice
 orientation space (such as those needed to describe polycrystalline
 microstructures)~\cite{ kalidindi2006spectral, shaffer2010building,
-  knezevic2010deformation, al2010spectral, duvvuru2007application,
-  li2003evolution, li2005texture, li2007processing, li2005processing,
-  creuziger2014crystallographic, sundararaghavan2008multi,
-  sundararaghavan2007linear}.
+knezevic2010deformation, al2010spectral, duvvuru2007application,
+li2003evolution, li2005texture, li2007processing, li2005processing,
+creuziger2014crystallographic, sundararaghavan2008multi,
+sundararaghavan2007linear}.
 
 PyMKS contains modest data generation tools (in the \texttt{datasets}
 module) that are used in both the PyMKS examples and the PyMKS test
@@ -896,17 +887,14 @@ developers are encouraged to follow them.
 
 \section{Examples of Homogenization and Localization with PyMKS}
 
-%DAVE - THE PRESENTATION STYLE OF THE EXAMPLES FEELS VERY ADHOC. CAN
-%YOU LOOK AT OTHER PAPERS OR BOOKS TO SEE WHAT ARE SOME GOOD STYLES TO
-%PRESENT THIS WITHOUT MAKING THIS LOOK TOO ADHOC OR INFORMAL. PERHAPS
-%THERE IS A WAY TO DESCRIBE THE CODING PARTS AS BOXED SELF-STANDING
-%DESCRIPTIONS AND THE TEXT CAN THEN FOCUS MAINLY ON THE LOGIC AND
-%EXPLANATIONS. AS WRITTEN I AM AFRAID THAT THE MATERIALS FOLKS WILL
-%NOT BE ABLE TO FOLLOW WHAT YOU ARE SAYING.
+Here a demonstration of the MKS homogenization and localization
+workflows as shown in Fig. \ref{fig:workflows} are presented
+using PyMKS. Additional workflow examples can be found on the
+PyMKS website \url{pymks.org}.
 
     \subsection{Prediction of Effective Stiffness using Homogenization}\label{effective-stiffness-of-composite-material}
 
-    \subsubsection{Data Generation}\label{data-generation}
+    \subsubsection{Calibration Data Generation}\label{data-generation}
 
 A set of periodic microstructures and their volume averaged elastic
 stress values $\bar{\sigma}_{xx}$ can be generated by importing the
@@ -923,8 +911,9 @@ seed.
 
 In this homogenization example, 200 samples from six
 different microstructures classes with dimensions 21 x 21 were
-created totaling 1,200. Each of the six classes have
-different microstructure feature sizes. The function will return and the
+created totaling 1,200 samples. Each of the six classes have
+different microstructure feature sizes. The
+\texttt{make\_elastic\_stress\_random} function will return and the
 microstructures and their associated volume averaged stress values.
 
     \begin{Verbatim}[commandchars=\\\{\}]
@@ -951,9 +940,8 @@ microstructures and their associated volume averaged stress values.
 \end{Verbatim}
 
 
-    Lets take a look at 3 types the microstructures to get an idea of
-what they look like. We can do this by importing
-\texttt{draw\_microstructures}.
+The microstructures can be visualized by importing \texttt{draw\_microstructures}.
+Below is an instance from three of the classes.
 
     \begin{Verbatim}[commandchars=\\\{\}]
 
@@ -961,22 +949,24 @@ what they look like. We can do this by importing
 
 \PY{n}{X\PYZus{}examples} \PY{o}{=} \PY{n}{X}\PY{p}{[}\PY{p}{:}\PY{p}{:}\PY{n}{sample\PYZus{}size}\PY{p}{]}
 \PY{n}{draw\PYZus{}microstructures}\PY{p}{(}\PY{n}{X\PYZus{}examples}\PY{p}{[}\PY{p}{:}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{)}
+
 \end{Verbatim}
 
     \begin{center}
     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{homogenization_stress_2D_files/homogenization_stress_2D_8_0.png}
     \end{center}
     { \hspace*{\fill} \\}
-
-
     \subsubsection{Calibration of Homogenization Model}\label{modeling-with-mkshomogenizationmodel}
 
-In order to make an instance of the \texttt{MKSHomogenizationModel}, we
-need to pass an instance of a basis class. For this particular example,
-there are only 2 discrete
-phases, so we will use the \texttt{PrimitiveBasis} from \texttt{pymks.bases}.
-We only have two phases denoted by 0 and 1, therefore we have two local
-states and our domain is 0 to 1. Let's make an instance of the \texttt{MKSHomgenizationModel}.
+In order to make an instance of the \texttt{MKSHomogenizationModel},
+an instance of a basis class must first be created to specify the discretization
+methods for the microstructure microstructure function
+(see Fig. \ref{fig:workflows}). For this particular example,
+there are only 2 discrete phases, therefore the \texttt{PrimitiveBasis}
+from \texttt{pymks.bases} will be used. The microstructure contain only two
+phases denoted by 0 and 1, therefore we have two local states and our domain
+is 0 to 1. An instance of the \texttt{PrimitiveBasis} with these parameters can
+be used to create an instance of the \texttt{MKSHomgenizationModel} as follows.
 
     \begin{Verbatim}[commandchars=\\\{\}]
 
@@ -989,48 +979,29 @@ states and our domain is 0 to 1. Let's make an instance of the \texttt{MKSHomgen
 
 \end{Verbatim}
 
-The default machine model used to create the homogenization linkage is polynomial regression.
-We need to optimize the number of principal components and the degree of polynomial.
-To do this we are going to split the data into test and training
-sets. This can be done using the
-\texttt{train\_test\_spilt} function from \texttt{sklearn}.
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-
-\PY{k+kn}{from} \PY{n+nn}{sklearn.cross\PYZus{}validation} \PY{k+kn}{import} \PY{n}{train\PYZus{}test\PYZus{}split}
-
-\PY{n}{flat\PYZus{}shape} \PY{o}{=} \PY{p}{(}\PY{n}{X}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{p}{)} \PY{o}{+} \PY{p}{(}\PY{n}{X}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{.}\PY{n}{size}\PY{p}{,}\PY{p}{)}
-\PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}test} \PY{o}{=} \PY{n}{train\PYZus{}test\PYZus{}split}\PY{p}{(}
-    \PY{n}{X}\PY{o}{.}\PY{n}{reshape}\PY{p}{(}\PY{n}{flat\PYZus{}shape}\PY{p}{)}\PY{p}{,} \PY{n}{y}\PY{p}{,}\PY{n}{test\PYZus{}size}\PY{o}{=}\PY{l+m+mf}{0.2}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{)}
-\PY{k}{print}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{o}{.}\PY{n}{shape}\PY{p}{)}
-\PY{k}{print}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{o}{.}\PY{n}{shape}\PY{p}{)}
-
-\end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-(960, 441)
-(240, 441)
-
-    \end{Verbatim}
-
-We will use cross validation with the testing data to find the optimal value for our model parameters using \texttt{GridSeachCV} from \texttt{sklearn}. We will pass a dictionary \texttt{params\_to\_tune} with the range of the degree of the
-polynomial and the number of principal components
-we want to search. Let's vary \texttt{n\_components} from 1 to 11 and \texttt{degree} from
-1 to 3.
+The default pipeline used to create the homogenization linkage contains PCA and
+polynomial regression objects for Scikit-Learn. Cross validation is used on
+the testing data to find the optimal values (based
+on the R-squared values) within a defined subspace for our model parameters
+using \texttt{GridSeachCV} from \texttt{sklearn}. A dictionary
+\texttt{params\_to\_tune} defines the subspace with a range for the degrees
+of the polynomial and the number of principal components. For this example
+\texttt{n\_components} will be varied between 2 to 11 and \texttt{degree} of
+the polynomial regression will be varied between 1 to 3.
     \begin{Verbatim}[commandchars=\\\{\}]
 
 \PY{k+kn}{from} \PY{n+nn}{sklearn.grid\PYZus{}search} \PY{k+kn}{import} \PY{n}{GridSearchCV}
 
+\PY{n}{flat\PYZus{}shape} \PY{o}{=} \PY{p}{(}\PY{n}{X}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{p}{)} \PY{o}{+} \PY{p}{(}\PY{n}{X}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{.}\PY{n}{size}\PY{p}{,}\PY{p}{)}
 \PY{n}{params\PYZus{}to\PYZus{}tune} \PY{o}{=} \PY{p}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{degree}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{np}\PY{o}{.}\PY{n}{arange}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{)}\PY{p}{,}
                   \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{n\PYZus{}components}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{np}\PY{o}{.}\PY{n}{arange}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{12}\PY{p}{)}\PY{p}{\PYZcb{}}
 \PY{n}{fit\PYZus{}params} \PY{o}{=} \PY{p}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{size}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{X}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{.}\PY{n}{shape}\PY{p}{\PYZcb{}}
 \PY{n}{gs} \PY{o}{=} \PY{n}{GridSearchCV}\PY{p}{(}\PY{n}{model}\PY{p}{,} \PY{n}{params\PYZus{}to\PYZus{}tune}\PY{p}{,}
-                  \PY{n}{fit\PYZus{}params}\PY{o}{=}\PY{n}{fit\PYZus{}params}\PY{p}{)}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{)}
-
+                  \PY{n}{fit\PYZus{}params}\PY{o}{=}\PY{n}{fit\PYZus{}params}\PY{p}{)}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X}\PY{o}{.}\PY{n}{reshape}\PY{p}{(}\PY{n}{flat\PYZus{}shape}\PY{p}{)}\PY{p}{,} \PY{n}{y}\PY{p}{)}
 \end{Verbatim}
 
-    The default \texttt{score} method for the
-\texttt{MKSHomogenizationModel} is R-squared.
+% The default \texttt{score} method for the \texttt{MKSHomogenizationModel} is coefficient of determination
+% (R-squared). 
 % value. Let's look at the how the mean R-squared values and their
 % standard deviations change, as we varied the number of
 % \texttt{n\_components} and \texttt{degree}, using
@@ -1053,7 +1024,7 @@ we want to search. Let's vary \texttt{n\_components} from 1 to 11 and \texttt{de
 
 \PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Order of Polynomial}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{n}{gs}\PY{o}{.}\PY{n}{best\PYZus{}estimator\PYZus{}}\PY{o}{.}\PY{n}{degree}\PY{p}{)}
 \PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Number of Components}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{n}{gs}\PY{o}{.}\PY{n}{best\PYZus{}estimator\PYZus{}}\PY{o}{.}\PY{n}{n\PYZus{}components}\PY{p}{)}
-\PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{R\PYZhy{}squared Value}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{n}{gs}\PY{o}{.}\PY{n}{score}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}test}\PY{p}{)}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{R\PYZhy{}squared Value}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{n}{gs}\PY{o}{.}\PY{n}{score}\PY{p}{(}\PY{n}{X}\PY{o}{.}\PY{n}{reshape}\PY{p}{(}\PY{n}{flat\PYZus{}shape}\PY{p}{)}\PY{p}{,} \PY{n}{y}\PY{p}{)}\PY{p}{)}
 \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
@@ -1064,9 +1035,11 @@ R-squared Value 0.999808062591
 
     \end{Verbatim}
 
-    For the parameter range that we searched, we have found that a model
-with 2nd order polynomial and 11 components had the best R-squared
-value. Let's look at the results using \texttt{draw\_grid\_scores}, and set the model to have those parameter values.
+For the specified subspace it was found that a model
+with a 2nd order polynomial and 11 principal components had the 
+highest R-squared value. The results over the whole subspace
+explored with \texttt{GridSeachCV} can be visualized using
+\texttt{draw\_grid\_scores}.
 
     \begin{Verbatim}[commandchars=\\\{\}]
 
@@ -1091,24 +1064,25 @@ value. Let's look at the results using \texttt{draw\_grid\_scores}, and set the 
     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{homogenization_stress_2D_files/homogenization_stress_2D_31_0.png}
     \end{center}
     { \hspace*{\fill} \\}
+Additionally, the model with the optimal parameters can also be
+selected using the result from \texttt{GridSeachCV}.
     \begin{Verbatim}[commandchars=\\\{\}]
+
 \PY{n}{model} \PY{o}{=} \PY{n}{gs}\PY{o}{.}\PY{n}{best\PYZus{}estimator\PYZus{}}
 
 \end{Verbatim}
 
-Now that we have found optimal values for the parameters \texttt{n\_components} and
-\texttt{degree}, lets fit the model with the data.
+With our optimized model can now be fit with the calibration data.
 
     \begin{Verbatim}[commandchars=\\\{\}]
 
 \PY{n}{model}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{n}{y}\PY{p}{)}
 \end{Verbatim}
 
-    \subsubsection{Prediction of Effective Stiffness}\label{prediction-using-mkshomogenizationmodel}
+    \subsubsection{Prediction of Effective Stress}\label{prediction-using-mkshomogenizationmodel}
 
-    Let's generate some more data to validate our
-model. We are going to generate 20 samples of all
-six different types of microstructures using the same
+The validation dataset is generate by creating 20 additional
+microstructures from the six microstructure classes using the same
 \texttt{make\_elastic\_stress\_random} function.
 
     \begin{Verbatim}[commandchars=\\\{\}]
@@ -1122,7 +1096,7 @@ six different types of microstructures using the same
 
 \end{Verbatim}
 
-    Now let's predict the stress values for the new microstructures using the \texttt{predict} method.
+    The predicted the stress values for the new microstructures are generated using the \texttt{predict} method.
 
     \begin{Verbatim}[commandchars=\\\{\}]
 
@@ -1130,9 +1104,9 @@ six different types of microstructures using the same
 
 \end{Verbatim}
 
-    We can look to see, if the low-dimensional representation of the new
-data is similar to the low-dimensional representation of the data we
-used to fit the model using \texttt{draw\_components\_scatter} from
+The low-dimensional microstructure descriptors
+(see Eq. \ref{eq:struc} and Fig. \ref{fig:workflow})
+can be visualized using \texttt{draw\_components\_scatter} from
 \texttt{pymks.tools}.
 
     \begin{Verbatim}[commandchars=\\\{\}]
@@ -1150,11 +1124,9 @@ used to fit the model using \texttt{draw\_components\_scatter} from
     \end{center}
     { \hspace*{\fill} \\}
 
-    The predicted data seems to be reasonably similar to the data we used to
-fit the model with. Now let's look at the score value for the predicted
-data. We can evaluate our prediction by looking at a
-goodness-of-fit plot. We can do this by importing
-\texttt{draw\_goodness\_of\_fit} from \texttt{pymks.tools}.
+The calibration and validation data are samples from the same distributions as expected.
+A goodness-of-fit plot provides a visualization of the models performance,
+and can be created by importing \texttt{draw\_goodness\_of\_fit} from \texttt{pymks.tools}.
 
     \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{from} \PY{n+nn}{pymks.tools} \PY{k+kn}{import} \PY{n}{draw\PYZus{}goodness\PYZus{}of\PYZus{}fit}
@@ -1173,84 +1145,34 @@ goodness-of-fit plot. We can do this by importing
 \subsection{Prediction of Local Strain Field with Localization}\label{linear-elasticity-in-2d-for-3-phases}
 
 
-% \subsubsection{Calibration Data and Delta
-% Microstructures}\label{calibration-data-and-delta-microstructures}
+\subsubsection{Calibration Data Generation}\label{generating-calibration-data}
 
-% Because we are using distinct phases and the contrast is low we
-% only need delta microstructures and their
-% strain fields to calibrate the first-order
-% influence coefficients.
 
-% Here we use the \texttt{make\_delta\_microstructure} function from
-% \texttt{pymks.datasets} to create the delta microstructures needed to
-% calibrate the first-order influence coefficients for a two-phase
-% microstructure. The \texttt{make\_delta\_microstructure} function uses
-% SfePy to generate the data.
+In this example the \texttt{MKSLocalizationModel} used to predict the local
+strain field for a three phase microstructure with elastic
+moduli values of 80, 100 and 120; Poisson's ratio values all equal to
+0.3 and a macroscopic imposed strain equal to 0.02.
 
-%     \begin{Verbatim}[commandchars=\\\{\}]
-% {\color{incolor}In [{\color{incolor}1}]:}
-%         \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k+kn}{as} \PY{n+nn}{np}
-%         \PY{k+kn}{import} \PY{n+nn}{matplotlib.pyplot} \PY{k+kn}{as} \PY{n+nn}{plt}
-% \end{Verbatim}
-
-%     \begin{Verbatim}[commandchars=\\\{\}]
-% {\color{incolor}In [{\color{incolor}2}]:} \PY{k+kn}{from} \PY{n+nn}{pymks.tools} \PY{k+kn}{import} \PY{n}{draw\PYZus{}microstructures}
-%         \PY{k+kn}{from} \PY{n+nn}{pymks.datasets} \PY{k+kn}{import} \PY{n}{make\PYZus{}delta\PYZus{}microstructures}
-
-%         \PY{n}{n} \PY{o}{=} \PY{l+m+mi}{21}
-%         \PY{n}{n\PYZus{}phases} \PY{o}{=} \PY{l+m+mi}{3}
-% \end{Verbatim}
-
-%     Let's take a look at a few of the delta microstructures by importing
-% \texttt{draw\_microstructures} from \texttt{pymks.tools}.
-
-%     \begin{Verbatim}[commandchars=\\\{\}]
-% {\color{incolor}In [{\color{incolor}3}]:} \PY{n}{draw\PYZus{}microstructures}\PY{p}{(}\PY{n}{X\PYZus{}delta}\PY{p}{[}\PY{p}{:}\PY{p}{:}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
-% \end{Verbatim}
-
-%     \begin{center}
-%     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{localization_elasticity_multiphase_2D_files/localization_elasticity_multiphase_2D_6_0.png}
-%     \end{center}
-%     { \hspace*{\fill} \\}
-
-%     Using delta microstructures for the calibration of the first-order
-% influence coefficients is essentially the same as using a unit
-% impulse response to find the kernel of a system in signal processing. Any given delta
-% microstructure is composed of only two phases with the center of the microstructure
-% and a different phase from the rest. The number
-% of delta microstructures that are needed to calibrated the first-order
-% coefficients is $N(N-1)$ where $N$ is the number of phases, therefore in
-% this example we need 6 delta microstructures.
-
-\subsubsection{Generating Calibration Data}\label{generating-calibration-data}
-
-% The \texttt{make\_elasticFEstrain\_delta} function from
-% \texttt{pymks.datasets} provides an easy interface to generate delta
-% microstructures and their strain fields, which can then be used for
-% calibration of the influence coefficients.
-
-In this example, lets look at a three phase microstructure with elastic
-moduli values of 80, 100 and 120 and Poisson's ratio values all equal to
-0.3. Let's also set the macroscopic imposed strain equal to 0.02. All of
-these parameters used in the simulation must be passed into the
-\texttt{make\_elasticFEstrain\_delta}  function from
-\texttt{pymks.datasets}. The number of Poisson's
+The mode is calibrated using delta microstructures for the calibrated
+using delta microstructures (analogous to using a unit impulse response
+to find the kernel of a system in signal processing). The the material
+parameters specified above are used in a finite element simulation
+and must be passed into the \texttt{make\_elasticFEstrain\_delta}
+function from \texttt{pymks.datasets}. The number of Poisson's
 ratio values and elastic moduli values indicates the number of phases.
 
-     \begin{Verbatim}[commandchars=\\\{\}]
-
-\PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k+kn}{as} \PY{n+nn}{np}
-\end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{from} \PY{n+nn}{pymks.tools} \PY{k+kn}{import} \PY{n}{draw\PYZus{}microstructures}
 \PY{k+kn}{from} \PY{n+nn}{pymks.datasets} \PY{k+kn}{import} \PY{n}{make\PYZus{}delta\PYZus{}microstructures}
+\PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k+kn}{as} \PY{n+nn}{np}
 
 \PY{n}{n} \PY{o}{=} \PY{l+m+mi}{21}
 \PY{n}{n\PYZus{}phases} \PY{o}{=} \PY{l+m+mi}{3}
 \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
+
 \PY{k+kn}{from} \PY{n+nn}{pymks.datasets} \PY{k+kn}{import} \PY{n}{make\PYZus{}elastic\PYZus{}FE\PYZus{}strain\PYZus{}delta}
 \PY{k+kn}{from} \PY{n+nn}{pymks.tools} \PY{k+kn}{import} \PY{n}{draw\PYZus{}microstructure\PYZus{}strain}
 
@@ -1266,8 +1188,11 @@ ratio values and elastic moduli values indicates the number of phases.
 
 \end{Verbatim}
 
-    Let's take a look at one of the delta microstructures and the
-$\varepsilon_{xx}$ strain field.
+Delta microstructures are composed of only two phases with the center of the microstructure
+being a different phase from the rest. All permutations of thes delta microstructures 
+and their associated  strain fields $\varepsilon_{xx}$ are needed to create calibrate
+the model. A delta microstructure and it's strain field can be visualized using 
+\texttt{draw\_microstructure\_strain} for \texttt{pymks.tools}.
 
     \begin{Verbatim}[commandchars=\\\{\}]
 
@@ -1279,15 +1204,26 @@ $\varepsilon_{xx}$ strain field.
     \end{center}
     { \hspace*{\fill} \\}
 
-\subsubsection{Calibrating Localization Model}\label{calibrating-first-order-influence-coefficients}
+\subsubsection{Calibration of the Localization Model}\label{calibrating-first-order-influence-coefficients}
 
-Now that we have the delta microstructures and their strain fields, we
-will calibrate the influence coefficients by creating an instance of the
-\texttt{MKSLocalizatoinModel} class. Because we are going to calibrate
-the influence coefficients with microstructures that contain discrete local
-states (in this case phases), we can create an
-instance of \texttt{PrimitiveBasis} with \texttt{n\_states} equal to 3,
-and use it to create an instance of \texttt{MKSLocalizationModel}.
+
+In order to make an instance of the \texttt{MKSHomogenizationModel},
+an instance of a basis class must first be created to specify the discretization
+methods for the microstructure microstructure function
+(see Fig. \ref{fig:workflows}). For this particular example,
+there are only 2 discrete phases, therefore the \texttt{PrimitiveBasis}
+from \texttt{pymks.bases} will be used. The microstructure contain only two
+phases denoted by 0 and 1, therefore we have two local states and our domain
+is 0 to 1. An instance of the \texttt{PrimitiveBasis} with these parameters can
+be used to create an instance of the \texttt{MKSHomgenizationModel} as follows.
+
+Similar to the \texttt{MKSHomogenizationModel}, an instance
+of a basis class to specify the discretization
+methods for the microstructure microstructure function
+(see Fig. \ref{fig:workflows}).
+before an instance of the \texttt{MKSLocalizatoinModel} is created. 
+An instance of \texttt{PrimitiveBasis} with \texttt{n\_states} equal to 3,
+is used because the material system as 3 distinct phases. 
 
     \begin{Verbatim}[commandchars=\\\{\}]
 
@@ -1299,8 +1235,8 @@ and use it to create an instance of \texttt{MKSLocalizationModel}.
 
 \end{Verbatim}
 
-    Now, pass the delta microstructures and their strain fields into the
-\texttt{fit} method to calibrate the first-order influence coefficients.
+With the delta microstructures and their strain fields, the
+the influence kernels can be calibrated using the \texttt{fit} method.
 
     \begin{Verbatim}[commandchars=\\\{\}]
 
@@ -1308,8 +1244,8 @@ and use it to create an instance of \texttt{MKSLocalizationModel}.
 
 \end{Verbatim}
 
-    That's it, the influence coefficient have been calibrated. Let's take a
-look at them.
+A visualization of the influence kernels can be generated using the \texttt{draw\_coeff}
+function from \texttt{pymks.tools}.
 
     \begin{Verbatim}[commandchars=\\\{\}]
 
@@ -1326,13 +1262,10 @@ look at them.
 \subsubsection{Prediction of the Strain Field for a Random
 Microstructure}\label{predict-of-the-strain-field-for-a-random-microstructure}
 
-Let's now use our instance of the \texttt{MKSLocalizationModel} class
-with calibrated influence coefficients to compute the strain field for a
-random two-phase microstructure and compare it with the results from a
-finite element simulation.
-
-The \texttt{make\_elasticFEstrain\_random} function from
-\texttt{pymks.datasets} is an easy way to generate a random
+A predicted strain field from the localization model can be compared 
+the strain field using a finite element simulation for the same random
+microstructure for model validation. The \texttt{make\_elasticFEstrain\_random} function from
+\texttt{pymks.datasets} generates a random
 microstructure and its strain field results from finite element
 analysis.
     \begin{Verbatim}[commandchars=\\\{\}]
@@ -1353,8 +1286,8 @@ analysis.
     { \hspace*{\fill} \\}
 
 
-Now, to get the strain field from the \texttt{MKSLocalizationModel},
-just pass the same microstructure to the \texttt{predict} method.
+Localization model predicts the strain field by passing the microstructure
+to the \texttt{predict} method.
 
     \begin{Verbatim}[commandchars=\\\{\}]
 
@@ -1362,8 +1295,7 @@ just pass the same microstructure to the \texttt{predict} method.
 
 \end{Verbatim}
 
-    Finally let's compare the results from finite element simulation and the
-MKS model.
+A visualization of the two strain fields from both the localization model and finite element analysis can be created using \texttt{draw\_strains\_compare} from \texttt{pymks.tools}.
 
     \begin{Verbatim}[commandchars=\\\{\}]
 
@@ -1380,78 +1312,8 @@ MKS model.
 
 \section{Conclusion}
 
-To Do
 
-% \subsubsection{Resizing the Coefficeints to use on Larger
-% Microstructures}\label{resizing-the-coefficeints-to-use-on-larger-microstructures}
-
-% The influence coefficients that were calibrated on a smaller
-% microstructure can be used to predict the strain field on a larger
-% microstructure though spectral interpolation {[}3{]}, but accuracy of
-% the MKS model drops slightly. To demonstrate how this is done, let's
-% generate a new larger random microstructure and its strain field.
-
-%     \begin{Verbatim}[commandchars=\\\{\}]
-
-% {\color{incolor}In [{\color{incolor}13}]:} \PY{n}{m} \PY{o}{=} \PY{l+m+mi}{3} \PY{o}{*} \PY{n}{n}
-%          \PY{n}{size} \PY{o}{=} \PY{p}{(}\PY{n}{m}\PY{p}{,} \PY{n}{m}\PY{p}{)}
-%          \PY{k}{print} \PY{n}{size}
-%          \PY{n}{X}\PY{p}{,} \PY{n}{strain} \PY{o}{=} \PY{n}{make\PYZus{}elastic\PYZus{}FE\PYZus{}strain\PYZus{}random}\PY{p}{(}\PY{n}{n\PYZus{}samples}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{elastic\PYZus{}modulus}\PY{o}{=}\PY{n}{elastic\PYZus{}modulus}\PY{p}{,}
-%                                                   \PY{n}{poissons\PYZus{}ratio}\PY{o}{=}\PY{n}{poissons\PYZus{}ratio}\PY{p}{,} \PY{n}{size}\PY{o}{=}\PY{n}{size}\PY{p}{,}
-%                                                   \PY{n}{macro\PYZus{}strain}\PY{o}{=}\PY{n}{macro\PYZus{}strain}\PY{p}{)}
-%          \PY{n}{draw\PYZus{}microstructure\PYZus{}strain}\PY{p}{(}\PY{n}{X}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{p}{,} \PY{n}{strain}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
-% \end{Verbatim}
-
-%     \begin{Verbatim}[commandchars=\\\{\}]
-% (63, 63)
-%     \end{Verbatim}
-
-%     \begin{center}
-%     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{localization_elasticity_multiphase_2D_files/localization_elasticity_multiphase_2D_30_1.png}
-%     \end{center}
-%     { \hspace*{\fill} \\}
-
-%     The influence coefficients that have already been calibrated on a $n$ by
-% $n$ delta microstructures, need to be resized to match the shape of the
-% new larger $m$ by $m$ microstructure that we want to compute the strain
-% field for. This can be done by passing the shape of the new larger
-% microstructure into the \texttt{resize\_coeff} method.
-
-%     \begin{Verbatim}[commandchars=\\\{\}]
-
-% {\color{incolor}In [{\color{incolor}14}]:} \PY{n}{model}\PY{o}{.}\PY{n}{resize\PYZus{}coeff}\PY{p}{(}\PY{n}{X}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{.}\PY{n}{shape}\PY{p}{)}
-
-% \end{Verbatim}
-
-%     Let's now take a look that ther resized influence coefficients.
-
-%     \begin{Verbatim}[commandchars=\\\{\}]
-
-% {\color{incolor}In [{\color{incolor}15}]:} \PY{n}{draw\PYZus{}coeff}\PY{p}{(}\PY{n}{model}\PY{o}{.}\PY{n}{coef\PYZus{}}\PY{p}{)}
-% \end{Verbatim}
-
-%     \begin{center}
-%     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{localization_elasticity_multiphase_2D_files/localization_elasticity_multiphase_2D_34_0.png}
-%     \end{center}
-%     { \hspace*{\fill} \\}
-
-%     Because the coefficients have been resized, they will no longer work for
-% our original $n$ by $n$ sized microstructures they were calibrated on,
-% but they can now be used on the $m$ by $m$ microstructures. Just like
-% before, just pass the microstructure as the argument of the
-% \texttt{predict} method to get the strain field.
-
-%     \begin{Verbatim}[commandchars=\\\{\}]
-% {\color{incolor}In [{\color{incolor}16}]:} \PY{n}{strain\PYZus{}pred} \PY{o}{=} \PY{n}{model}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X}\PY{p}{)}
-
-%          \PY{n}{draw\PYZus{}strains\PYZus{}compare}\PY{p}{(}\PY{n}{strain}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{strain\PYZus{}pred}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
-% \end{Verbatim}
-
-%     \begin{center}
-%     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{localization_elasticity_multiphase_2D_files/localization_elasticity_multiphase_2D_36_0.png}
-%     \end{center}
-%     { \hspace*{\fill} \\}
-
+PyMKS is an open source project with a permissive license that provides simple high level APIs to the MKS framework by implementing pipelines from Scikit-learn with customized objects for data from hierarchical materials. PyMKS developers is eager to collaborate with others to grow  an emergent data science community for establishing homogenization and localization Process-Structure-Property linkages for hierarchical materials.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                          %%
