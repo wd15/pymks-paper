@@ -571,32 +571,42 @@ Material properties are controlled by their internal structure and the diverse p
 
 The most sophisticated composite theory available today that explicitly accounts for the full details of the material internal structure (also simply referred as microstructure) comes from the use of perturbation theories and Green's functions \cite{brown1955solid, hill1963elastic, kroner1986statistical, kroner1977bounds, kroner1972statistical, etingof1993representations, adams1998mesostructure, fullwood2008strong, torquato2013random, li2006quantitative, milhans2011prediction, adams2013microstructure, garmestani2001statistical}. In this formalism, one usually arrives at a series expansion for both homogenization and localization, where the individual terms in the series involve convolution integrals with kernels based  on  Green's functions. This series expansion was refined and generalized by Adams and co-workers \cite{adams2005finite, adams2013microstructure, binci2008new} through the introduction of the concept of a microstructure function, which conveniently separates each term in the series into a physics-dependent kernel (based on Green's functions) and a microstructure-dependent function (based on the formalism of n-point spatial correlations \cite{etingof1993representations, adams1998mesostructure, fullwood2008strong, torquato2013random, li2006quantitative, milhans2011prediction}).
 
- Materials Knowledge Systems (MKS) \cite{landi2010multi, kalidindi2010novel, yabansu2014calibrated, al2012multi, kalidindi2011microstructure, gupta2015structure,  cceccen2014data} complements these sophisticated physics-based materials composite theories with a modern data science approach to create a versatile framework for extracting and curating multiscale PSP linkages. More specifically, MKS employs a discretized version of the composite theories mentioned earlier to gain major computational advantages. As a result, highly adaptable and templatable protocols have been created and used successfully to extract robust and versatile homogenization and localization metamodels with impressive accuracy and broad applicability over large microstructure spaces.
+Materials Knowledge Systems (MKS) \cite{landi2010multi,
+  kalidindi2010novel, yabansu2014calibrated, al2012multi,
+  kalidindi2011microstructure, gupta2015structure, cceccen2014data}
+complement these sophisticated physics-based materials composite
+theories with a modern data science approach to create a versatile
+framework for extracting and curating multiscale PSP linkages. More
+specifically, MKS employs a discretized version of the composite
+theories mentioned earlier to gain major computational advantages. As
+a result, highly adaptable and templatable protocols have been created
+and used successfully to extract robust and versatile homogenization
+and localization metamodels with impressive accuracy and broad
+applicability over large microstructure spaces.
 
 The MKS framework is based on the notion of a microstructure function.
-The microstructure function provides a framework to represent material
-structure terms of quantities such as phase identifiers, lattice
-orientation, chemical composition, defect types and densities,
-among others refered to as local states. The microstructure function,
-$m_j \left(h; s\right)$, represents a
-probability distribution for the given local state, $h \in H$, at
-each position, $s \in S$, in a given microstructure,
+The microstructure function provides a framework to represent
+quantities that describe material structure such as phase identifiers,
+lattice orientation, chemical composition, defect types and densities,
+among others (typically referred to as local states). The
+microstructure function, $m_j \left(h; s\right)$, represents a
+probability distribution for the given local state, $h \in H$, at each
+position, $s \in S$, in a given microstructure,
 $j$~\cite{niezgoda2013novel, niezgoda2011understanding,
-qidwai2012estimating, niezgoda2010optimized}. The
-introduction of the local state space $H$ (i.e., the complete set of
-all potential local states) provides a consolidate variable space for
-combining the diverse attributes (often a combination of
-scalar and tensor quantities) needed to describe the
-local states in the material structure.
-The MKS framework requires a discretized description of $m_j$, which is
-denoted here as $m_j\left[h; s\right]$, where the
-$\left[\cdot;\cdot\right]$ represent the discretized space (in contrast
-to $\left(\cdot;\cdot\right)$, which defines the continuous space).
-The ``$;$'' symbol divides indices in physical space to the right of
-``$;$'' from indices in state space to the left of ``$;$''. In most
-applications, $S$ is simply tessellated into voxels
-on a regular (uniform) grid such that the position can
-be given by $s\rightarrow i,j,k$ in three dimensions.
+  qidwai2012estimating, niezgoda2010optimized}. The introduction of
+the local state space $H$ (i.e., the complete set of all potential
+local states) provides a consolidated variable space for combining the
+diverse attributes (often a combination of scalar and tensor
+quantities) needed to describe the local states in the material
+structure.  The MKS framework requires a discretized description of
+$m_j$, which is denoted here as $m_j\left[h; s\right]$, where the
+$\left[\cdot;\cdot\right]$ represent the discretized space (in
+contrast to $\left(\cdot;\cdot\right)$, which defines the continuous
+space).  The ``$;$'' symbol divides indices in physical space to the
+right of ``$;$'' from indices in state space to the left of
+``$;$''. In most applications, $S$ is simply tessellated into voxels
+on a regular (uniform) grid so that the position can be denoted by
+$s\rightarrow i,j,k$ in three dimensions.
 
 As noted earlier, the local state space in most advanced materials is
 likely to demand sophisticated representations. In prior work
@@ -638,8 +648,10 @@ of a microstructure function such that
 \begin{figure}
     \centering
     \includegraphics{fig/stats_micro_example.png}
-    \caption{The microstructure function (also referred to as the discretized microstructure) for a two phase composite material.
-    The enumerated with a spatial index $s$. Discrete vectors $r$ describe the relative positions between different spatial locations.}
+    \caption{The microstructure function (also referred to as the
+      discretized microstructure) for a two phase composite material.
+      Discrete vectors $r$ describe the relative positions between
+      different spatial locations.}
     \label{fig:stats}
 \end{figure}
 where $r$ is a discrete spatial vector within the voxelated domain
@@ -739,9 +751,9 @@ niezgoda2013novel, niezgoda2011understanding, cecen2016versatile}.
      2. Compute 2-point statistics using local states (Eq. \ref{eq:stats}).
      3. Create low dimensional microstructure descriptors using dimensionality
      reduction technques (Eq. \ref{eq:struc}).
-     4. Use machine learning model to establish a linkage with low dimensional 
+     4. Use machine learning model to establish a linkage with low dimensional
      microtructure descriptors. (Eq. \ref{eq:hom}).
-     The MKS Localization workflow (right) constists of 2 steps. 
+     The MKS Localization workflow (right) constists of 2 steps.
      1. Discretize the raw microstructure with the microstructure function.
      2. Calibrated physics-based kernels (Eq. \ref{eq:series}).}
     \includegraphics[scale=.22]{fig/mks_workflows.png}
@@ -1001,7 +1013,7 @@ the polynomial regression will be varied between 1 to 3.
 \end{Verbatim}
 
 % The default \texttt{score} method for the \texttt{MKSHomogenizationModel} is coefficient of determination
-% (R-squared). 
+% (R-squared).
 % value. Let's look at the how the mean R-squared values and their
 % standard deviations change, as we varied the number of
 % \texttt{n\_components} and \texttt{degree}, using
@@ -1036,7 +1048,7 @@ R-squared Value 0.999808062591
     \end{Verbatim}
 
 For the specified subspace it was found that a model
-with a 2nd order polynomial and 11 principal components had the 
+with a 2nd order polynomial and 11 principal components had the
 highest R-squared value. The results over the whole subspace
 explored with \texttt{GridSeachCV} can be visualized using
 \texttt{draw\_grid\_scores}.
@@ -1189,9 +1201,9 @@ ratio values and elastic moduli values indicates the number of phases.
 \end{Verbatim}
 
 Delta microstructures are composed of only two phases with the center of the microstructure
-being a different phase from the rest. All permutations of thes delta microstructures 
+being a different phase from the rest. All permutations of thes delta microstructures
 and their associated  strain fields $\varepsilon_{xx}$ are needed to create calibrate
-the model. A delta microstructure and it's strain field can be visualized using 
+the model. A delta microstructure and it's strain field can be visualized using
 \texttt{draw\_microstructure\_strain} for \texttt{pymks.tools}.
 
     \begin{Verbatim}[commandchars=\\\{\}]
@@ -1221,9 +1233,9 @@ Similar to the \texttt{MKSHomogenizationModel}, an instance
 of a basis class to specify the discretization
 methods for the microstructure microstructure function
 (see Fig. \ref{fig:workflows}).
-before an instance of the \texttt{MKSLocalizatoinModel} is created. 
+before an instance of the \texttt{MKSLocalizatoinModel} is created.
 An instance of \texttt{PrimitiveBasis} with \texttt{n\_states} equal to 3,
-is used because the material system as 3 distinct phases. 
+is used because the material system as 3 distinct phases.
 
     \begin{Verbatim}[commandchars=\\\{\}]
 
@@ -1262,7 +1274,7 @@ function from \texttt{pymks.tools}.
 \subsubsection{Prediction of the Strain Field for a Random
 Microstructure}\label{predict-of-the-strain-field-for-a-random-microstructure}
 
-A predicted strain field from the localization model can be compared 
+A predicted strain field from the localization model can be compared
 the strain field using a finite element simulation for the same random
 microstructure for model validation. The \texttt{make\_elasticFEstrain\_random} function from
 \texttt{pymks.datasets} generates a random
