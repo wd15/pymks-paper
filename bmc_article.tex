@@ -952,37 +952,6 @@ fractions. The \texttt{make\_elastic\_stiffness} function returns the
 microstructures \texttt{X} and their associated stiffness values
 \texttt{y}.
 
-%     \begin{Verbatim}[commandchars=\\\{\}]
-
-% \PY{k+kn}{from} \PY{n+nn}{pymks.datasets} \PY{k+kn}{import} \PY{n}{make\PYZus{}elastic\PYZus{}stiffness}
-% \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k+kn}{as} \PY{n+nn}{np}
-        
-% \PY{n}{sample\PYZus{}size} \PY{o}{=} \PY{l+m+mi}{50}
-% \PY{n}{n\PYZus{}samples} \PY{o}{=} \PY{p}{[}\PY{n}{sample\PYZus{}size}\PY{p}{]} \PY{o}{*} \PY{l+m+mi}{16}
-        
-% \PY{n}{grain\PYZus{}size} \PY{o}{=} \PY{p}{[}\PY{p}{(}\PY{l+m+mi}{8}\PY{p}{,} \PY{l+m+mi}{8}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{8}\PY{p}{,} \PY{l+m+mi}{6}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{6}\PY{p}{,} \PY{l+m+mi}{8}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{6}\PY{p}{,} \PY{l+m+mi}{6}\PY{p}{)}\PY{p}{,}
-%               \PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,} \PY{l+m+mi}{4}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{4}\PY{p}{,} \PY{l+m+mi}{10}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{4}\PY{p}{,} \PY{l+m+mi}{4}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,} \PY{l+m+mi}{10}\PY{p}{)}\PY{p}{,}
-%               \PY{p}{(}\PY{l+m+mi}{12}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{12}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{12}\PY{p}{,} \PY{l+m+mi}{12}\PY{p}{)}\PY{p}{,}
-%               \PY{p}{(}\PY{l+m+mi}{14}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{14}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{14}\PY{p}{,} \PY{l+m+mi}{14}\PY{p}{)}\PY{p}{]}
-        
-% \PY{n}{volume\PYZus{}fraction} \PY{o}{=} \PY{p}{[}\PY{p}{(}\PY{l+m+mf}{0.8}\PY{p}{,} \PY{l+m+mf}{0.2}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mf}{0.7}\PY{p}{,} \PY{l+m+mf}{0.3}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mf}{0.6}\PY{p}{,} \PY{l+m+mf}{0.4}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mf}{0.5}\PY{p}{,} \PY{l+m+mf}{0.5}\PY{p}{)}\PY{p}{,}
-%                    \PY{p}{(}\PY{l+m+mf}{0.2}\PY{p}{,} \PY{l+m+mf}{0.8}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mf}{0.3}\PY{p}{,} \PY{l+m+mf}{0.7}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mf}{0.4}\PY{p}{,} \PY{l+m+mf}{0.6}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mf}{0.5}\PY{p}{,} \PY{l+m+mf}{0.5}\PY{p}{)}\PY{p}{,}
-%                    \PY{p}{(}\PY{l+m+mf}{0.8}\PY{p}{,} \PY{l+m+mf}{0.2}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mf}{0.7}\PY{p}{,} \PY{l+m+mf}{0.3}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mf}{0.6}\PY{p}{,} \PY{l+m+mf}{0.4}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mf}{0.5}\PY{p}{,} \PY{l+m+mf}{0.5}\PY{p}{)}\PY{p}{,}
-%                    \PY{p}{(}\PY{l+m+mf}{0.2}\PY{p}{,} \PY{l+m+mf}{0.8}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mf}{0.3}\PY{p}{,} \PY{l+m+mf}{0.7}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mf}{0.4}\PY{p}{,} \PY{l+m+mf}{0.6}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mf}{0.5}\PY{p}{,} \PY{l+m+mf}{0.5}\PY{p}{)}\PY{p}{]}
-        
-% \PY{n}{percent\PYZus{}variance} \PY{o}{=} \PY{l+m+mf}{0.15} 
-% \PY{n}{elastic\PYZus{}modulus} \PY{o}{=} \PY{p}{(}\PY{l+m+mi}{300}\PY{p}{,} \PY{l+m+mi}{200}\PY{p}{)}
-% \PY{n}{poissons\PYZus{}ratio} \PY{o}{=} \PY{p}{(}\PY{l+m+mf}{0.28}\PY{p}{,} \PY{l+m+mf}{0.3}\PY{p}{)}
-% \PY{n}{size} \PY{o}{=} \PY{p}{(}\PY{l+m+mi}{21}\PY{p}{,} \PY{l+m+mi}{21}\PY{p}{)}
-% \PY{n}{seed} \PY{o}{=} \PY{l+m+mi}{1}
-        
-% \PY{n}{X}\PY{p}{,} \PY{n}{y} \PY{o}{=} \PY{n}{make\PYZus{}elastic\PYZus{}stiffness}\PY{p}{(}\PY{n}{n\PYZus{}samples}\PY{o}{=}\PY{n}{n\PYZus{}samples}\PY{p}{,} 
-%                               \PY{n}{volume\PYZus{}fraction}\PY{o}{=}\PY{n}{volume\PYZus{}fraction}\PY{p}{,}
-%                               \PY{n}{grain\PYZus{}size}\PY{o}{=}\PY{n}{grain\PYZus{}size}\PY{p}{,}  \PY{n}{size}\PY{o}{=}\PY{n}{size}\PY{p}{,}
-%                               \PY{n}{percent\PYZus{}variance}\PY{o}{=}\PY{n}{percent\PYZus{}variance}\PY{p}{,}
-%                               \PY{n}{elastic\PYZus{}modulus}\PY{o}{=}\PY{n}{elastic\PYZus{}modulus}\PY{p}{,} 
-%                               \PY{n}{poissons\PYZus{}ratio}\PY{o}{=}\PY{n}{poissons\PYZus{}ratio}\PY{p}{,} \PY{n}{seed}\PY{o}{=}\PY{n}{seed}\PY{p}{)}
-% \end{Verbatim}
 
 \begin{_input}
 from pymks.datasets import make_elastic_stiffness
@@ -1019,14 +988,9 @@ X, y = make_elastic_stiffness(n_samples=n_samples,
 
     An example microstructure from each of the 16 classes can be
 visualized by importing \texttt{draw\_microstructures} function from
-\texttt{pymks.tools}.
-%     \begin{Verbatim}[commandchars=\\\{\}]
-% \PY{k+kn}{from} \PY{n+nn}{pymks.tools} \PY{k+kn}{import} \PY{n}{draw\PYZus{}microstructures}
-        
-% \PY{n}{X\PYZus{}examples} \PY{o}{=} \PY{n}{X}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{:}\PY{p}{:}\PY{n}{sample\PYZus{}size}\PY{p}{]}
-% \PY{n}{draw\PYZus{}microstructures}\PY{p}{(}\PY{n}{X\PYZus{}examples}\PY{p}{,} \PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{4}\PY{p}{,} \PY{l+m+mi}{4}\PY{p}{)}\PY{p}{)}
+\texttt{pymks.tools}. The output from \texttt{draw\_microstructures}
+can be found in Fig. \ref{fig:drawMicro}.
 
-% \end{Verbatim}
 
 \begin{_input}
  from pymks.tools import draw_microstructures
@@ -1036,10 +1000,17 @@ draw_microstructures(X_examples, figsize=(4, 4))
 
 \end{_input}
 
-    \begin{center}
-    \fimage{\adjustimage{max size={0.98\linewidth}{0.9\paperheight}}{pymks_paper_homogenization_files/pymks_paper_homogenization_5_0.png}}
-    \end{center}
-    { \hspace*{\fill} \\}
+\begin{figure}
+    \centering
+    \includegraphics[scale=.28]{pymks_paper_homogenization_files/pymks_paper_homogenization_5_0.png}
+    \caption{One sample from each of the 16 difference microstructure classes used for calibration of the homogenization model.}
+    \label{fig:drawMicro}
+\end{figure}
+
+%     \begin{center}
+%     \fimage{\adjustimage{max size={0.98\linewidth}{0.9\paperheight}}{pymks_paper_homogenization_files/pymks_paper_homogenization_5_0.png}}
+%     \end{center}
+%     { \hspace*{\fill} \\}
     \subsubsection{Calibration of Homogenization
 Model}\label{calibration-of-homogenization-model}
 
@@ -1061,16 +1032,7 @@ The periodic axes as well as the set(s) of spatial correlations need to be speci
 practice the set of spatial correlations are a hyper parameter of our
 model that could be optimized, but for this example only the two
 autocorrelations will be used.
-%     \begin{Verbatim}[commandchars=\\\{\}]
 
-% \PY{k+kn}{from} \PY{n+nn}{pymks} \PY{k+kn}{import} \PY{n}{MKSHomogenizationModel}
-% \PY{k+kn}{from} \PY{n+nn}{pymks.bases} \PY{k+kn}{import} \PY{n}{PrimitiveBasis}
-        
-% \PY{n}{prim\PYZus{}basis} \PY{o}{=} \PY{n}{PrimitiveBasis}\PY{p}{(}\PY{n}{n\PYZus{}states}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{,} \PY{n}{domain}\PY{o}{=}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
-% \PY{n}{model} \PY{o}{=} \PY{n}{MKSHomogenizationModel}\PY{p}{(}\PY{n}{basis}\PY{o}{=}\PY{n}{prim\PYZus{}basis}\PY{p}{,} \PY{n}{periodic\PYZus{}axes}\PY{o}{=}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} 
-%                                \PY{n}{correlations}\PY{o}{=}\PY{p}{[}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{)}\PY{p}{]}\PY{p}{)}
-
-% \end{Verbatim}
 
 \begin{_input}
 from pymks import MKSHomogenizationModel
@@ -1093,22 +1055,7 @@ subspace for the hyper parameters for our model. A dictionary
 3. \texttt{StratifiedKFold} is used to ensure that microstructures from
 each of the classes are used for each fold during cross validation. The
 array \texttt{labels} is used to label each of the classes.
-%     \begin{Verbatim}[commandchars=\\\{\}]
 
-% \PY{k+kn}{from} \PY{n+nn}{sklearn.cross\PYZus{}validation} \PY{k+kn}{import} \PY{n}{StratifiedKFold}
-% \PY{k+kn}{from} \PY{n+nn}{sklearn.grid\PYZus{}search} \PY{k+kn}{import} \PY{n}{GridSearchCV}
-        
-% \PY{n}{flat\PYZus{}shape} \PY{o}{=} \PY{p}{(}\PY{n}{X}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{p}{)} \PY{o}{+} \PY{p}{(}\PY{n}{X}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{.}\PY{n}{size}\PY{p}{,}\PY{p}{)}
-% \PY{n}{params\PYZus{}to\PYZus{}tune} \PY{o}{=} \PY{p}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{degree}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{np}\PY{o}{.}\PY{n}{arange}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{4}\PY{p}{)}\PY{p}{,}
-%                   \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{n\PYZus{}components}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{np}\PY{o}{.}\PY{n}{arange}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{13}\PY{p}{)}\PY{p}{\PYZcb{}}
-% \PY{n}{labels} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{repeat}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{arange}\PY{p}{(}\PY{l+m+mi}{16}\PY{p}{)}\PY{p}{,} \PY{l+m+mi}{50}\PY{p}{)}
-% \PY{n}{skf} \PY{o}{=} \PY{n}{StratifiedKFold}\PY{p}{(}\PY{n}{labels}\PY{p}{,} \PY{n}{n\PYZus{}folds}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{)}
-        
-% \PY{n}{fit\PYZus{}params} \PY{o}{=} \PY{p}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{size}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{X}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{.}\PY{n}{shape}\PY{p}{\PYZcb{}}
-% \PY{n}{gs} \PY{o}{=} \PY{n}{GridSearchCV}\PY{p}{(}\PY{n}{model}\PY{p}{,} \PY{n}{params\PYZus{}to\PYZus{}tune}\PY{p}{,} \PY{n}{cv}\PY{o}{=}\PY{n}{skf}\PY{p}{,}
-%                   \PY{n}{fit\PYZus{}params}\PY{o}{=}\PY{n}{fit\PYZus{}params}\PY{p}{)}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X}\PY{o}{.}\PY{n}{reshape}\PY{p}{(}\PY{n}{flat\PYZus{}shape}\PY{p}{)}\PY{p}{,} \PY{n}{y}\PY{p}{)}
-
-% \end{Verbatim}
 
 \begin{_input}
 from sklearn.cross_validation import StratifiedKFold
@@ -1145,23 +1092,7 @@ Number of Components 11
 R-squared Value 0.999960653331
 
 \end{_output}
-% \begin{Verbatim}[commandchars=\\\{\}]
 
-% \PY{k+kn}{from} \PY{n+nn}{\PYZus{}\PYZus{}future\PYZus{}\PYZus{}} \PY{k+kn}{import} \PY{n}{print\PYZus{}function}
-        
-% \PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Order of Polynomial}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{gs}\PY{o}{.}\PY{n}{best\PYZus{}estimator\PYZus{}}\PY{o}{.}\PY{n}{degree}\PY{p}{)}
-% \PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Number of Components}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{gs}\PY{o}{.}\PY{n}{best\PYZus{}estimator\PYZus{}}\PY{o}{.}\PY{n}{n\PYZus{}components}\PY{p}{)}
-% \PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{R\PYZhy{}squared Value}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{gs}\PY{o}{.}\PY{n}{score}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{n}{y}\PY{p}{)}\PY{p}{)}
-% \end{Verbatim}
-
-
-% \begin{Verbatim}[commandchars=\\\{\}]
-
-% Order of Polynomial 2
-% Number of Components 11
-% R-squared Value 0.999960653331
-
-% \end{Verbatim}
 
 Two different visualizations of the results from \texttt{GridsearchCV}
 with can be created using \texttt{draw\_gridscores\_matrix} and
@@ -1169,15 +1100,9 @@ with can be created using \texttt{draw\_gridscores\_matrix} and
 
 \texttt{draw\_gridscores\_matrix} provides a visualization of two
 matrices for both the mean R-squared values and their standard
-deviation.
-%     \begin{Verbatim}[commandchars=\\\{\}]
+deviation. The output from \texttt{draw\_gridscores\_matrix} can be
+found in Fig. \ref{fig:drawGridscoresMatrix}.
 
-% \PY{k+kn}{from} \PY{n+nn}{pymks.tools} \PY{k+kn}{import} \PY{n}{draw\PYZus{}gridscores\PYZus{}matrix}
-        
-% \PY{n}{draw\PYZus{}gridscores\PYZus{}matrix}\PY{p}{(}\PY{n}{gs}\PY{p}{,} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{n\PYZus{}components}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{degree}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{score\PYZus{}label}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{R\PYZhy{}Squared}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
-%                        \PY{n}{param\PYZus{}labels}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Number of Components}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Order of Polynomial}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
-
-% \end{Verbatim}
 
 \begin{_input}
 from pymks.tools import draw_gridscores_matrix
@@ -1190,29 +1115,20 @@ draw_gridscores_matrix(gs, ['n_components', 'degree'],
 \end{_input}
 
 
-\begin{center}
-\fimage{\adjustimage{max size={0.98\linewidth}{0.9\paperheight}}{pymks_paper_homogenization_files/pymks_paper_homogenization_13_0.png}}
-    \end{center}
-    { \hspace*{\fill} \\}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=.64]{pymks_paper_homogenization_files/pymks_paper_homogenization_13_0.png}
+    \caption{Mean R-Squared values and Standard deviation as a function of the order of the polynomial
+    and the number of principal components.}
+    \label{fig:drawGridscoresMatrix}
+\end{figure}
+
     \texttt{draw\_gridscores} provides another view of the same information
 with the mean values indicated by the points and the standard deviation
-indication by the shared regions.
-%     \begin{Verbatim}[commandchars=\\\{\}]
+indication by the shared regions. The output from \texttt{draw\_gridscores}
+can be found in Fig. \ref{fig:drawGridscores}.
 
-% \PY{k+kn}{from} \PY{n+nn}{pymks.tools} \PY{k+kn}{import} \PY{n}{draw\PYZus{}gridscores}
-        
-% \PY{n}{gs\PYZus{}deg\PYZus{}1} \PY{o}{=} \PY{p}{[}\PY{n}{x} \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{gs}\PY{o}{.}\PY{n}{grid\PYZus{}scores\PYZus{}} \PYZbs{}
-%             \PY{k}{if} \PY{n}{x}\PY{o}{.}\PY{n}{parameters}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{degree}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{==} \PY{l+m+mi}{1}\PY{p}{]}
-% \PY{n}{gs\PYZus{}deg\PYZus{}2} \PY{o}{=} \PY{p}{[}\PY{n}{x} \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{gs}\PY{o}{.}\PY{n}{grid\PYZus{}scores\PYZus{}} \PYZbs{}
-%             \PY{k}{if} \PY{n}{x}\PY{o}{.}\PY{n}{parameters}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{degree}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{==} \PY{l+m+mi}{2}\PY{p}{]}
-% \PY{n}{gs\PYZus{}deg\PYZus{}3} \PY{o}{=} \PY{p}{[}\PY{n}{x} \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{gs}\PY{o}{.}\PY{n}{grid\PYZus{}scores\PYZus{}} \PYZbs{}
-%             \PY{k}{if} \PY{n}{x}\PY{o}{.}\PY{n}{parameters}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{degree}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{==} \PY{l+m+mi}{3}\PY{p}{]}
-        
-% \PY{n}{draw\PYZus{}gridscores}\PY{p}{(}\PY{p}{[}\PY{n}{gs\PYZus{}deg\PYZus{}1}\PY{p}{,}  \PY{n}{gs\PYZus{}deg\PYZus{}2}\PY{p}{,} \PY{n}{gs\PYZus{}deg\PYZus{}3}\PY{p}{]}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{n\PYZus{}components}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} 
-%                 \PY{n}{data\PYZus{}labels}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{1st Order}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{2nd Order}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{3rd Order}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,}
-%                 \PY{n}{param\PYZus{}label}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Number of Components}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{score\PYZus{}label}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{R\PYZhy{}Squared}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-
-% \end{Verbatim}
 
 \begin{_input}
 from pymks.tools import draw_gridscores
@@ -1232,22 +1148,24 @@ draw_gridscores([gs_deg_1,  gs_deg_2, gs_deg_3], 'n_components',
 
 \end{_input}
 
-    \begin{center}
-\fimage{\adjustimage{max size={0.98\linewidth}{0.9\paperheight}}{pymks_paper_homogenization_files/pymks_paper_homogenization_15_0.png}}
-    \end{center}
-    { \hspace*{\fill} \\}
+\begin{figure}
+    \centering
+    \includegraphics[scale=.625]{pymks_paper_homogenization_files/pymks_paper_homogenization_15_0.png}
+    \caption{The mean R-Squared values indicated by the points and the standard deviation
+indication by the shared regions as a function of the number of principal components for the first
+three orders of a polynomial function.}
+    \label{fig:drawGridscores}
+\end{figure}
+
+%     \begin{center}
+% \fimage{\adjustimage{max size={0.98\linewidth}{0.9\paperheight}}{pymks_paper_homogenization_files/pymks_paper_homogenization_15_0.png}}
+%     \end{center}
+%     { \hspace*{\fill} \\}
     
     For the specified parameter range, the model with the highest R-squared
 value was found to have a 2nd order polynomial with 11 principal
-components. This model is calibrated using the entire data set and used
-for the rest of the example.
-%     \begin{Verbatim}[commandchars=\\\{\}]
-
-% \PY{n}{model} \PY{o}{=} \PY{n}{gs}\PY{o}{.}\PY{n}{best\PYZus{}estimator\PYZus{}}
-         
-% \PY{n}{model}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{n}{y}\PY{p}{)}
-
-% \end{Verbatim}
+components. This model is calibrated using the entire training dataset and is
+used for the rest of the example.
 
 \begin{_input}
 model = gs.best_estimator_
@@ -1263,22 +1181,6 @@ parameters with the exception of the number of samples and the seed used
 for the random number generator. The function returns the new
 microstructure \texttt{X\_new} and their effective stiffness values
 \texttt{y\_new}.
-%     \begin{Verbatim}[commandchars=\\\{\}]
-    
-% \PY{n}{test\PYZus{}sample\PYZus{}size} \PY{o}{=} \PY{l+m+mi}{10}
-% \PY{n}{n\PYZus{}samples} \PY{o}{=} \PY{p}{[}\PY{n}{test\PYZus{}sample\PYZus{}size}\PY{p}{]} \PY{o}{*} \PY{l+m+mi}{16}
-         
-% \PY{n}{seed} \PY{o}{=} \PY{l+m+mi}{0}
-         
-% \PY{n}{X\PYZus{}new}\PY{p}{,} \PY{n}{y\PYZus{}new} \PY{o}{=} \PY{n}{make\PYZus{}elastic\PYZus{}stiffness}\PY{p}{(}\PY{n}{n\PYZus{}samples}\PY{o}{=}\PY{n}{n\PYZus{}samples}\PY{p}{,} \PY{n}{size}\PY{o}{=}\PY{n}{size}\PY{p}{,} 
-%                                       \PY{n}{grain\PYZus{}size}\PY{o}{=}\PY{n}{grain\PYZus{}size}\PY{p}{,}
-%                                       \PY{n}{volume\PYZus{}fraction}\PY{o}{=}\PY{n}{volume\PYZus{}fraction}\PY{p}{,} 
-%                                       \PY{n}{percent\PYZus{}variance}\PY{o}{=}\PY{n}{percent\PYZus{}variance}\PY{p}{,}
-%                                       \PY{n}{elastic\PYZus{}modulus}\PY{o}{=}\PY{n}{elastic\PYZus{}modulus}\PY{p}{,} 
-%                                       \PY{n}{poissons\PYZus{}ratio}\PY{o}{=}\PY{n}{poissons\PYZus{}ratio}\PY{p}{,} 
-%                                       \PY{n}{seed}\PY{o}{=}\PY{n}{seed}\PY{p}{)}
-                                      
-% \end{Verbatim}
 
 \begin{_input}
 test_sample_size = 10
@@ -1297,11 +1199,6 @@ X_new, y_new = make_elastic_stiffness(
 \end{_input}
     Effective stiffness values predicted by the model for the new
 data are generated using the \texttt{predict} method.
-%     \begin{Verbatim}[commandchars=\\\{\}]
-
-% \PY{n}{y\PYZus{}pred} \PY{o}{=} \PY{n}{model}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}new}\PY{p}{)}
-
-% \end{Verbatim}
 
 \begin{_input}
 y_pred = model.predict(X_new)
@@ -1309,23 +1206,15 @@ y_pred = model.predict(X_new)
 
     A visualization of the PC scores for both the
 calibration and the validation data can be created using
-\texttt{draw\_components\_scatter} from \texttt{pymks.tools}.
+\texttt{draw\_components\_scatter} from \texttt{pymks.tools}. The output from
+\texttt{draw\_components\_scatter} can be found in Fig. \ref{fig:drawComponentsScatter}
 
 Because both the validation and the calibration data were generated from
 the \texttt{make\_elastic\_stiffness} function with the same parameters
 both sets of data are different samples from the same distribution.
 Similar visualizations can provide insights on differences between
 different data sources.
-%     \begin{Verbatim}[commandchars=\\\{\}]
 
-% \PY{k+kn}{from} \PY{n+nn}{pymks.tools} \PY{k+kn}{import} \PY{n}{draw\PYZus{}components\PYZus{}scatter}
-        
-% \PY{n}{draw\PYZus{}components\PYZus{}scatter}\PY{p}{(}\PY{p}{[}\PY{n}{model}\PY{o}{.}\PY{n}{reduced\PYZus{}fit\PYZus{}data}\PY{p}{[}\PY{p}{:}\PY{p}{,} \PY{p}{:}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,} 
-%                          \PY{n}{model}\PY{o}{.}\PY{n}{reduced\PYZus{}predict\PYZus{}data}\PY{p}{[}\PY{p}{:}\PY{p}{,} \PY{p}{:}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{]}\PY{p}{,}
-%                          \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Training Data}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Test Data}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,}
-%                          \PY{n}{legend\PYZus{}outside}\PY{o}{=}\PY{n+nb+bp}{True}\PY{p}{)}
-
-% \end{Verbatim}
 
 \begin{_input}
 from pymks.tools import draw_components_scatter
@@ -1336,27 +1225,25 @@ draw_components_scatter([model.reduced_fit_data[:, :2],
                         legend_outside=True)
 
 \end{_input}
-    \begin{center}
-    \fimage{\adjustimage{max size={0.98\linewidth}{0.9\paperheight}}{pymks_paper_homogenization_files/pymks_paper_homogenization_23_0.png}}
-    \end{center}
-    { \hspace*{\fill} \\}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=.61]{pymks_paper_homogenization_files/pymks_paper_homogenization_23_0.png}
+    \caption{Low dimensional microstructure distributions ($\mu_j[k]$ from Eq. \ref{eq:struc}) for both the calibration and validation
+    datasets.}
+    \label{fig:drawComponentsScatter}
+\end{figure}
+
+%     \begin{center}
+%     \fimage{\adjustimage{max size={0.98\linewidth}{0.9\paperheight}}{pymks_paper_homogenization_files/pymks_paper_homogenization_23_0.png}}
+%     \end{center}
+%     { \hspace*{\fill} \\}
     
-    As an evaluation of our model's predictions, a goodness-of-fit plot can
+    To evaluate our model's predictions, a goodness-of-fit plot can
 be generated by importing \texttt{draw\_goodness\_of\_fit} from
-\texttt{pymks.tools}. Additionally the R-squared value for our predicted
-data can be printed.
-
-% \begin{Verbatim}[commandchars=\\\{\}]
-
-% \PY{k+kn}{from} \PY{n+nn}{pymks.tools} \PY{k+kn}{import} \PY{n}{draw\PYZus{}goodness\PYZus{}of\PYZus{}fit}
-
-% \PY{n}{fit\PYZus{}data} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{n}{y}\PY{p}{,} \PY{n}{model}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X}\PY{p}{)}\PY{p}{]}\PY{p}{)}
-% \PY{n}{pred\PYZus{}data} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{n}{y\PYZus{}new}\PY{p}{,} \PY{n}{y\PYZus{}pred}\PY{p}{]}\PY{p}{)}
-% \PY{n}{draw\PYZus{}goodness\PYZus{}of\PYZus{}fit}\PY{p}{(}\PY{n}{fit\PYZus{}data}\PY{p}{,} \PY{n}{pred\PYZus{}data}\PY{p}{,} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Training Data}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Test Data}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
-         
-% \PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{R\PYZhy{}squared value}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{model}\PY{o}{.}\PY{n}{score}\PY{p}{(}\PY{n}{X\PYZus{}new}\PY{p}{,} \PY{n}{y\PYZus{}new}\PY{p}{)}\PY{p}{)}
-
-% \end{Verbatim}
+\texttt{pymks.tools}. The results from \texttt{draw\_goodness\_of\_fit}
+can be found in Fig. \ref{fig:drawGoodnessOfFit}. Additionally the R-squared
+value for our predicted data can be printed.
 
 \begin{_input}
 from pymks.tools import draw_goodness_of_fit
@@ -1367,10 +1254,19 @@ draw_goodness_of_fit(fit_data, pred_data,
                      ['Training Data', 'Test Data'])
 \end{_input}
 
-    \begin{center}
-\fimage{\adjustimage{max size={0.98\linewidth}{0.9\paperheight}}{pymks_paper_homogenization_files/pymks_paper_homogenization_25_0.png}}
-    \end{center}
-    { \hspace*{\fill} \\}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=.85]{pymks_paper_homogenization_files/pymks_paper_homogenization_25_0.png}
+    \caption{Goodness-of-Fit plot for effective stiffness $C_{xx}$ for the homogenization model.}
+    \label{fig:drawGoodnessOfFit}
+\end{figure}
+
+%     \begin{center}
+% \fimage{\adjustimage{max size={0.98\linewidth}{0.9\paperheight}}{pymks_paper_homogenization_files/pymks_paper_homogenization_25_0.png}}
+%     \end{center}
+%     { \hspace*{\fill} \\}
     
 \begin{_input}
 print('R-squared value', model.score(X_new, y_new))
@@ -1397,25 +1293,6 @@ are used in a finite element simulation using the
 \texttt{make\_elasticFEstrain\_delta} function from
 \texttt{pymks.datasets}. The number of Poisson's ratio and elastic
 moduli values indicates the number of phases.
-%     \begin{Verbatim}[commandchars=\\\{\}]
-
-% \PY{k+kn}{from} \PY{n+nn}{pymks.datasets} \PY{k+kn}{import} \PY{n}{make\PYZus{}elastic\PYZus{}FE\PYZus{}strain\PYZus{}delta}
-% \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k+kn}{as} \PY{n+nn}{np}
-        
-% \PY{n}{n} \PY{o}{=} \PY{l+m+mi}{21}
-% \PY{n}{n\PYZus{}phases} \PY{o}{=} \PY{l+m+mi}{3}
-        
-% \PY{n}{elastic\PYZus{}modulus} \PY{o}{=} \PY{p}{(}\PY{l+m+mi}{80}\PY{p}{,} \PY{l+m+mi}{100}\PY{p}{,} \PY{l+m+mi}{120}\PY{p}{)}
-% \PY{n}{poissons\PYZus{}ratio} \PY{o}{=} \PY{p}{(}\PY{l+m+mf}{0.3}\PY{p}{,} \PY{l+m+mf}{0.3}\PY{p}{,} \PY{l+m+mf}{0.3}\PY{p}{)}
-% \PY{n}{macro\PYZus{}strain} \PY{o}{=} \PY{l+m+mf}{0.02}
-% \PY{n}{size} \PY{o}{=} \PY{p}{(}\PY{n}{n}\PY{p}{,} \PY{n}{n}\PY{p}{)}
-        
-% \PY{n}{X\PYZus{}delta}\PY{p}{,} \PY{n}{strains\PYZus{}delta} \PY{o}{=} \PY{n}{make\PYZus{}elastic\PYZus{}FE\PYZus{}strain\PYZus{}delta}\PY{p}{(}
-%     \PY{n}{elastic\PYZus{}modulus}\PY{o}{=}\PY{n}{elastic\PYZus{}modulus}\PY{p}{,}
-%     \PY{n}{poissons\PYZus{}ratio}\PY{o}{=}\PY{n}{poissons\PYZus{}ratio}\PY{p}{,}
-%     \PY{n}{size}\PY{o}{=}\PY{n}{size}\PY{p}{,} \PY{n}{macro\PYZus{}strain}\PY{o}{=}\PY{n}{macro\PYZus{}strain}\PY{p}{)}
- 
-% \end{Verbatim}
 
 \begin{_input}
 from pymks.datasets import make_elastic_FE_strain_delta
@@ -1436,17 +1313,12 @@ X_delta, strains_delta = make_elastic_FE_strain_delta(
 \end{_input}
     Delta microstructures are composed of only two phases with the
 center of the microstructure being a different phase from the rest. All
-permutations of thes delta microstructures and their associated strain
-fields \(\varepsilon_{xx}\) are needed to create calibrate the model. A
-delta microstructure and it's strain field can be visualized using
+permutations of the delta microstructures and their associated strain
+fields \(\varepsilon_{xx}\) are needed to calibrate the localization model.
+A delta microstructure and it's strain field can be visualized using
 \texttt{draw\_microstructure\_strain} from \texttt{pymks.tools}.
-%     \begin{Verbatim}[commandchars=\\\{\}]
-
-% \PY{k+kn}{from} \PY{n+nn}{pymks.tools} \PY{k+kn}{import} \PY{n}{draw\PYZus{}microstructure\PYZus{}strain}
-        
-% \PY{n}{draw\PYZus{}microstructure\PYZus{}strain}\PY{p}{(}\PY{n}{X\PYZus{}delta}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{strains\PYZus{}delta}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
-
-% \end{Verbatim}
+The output from \texttt{draw\_microstructure\_strain} can be found
+in Fig. \ref{fig:drawMicroStrain}.
 
 \begin{_input}
 from pymks.tools import draw_microstructure_strain
@@ -1454,33 +1326,31 @@ from pymks.tools import draw_microstructure_strain
 draw_microstructure_strain(X_delta[0], strains_delta[0])
 \end{_input}
 
-    \begin{center}
-    \fimage{\adjustimage{max size={0.98\linewidth}{0.9\paperheight}}{pymks_paper_localization_files/pymks_paper_localization_5_0.png}}
-    \end{center}
-    { \hspace*{\fill} \\}
+\begin{figure}
+    \centering
+    \includegraphics[scale=.54]{pymks_paper_localization_files/pymks_paper_localization_5_0.png}
+    \caption{Delta microstructure (right) and its associated strain field (left). The delta
+    microstructures and their local response fields are used to calibrated the localization model.}
+    \label{fig:drawMicroStrain}
+\end{figure}
+
+%     \begin{center}
+%     \fimage{\adjustimage{max size={0.98\linewidth}{0.9\paperheight}}{pymks_paper_localization_files/pymks_paper_localization_5_0.png}}
+%     \end{center}
+%     { \hspace*{\fill} \\}
     
     \subsubsection{Calibration of the Localization
 Model}\label{calibration-of-the-localization-model}
 
     In order to make an instance of the \texttt{MKSLocalizationModel},
 an instance of a basis class must first be created to specify the
-discretization methods for the microstructure function (see Fig.
+discretization method for the microstructure function (see Fig.
 \ref{fig:workflows}). For this particular example, there are 3 discrete
 phases, therefore the \texttt{PrimitiveBasis} from \texttt{pymks.bases}
-will be used. The phases denoted by 0, 1 and 2, therefore
+will be used. The phases are enumerated by 0, 1 and 2, therefore
 we have three local states with a domain from 0 to 2. An instance of the
 \texttt{PrimitiveBasis} with these parameters can be used to create an
 instance of the \texttt{MKSLocalizationModel} as follows.
-
-%     \begin{Verbatim}[commandchars=\\\{\}]
-
-% \PY{k+kn}{from} \PY{n+nn}{pymks} \PY{k+kn}{import} \PY{n}{MKSLocalizationModel}
-% \PY{k+kn}{from} \PY{n+nn}{pymks.bases} \PY{k+kn}{import} \PY{n}{PrimitiveBasis}
-        
-% \PY{n}{p\PYZus{}basis} \PY{o}{=}\PY{n}{PrimitiveBasis}\PY{p}{(}\PY{n}{n\PYZus{}states}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{,} \PY{n}{domain}\PY{o}{=}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
-% \PY{n}{model} \PY{o}{=} \PY{n}{MKSLocalizationModel}\PY{p}{(}\PY{n}{basis}\PY{o}{=}\PY{n}{p\PYZus{}basis}\PY{p}{)}
-
-% \end{Verbatim}
 
 \begin{_input}
 from pymks import MKSLocalizationModel
@@ -1493,16 +1363,8 @@ model = MKSLocalizationModel(basis=p_basis)
     With the delta microstructures and their strain fields, the influence
 kernels can be calibrated using the \texttt{fit} method.
 A visualization of the influence kernels can be generated using the
-\texttt{draw\_coeff} function from \texttt{pymks.tools}.
-
-%     \begin{Verbatim}[commandchars=\\\{\}]
-
-% \PY{k+kn}{from} \PY{n+nn}{pymks.tools} \PY{k+kn}{import} \PY{n}{draw\PYZus{}coeff}
-        
-% \PY{n}{model}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}delta}\PY{p}{,} \PY{n}{strains\PYZus{}delta}\PY{p}{)}
-% \PY{n}{draw\PYZus{}coeff}\PY{p}{(}\PY{n}{model}\PY{o}{.}\PY{n}{coef\PYZus{}}\PY{p}{)}
-
-% \end{Verbatim}
+\texttt{draw\_coeff} function from \texttt{pymks.tools}. The results
+from \texttt{draw\_coeff} can be found in Fig. \ref{fig:drawCoeff}.
 
 \begin{_input}
 from pymks.tools import draw_coeff
@@ -1511,33 +1373,31 @@ model.fit(X_delta, strains_delta)
 draw_coeff(model.coef_)
 \end{_input}
 
-    \begin{center}
-    \fimage{\adjustimage{max size={0.98\linewidth}{0.9\paperheight}}{pymks_paper_localization_files/pymks_paper_localization_10_0.png}}
-    \end{center}
-    { \hspace*{\fill} \\}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=.37]{pymks_paper_localization_files/pymks_paper_localization_10_0.png}
+    \caption{Calibrated influence kernels for the localization model.}
+    \label{fig:drawCoeff}
+\end{figure}
+
+%     \begin{center}
+%     \fimage{\adjustimage{max size={0.98\linewidth}{0.9\paperheight}}{pymks_paper_localization_files/pymks_paper_localization_10_0.png}}
+%     \end{center}
+%     { \hspace*{\fill} \\}
     \subsubsection{Prediction of the Strain Field for a Random
 Microstructure}\label{prediction-of-the-strain-field-for-a-random-microstructure}
 
-Model validation is done by comparing strain fields of a random
-microstructure computed using a finite element simulation and our
-model. The \texttt{make\_elasticFEstrain\_random} function from
+Model validation is done by comparing strain fields computed using a
+finite element simulation and our localization model for the same random
+microstructure. The \texttt{make\_elasticFEstrain\_random} function from
 \texttt{pymks.datasets} generates a random microstructure and its
-strain field results from finite element analysis.
+strain field results from finite element analysis. The output from
+\texttt{make\_elasticFEstrain\_random} are visualized using 
+\texttt{draw\_microstructure\_strain} can be found in Fig.
+\ref{fig:drawMicroStrainRandom}.
 
-%     \begin{Verbatim}[commandchars=\\\{\}]
-
-% \PY{k+kn}{from} \PY{n+nn}{pymks.datasets} \PY{k+kn}{import} \PY{n}{make\PYZus{}elastic\PYZus{}FE\PYZus{}strain\PYZus{}random}
-        
-% \PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{seed}\PY{p}{(}\PY{l+m+mi}{101}\PY{p}{)}
-        
-% \PY{n}{X}\PY{p}{,} \PY{n}{strain} \PY{o}{=} \PY{n}{make\PYZus{}elastic\PYZus{}FE\PYZus{}strain\PYZus{}random}\PY{p}{(}
-%     \PY{n}{n\PYZus{}samples}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{elastic\PYZus{}modulus}\PY{o}{=}\PY{n}{elastic\PYZus{}modulus}\PY{p}{,}
-%     \PY{n}{poissons\PYZus{}ratio}\PY{o}{=}\PY{n}{poissons\PYZus{}ratio}\PY{p}{,} \PY{n}{size}\PY{o}{=}\PY{n}{size}\PY{p}{,}
-%     \PY{n}{macro\PYZus{}strain}\PY{o}{=}\PY{n}{macro\PYZus{}strain}\PY{p}{)}
-        
-% \PY{n}{draw\PYZus{}microstructure\PYZus{}strain}\PY{p}{(}\PY{n}{X}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{p}{,} \PY{n}{strain}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
-
-% \end{Verbatim}
 
 \begin{_input}
 from pymks.datasets import make_elastic_FE_strain_random
@@ -1553,22 +1413,24 @@ draw_microstructure_strain(X[0] , strain[0])
 
 \end{_input}
 
-    \begin{center}
-    \fimage{\adjustimage{max size={0.98\linewidth}{0.9\paperheight}}{pymks_paper_localization_files/pymks_paper_localization_12_0.png}}
-    \end{center}
-    { \hspace*{\fill} \\}
-    Localization model predicts the strain field by passing the
-microstructure to the \texttt{predict} method. A visualization of the
-two strain fields from both the localization model and finite element
-analysis can be created using \texttt{draw\_strains\_compare} from
-\texttt{pymks.tools}.
 
-%     \begin{Verbatim}[commandchars=\\\{\}]
-% \PY{k+kn}{from} \PY{n+nn}{pymks.tools} \PY{k+kn}{import} \PY{n}{draw\PYZus{}strains\PYZus{}compare}
-        
-% \PY{n}{strain\PYZus{}pred} \PY{o}{=} \PY{n}{model}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X}\PY{p}{)}
-% \PY{n}{draw\PYZus{}strains\PYZus{}compare}\PY{p}{(}\PY{n}{strain}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{strain\PYZus{}pred}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
-% \end{Verbatim}
+\begin{figure}
+    \centering
+    \includegraphics[scale=.54]{pymks_paper_localization_files/pymks_paper_localization_12_0.png}
+    \caption{Random microstructure and its local strain field found using finite element analysis.}
+    \label{fig:drawMicroStrainRandom}
+\end{figure}
+
+%     \begin{center}
+%     \fimage{\adjustimage{max size={0.98\linewidth}{0.9\paperheight}}{pymks_paper_localization_files/pymks_paper_localization_12_0.png}}
+%     \end{center}
+%     { \hspace*{\fill} \\}
+    The localization model predicts the strain field by passing the
+random microstructure to the \texttt{predict} method. A visualization
+of the two strain fields from both the localization model and finite element
+analysis can be created using \texttt{draw\_strains\_compare} from
+\texttt{pymks.tools}. The output from \texttt{draw\_strains\_compare}
+can be found in Fig. \ref{fig:drawStrainCompare}.
 
 \begin{_input}
 from pymks.tools import draw_strains_compare
@@ -1578,12 +1440,22 @@ draw_strains_compare(strain[0], strain_pred[0])
 
 \end{_input}
 
-    \begin{center}
-    \fimage{\adjustimage{max size={0.98\linewidth}{0.9\paperheight}}{pymks_paper_localization_files/pymks_paper_localization_14_0.png}}
-    \end{center}
-    { \hspace*{\fill} \\}
+\begin{figure}
+    \centering
+    \includegraphics[scale=.535]{pymks_paper_localization_files/pymks_paper_localization_14_0.png}
+    \caption{A comparison between the local strain field computed using finite element (left) and
+    the prediction from the localization model (right).}
+    \label{fig:drawStrainCompare}
+\end{figure}
+
+
+
+%     \begin{center}
+%     \fimage{\adjustimage{max size={0.98\linewidth}{0.9\paperheight}}{pymks_paper_localization_files/pymks_paper_localization_14_0.png}}
+%     \end{center}
+%     { \hspace*{\fill} \\}
     
-    These examples demonstrate the high level code that creates accurate and computationally efficient homogenization structure-property linkages using \texttt{MKSHomogenizationModel} and localization linkages using  \texttt{MKSLocalizationModel} with PyMKS. 
+    These examples demonstrate the high level code that creates accurate and computationally efficient homogenization structure-property linkages using \texttt{MKSHomogenizationModel} and localization linkages using \texttt{MKSLocalizationModel} with PyMKS. 
 
 \section{Conclusion}
 
