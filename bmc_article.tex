@@ -273,30 +273,30 @@
 
 % Python style for highlighting
 \lstdefinestyle{input}{
-    backgroundcolor=\color{backcolour},   
+    backgroundcolor=\color{backcolour},
     commentstyle=\color{codegreen},
     keywordstyle=\color{codegreen},
     numberstyle=\tiny\color{white},
     basicstyle=\ttfamily\linespread{1.2}\small,
-    breakatwhitespace=false,         
-    breaklines=true,  
-    captionpos=b,                    
-    keepspaces=true,                 
-    numbers=left,                    
-    numbersep=5pt,                  
-    showspaces=false,                
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
     showstringspaces=false,
-    showtabs=false,                  
+    showtabs=false,
     tabsize=2,
     stringstyle=\color{red},
     language={Python},
-    emph={__future__, pymks, datasets, tools, sklearn, cross_validation, grid_search, bases}, 
+    emph={__future__, pymks, datasets, tools, sklearn, cross_validation, grid_search, bases},
     emphstyle=\color{blue},
     belowskip=0.3em,
     aboveskip=1em,
 %     otherkeywords={ as },
 }
-% 
+%
 % Python style for highlighting
 \lstdefinestyle{output}{
 	style=input,
@@ -480,15 +480,20 @@
 \begin{abstract} % abstract
 
 There is a critical need for customized analytics that take into
-account the stochastic nature of materials internal structure at
-multiple length scales in order to extract relevant and transferable
-knowledge. Data driven Process-Structure-Property (PSP) linkages
-provide systemic, modular and hierarchical framework for community
-driven curation of materials knowledge, and its 
-transference to design and manufacturing experts. The Materials Knowledge Systems in Python project (PyMKS) is
-the first open source materials data science framework that can be used
-to create high value PSP linkages for hierarchical materials that
-can be leveraged by experts in materials science and engineering, manufacturing, machine learning and data science communities. This paper describes the main functions available from this repository, along with illustrations of how these can be accessed, utilized, and potentially further refined by the broader community of researchers.  
+account the stochastic nature of the internal structure of materials
+at multiple length scales in order to extract relevant and
+transferable knowledge. Data driven Process-Structure-Property (PSP)
+linkages provide systemic, modular and hierarchical framework for
+community driven curation of materials knowledge, and its transference
+to design and manufacturing experts. The Materials Knowledge Systems
+in Python project (PyMKS) is the first open source materials data
+science framework that can be used to create high value PSP linkages
+for hierarchical materials that can be leveraged by experts in
+materials science and engineering, manufacturing, machine learning and
+data science communities. This paper describes the main functions
+available from this repository, along with illustrations of how these
+can be accessed, utilized, and potentially further refined by the
+broader community of researchers.
 
 % \parttitle{First part title} %if any
 % Text for this section.
@@ -554,11 +559,52 @@ can be leveraged by experts in materials science and engineering, manufacturing,
 
 Current practices for developing tools and infrastructure used in multiscale materials design, development, and deployment are generally highly localized (sometimes even within a single organization) resulting in major inefficiencies (duplication of effort, lack of code review, not engaging the right talent for the right task, etc.). Although it is well known that the pace of discovery and innovation  significantly increases with effective collaboration \cite{sawhney2005collaborating, edwards2009open, bayne2008interdisciplinary, boudreau2010open}, scaling such efforts to large heterogeneous communities such as those engaged in materials innovation has been very difficult.
 
-The advent of information technology has facilitated massive electronic collaborations (generally referred to as e-collaborations) that have lead to significant advances in several domains including the discovery of the Higg's boson \cite{aad2012observation}, the sequencing of the human genome \cite{lander2001initial}, the Polymath project \cite{cranshaw2011polymath}, the monitoring of species migration \cite{dickinson2010citizen, hochachka2012data} and numerous open source software projects. E-collaborations allow experts from complementary domains to create highly productive collaborations that transcend geographical, temporal, cultural, and organizational distances. E-collaborations require a supporting cyber-infrastructure that allows team members to generate, analyze, disseminate, access, and consume information at dramatically increased pace and/or quantity \cite{atkins2003revolutionizing}. A key element of this emerging cyber-infrastructure is open source software as it eliminates collaboration hurdles due to software licenses and can help foster truly massive e-collaborations. In other words, even with collaborations involving proprietary data, open source cyber-infrastructure provide a common language that can facilitate e-collaborations with large numbers of team members (could even become a community effort).
+The advent of information technology has facilitated massive
+electronic collaborations (generally referred to as e-collaborations)
+that have lead to significant advances in several domains including
+the discovery of the Higg's boson \cite{aad2012observation}, the
+sequencing of the human genome \cite{lander2001initial}, the Polymath
+project \cite{cranshaw2011polymath}, the monitoring of species
+migration \cite{dickinson2010citizen, hochachka2012data} and numerous
+open source software projects. E-collaborations allow experts from
+complementary domains to create highly productive collaborations that
+transcend geographical, temporal, cultural, and organizational
+distances. E-collaborations require a supporting cyber-infrastructure
+that allows team members to generate, analyze, disseminate, access,
+and consume information at dramatically increased pace and/or quantity
+\cite{atkins2003revolutionizing}. A key element of this emerging
+cyber-infrastructure is open source software, as it eliminates
+collaboration hurdles due to software licenses and can help foster
+truly massive e-collaborations. In other words, even with
+collaborations involving proprietary data, open source
+cyber-infrastructure provides a common language that can facilitate
+e-collaborations with large numbers of team members.
 
 Several recent national and international initiatives \cite{anderson2011report, MGIwhite, MGI2014} have been launched with the premise that the adoption and utilization of modern data science and informatics toolsets offers a new opportunity to accelerate dramatically the design and deployment cycle of new advanced materials in commercial products. More specifically, it has been recognized that innovation cyber-ecosystems \cite{mcdowell2016materials} are needed to allow experts from the materials science and engineering, design and manufacturing, and data science domains to collaborate effectively. The challenge in integrating these traditionally disconnected communities comes from the vast differences in how knowledge is captured, curated, and disseminated in these communities \cite{kalidindi2015data}. More specifically, knowledge systems in the materials field are rarely captured in a digital form. In order to create a modern materials innovation ecosystem, it is imperative that we design, develop, and launch novel collaboration platforms that allow automated distilling of materials knowledge from large amounts of heterogeneous data acquired through customized protocols that are necessarily diverse (elaborated next). It is also imperative that this curated materials knowledge is presented to the design and manufacturing experts in highly accessible (open) formats.
 
-Customized materials design has great potential for impacting virtually all emerging technologies, with significant economic consequences \cite{ward2012materials, allison2006integrated, MGIwhite, MGI2014, allison2011integrated, olson2000designing, national2008integrated, schmitz2012integrative, robinson2013tms, allisonintegrated, TMSfieldstudy}. However, materials design (including the design of a manufacturing process route) resulting in the combination of properties desired for a specific application is a highly challenging inverse problem due to the hierarchical nature of materials internal structure. Material properties are controlled by the hierarchical internal structure (over multiple length scales which span from atomic to macroscopic) as well as coupled physical phenomena which can occur at different timescales at each of the hierarchical length scales. Characterization of the structure at each of these different length scales is often in the form of images which come from different experimental/computational techniques resulting in highly heterogeneous data. As a result, tailoring the material hierarchical structure to yield desired combinations of properties or performance characteristics is enormously difficult. Figure \ref{fig:length_scales} provides a collection of materials images depicting material structures at different length scales, which are generally acquired using diverse protocols and are captured in equally diverse formats.
+Customized materials design has great potential for impacting
+virtually all emerging technologies, with significant economic
+consequences \cite{ward2012materials, allison2006integrated, MGIwhite,
+  MGI2014, allison2011integrated, olson2000designing,
+  national2008integrated, schmitz2012integrative, robinson2013tms,
+  allisonintegrated, TMSfieldstudy}. However, materials design
+(including the design of a manufacturing process route) resulting in
+the combination of properties desired for a specific application is a
+highly challenging inverse problem due to the hierarchical nature of
+the internal structure of materials. Material properties are
+controlled by the materials' hierarchical internal structure as well
+as physical phenomena with timescales that vary at each of the
+hierarchical length scales (from the atomic to the macroscopic length
+scale). Characterization of the structure at each of these different
+length scales is often in the form of images which come from different
+experimental/computational techniques resulting in highly
+heterogeneous data. As a result, tailoring the material hierarchical
+structure to yield desired combinations of properties or performance
+characteristics is enormously difficult. Figure
+\ref{fig:length_scales} provides a collection of materials images
+depicting material structures at different length scales, which are
+generally acquired using diverse protocols and are captured in equally
+diverse formats.
 
 \begin{figure}
     \includegraphics[scale=.23]{fig/lengthScales1.png}
@@ -573,14 +619,67 @@ The Materials Knowledge Systems in Python project (PyMKS) is the first open sour
 
 \section{Current Materials Innovation Ecosystem}
 
-Open access materials databases and computational tools are critical components of the cyber-infrastructure needed to curate materials knowledge through effective e-collaborations \cite{bhat2015strategy}. Several materials science open source computational toolsets and databases have emerged in recent years to help realize the vision outlined in the Materials Genome Initiative (MGI) and the Integrated Computational Materials Engineering (ICME) paradigm \cite{ward2012materials, allison2006integrated, MGIwhite, MGI2014, allison2011integrated, olson2000designing, national2008integrated, schmitz2012integrative, robinson2013tms, allisonintegrated, TMSfieldstudy}. Yet, the creation and adoption of a standard materials taxonomy and database schema has not been established due to the unwieldy size of material descriptors and heterogeneous data. Additionally, the coupled physical phenomena that govern material properties is too complex to model all aspects of a material simultaneously using a single computational tool. Consequently, current practices have resulted in the development of computation tools and databases with a narrow focus on specific length/structure scales, material classes, or properties.
+Open access materials databases and computational tools are critical
+components of the cyber-infrastructure needed to curate materials
+knowledge through effective e-collaborations
+\cite{bhat2015strategy}. Several materials science open source
+computational toolsets and databases have emerged in recent years to
+help realize the vision outlined in the Materials Genome Initiative
+(MGI) and the Integrated Computational Materials Engineering (ICME)
+paradigm \cite{ward2012materials, allison2006integrated, MGIwhite,
+  MGI2014, allison2011integrated, olson2000designing,
+  national2008integrated, schmitz2012integrative, robinson2013tms,
+  allisonintegrated, TMSfieldstudy}. Yet, the creation and adoption of
+a standard materials taxonomy and database schema has not been
+established due to the unwieldy size of material descriptors and
+heterogeneous data. Additionally, the coupled physical phenomena that
+govern material properties are too complex to model all aspects of a
+material simultaneously using a single computational
+tool. Consequently, current practices have resulted in the development
+of computation tools and databases with a narrow focus on specific
+length/structure scales, material classes, or properties.
 
-NIST Data Gateway contains over 100 free and paid query-able web-based materials databases. These databases contain atomic structure, thermodynamics, kinetics, fundamental physical constants, x-ray spectroscopy, among other features \cite{NISTgateway}. NIST DSpace provides a curation of links to several materials community databases \cite{nist2015dspace}. NIST Materials Data Curation Systems (MDCS) is a general online database that aims to facilitate the capturing, sharing, and transforming of materials data \cite{NISTDCS}. Open Quantum Materials Database (OQMD) is an open source data repository for phase diagrams and electronic ground states computed using density functional theory \cite{saal2013materials}. MatWeb is a database containing materials properties for over 100,000 materials \cite{matweb}.
-Atomic FLOW of Materials Discovery (AFLOW) databases millions of materials and properties and hosts computational tools that can be used for atomic simulations \cite{curtarolo2012aflow}. The Materials Project (and the tool pyMatgen) \cite{ong2013python, jain2013commentary} provides open web-based access to computed information on known and predicted materials as well as analysis tools for electronic band structures. The Knowledgebase of Interatomic Models (OpenKIM) hosts open source tools for potentials for molecular simulation of materials \cite{kim2010project}. PRedictive Integrated Structural Materials Science (PRISMS) hosts a suite of ICME tools and datastorage for the metals community focused on microstructure evolution and mechanical properties \cite{prism}.
+The NIST Data Gateway contains over 100 free and paid query-able
+web-based materials databases. These databases contain atomic
+structure, thermodynamics, kinetics, fundamental physical constants,
+x-ray spectroscopy, among other features \cite{NISTgateway}. The NIST
+DSpace provides a curation of links to several materials community
+databases \cite{nist2015dspace}. The NIST Materials Data Curation
+Systems (MDCS) is a general online database that aims to facilitate
+the capturing, sharing, and transforming of materials data
+\cite{NISTDCS}. The Open Quantum Materials Database (OQMD) is an open
+source data repository for phase diagrams and electronic ground states
+computed using density functional theory
+\cite{saal2013materials}. MatWeb is a database containing materials
+properties for over 100,000 materials \cite{matweb}.  Atomic FLOW of
+Materials Discovery (AFLOW) databases millions of materials and
+properties and hosts computational tools that can be used for atomic
+simulations \cite{curtarolo2012aflow}. The Materials Project (and the
+tool pyMatgen) \cite{ong2013python, jain2013commentary} provides open
+web-based access to computed information on known and predicted
+materials as well as analysis tools for electronic band
+structures. The Knowledgebase of Interatomic Models (OpenKIM) hosts
+open source tools for potentials for molecular simulation of materials
+\cite{kim2010project}. PRedictive Integrated Structural Materials
+Science (PRISMS) hosts a suite of ICME tools and datastorage for the
+metals community focused on microstructure evolution and mechanical
+properties \cite{prism}.
 
 SPPARKS Kinetic Monte Carlo Simulator (SPPARKS) is a parallel Monte Carlo code for on-lattice and off-lattice models \cite{plimpton2012spparks}. MOOSE is a parallel computational framework for coupled systems of nonlinear equations \cite{gaston2009moose}. Dream3D is a tool used for synthetic microstructure generation, image processing and mesh creation for finite element \cite{groeber2014dream}.
 
-While there exits a sizable number of standard analytics tools \cite{littell2006sas, seabold2010statsmodels, pedregosa2011scikit, albanese2012mlpy, goodfellow2013pylearn2, mckinney2012python, muller2014pystruct, demvsar2004orange, abadi2016tensorflow, van2014scikit}, none of them are tailored to create PSP linkages from materials structure image data and their associated properties. PyMKS aims to seed and nurture an emergent user group in the materials data analytics for establishing homogenization and localization (PSP) linkages by leveraging open source signal processing and machine learning packages in Python. An overview of the PyMKS project accompanied with several examples is presented here. This paper is a call to others interested in participating in this open science activity.
+While there exits a sizable number of standard analytics tools
+\cite{littell2006sas, seabold2010statsmodels, pedregosa2011scikit,
+  albanese2012mlpy, goodfellow2013pylearn2, mckinney2012python,
+  muller2014pystruct, demvsar2004orange, abadi2016tensorflow,
+  van2014scikit}, none of them are tailored to create PSP linkages
+from materials structure image data and their associated
+properties. PyMKS aims to seed and nurture an emergent user group in
+the materials data analytics field for establishing homogenization and
+localization (PSP) linkages by leveraging open source signal
+processing and machine learning packages in Python. An overview of the
+PyMKS project accompanied with several examples is presented
+here. This paper is a call to others interested in participating in
+this open science activity.
 
 \section{Theoretical Foundations of Materials Knowledge Systems}
 
@@ -694,9 +793,9 @@ reduction can be mathematically expressed as
     f_j\left[l\right] \approx \sum_{k\in K} \mu_j\left[k\right]
     \phi\left[k,l\right] + \overline{f[l]}
 \end{equation}
-In Eq. \ref{eq:struc}, $f_j\left[l\right]$ is a contracted representation of 
+In Eq. \ref{eq:struc}, $f_j\left[l\right]$ is a contracted representation of
 %are the low rank approximations of 2-point statistics, where the
-$f_j\left[h, h'; r\right]$ %indices from Eq. \ref{eq:stats}are represented 
+$f_j\left[h, h'; r\right]$ %indices from Eq. \ref{eq:stats}are represented
 as a large vector (i.e., $l$ maps uniquely to every combination
 of $h$, $h'$ and $r$ deemed to be of interest in the analyses). The $\mu_j[k]$ are low dimensional microstructure
 descriptors (the transformed 2-point statistics) or principal component
@@ -777,7 +876,7 @@ niezgoda2013novel, niezgoda2011understanding, cecen2016versatile}.
 
 \section{Materials Knowledge Systems in Python}
 
-PyMKS is an object-oriented numerical implementation to the MKS theory
+PyMKS is an object-oriented numerical implementation of the MKS theory
 developed in the literature~\cite{kalidindi2010novel}. It provides a
 high-level, computationally efficient, framework to implement data
 pipelines for classification, cataloging and quantifying materials
@@ -813,11 +912,11 @@ default dimensionality reduction technique is PCA, but any model that
 uses the \texttt{transform\_fit} or a ``transformer'' object can be
 substituted. After calculating the descriptors, the
 \texttt{MKSHomogenizationModel} is used to create linkages between the
-$\mu_j[k]$ and the effective material response, $p_j^{\text{eff}}$,
-as indicated in Eq.~\ref{eq:hom}. The default machine learning
-algorithm is a polynomial regression, but any estimator with the
-\texttt{fit} and \texttt{predict} methods can be substitued to create
-the linkages between $\mu_j[k]$ and $p_j^{\text{eff}}$.
+$\mu_j[k]$ and the effective material response, $p_j^{\text{eff}}$, as
+indicated in Eq.~\ref{eq:hom}. The default machine learning algorithm
+is a polynomial regression, but any estimator with the \texttt{fit}
+and \texttt{predict} methods can be substituted to create the linkages
+between $\mu_j[k]$ and $p_j^{\text{eff}}$.
 
 The \texttt{MKSLocalizationModel} object provides the MKS localization
 functionality. It calibrates the first order influence kernels
@@ -914,7 +1013,7 @@ developers are encouraged to follow them.
 \section{Examples of Homogenization and Localization with PyMKS}
 
 A demonstration of the MKS homogenization and localization
-workflows as shown in Fig. \ref{fig:workflows} 
+workflows as shown in Fig. \ref{fig:workflows}
 are presented in this section using PyMKS. Additional workflow examples
 can be found on the PyMKS website \url{pymks.org}.
 
@@ -970,17 +1069,17 @@ volume_fraction = [(0.8, 0.2), (0.7, 0.3), (0.6, 0.4), (0.5, 0.5),
                    (0.8, 0.2), (0.7, 0.3), (0.6, 0.4), (0.5, 0.5),
                    (0.2, 0.8), (0.3, 0.7), (0.4, 0.6), (0.5, 0.5)]
 
-percent_variance = 0.15 
+percent_variance = 0.15
 elastic_modulus = (300, 200)
 poissons_ratio = (0.28, 0.3)
 size = (21, 21)
 seed = 1
 
-X, y = make_elastic_stiffness(n_samples=n_samples, 
+X, y = make_elastic_stiffness(n_samples=n_samples,
                               volume_fraction=volume_fraction,
                               grain_size=grain_size,  size=size,
                               percent_variance=percent_variance,
-                              elastic_modulus=elastic_modulus, 
+                              elastic_modulus=elastic_modulus,
                               poissons_ratio=poissons_ratio,
                               seed=seed)
 
@@ -1040,22 +1139,23 @@ from pymks import PrimitiveBasis
 
 prim_basis = PrimitiveBasis(n_states=2, domain=[0, 1])
 model = MKSHomogenizationModel(basis=prim_basis,
-                               periodic_axes=[0, 1], 
+                               periodic_axes=[0, 1],
                                correlations=[(0, 0), (1, 1)])
 \end{_input}
-    The default pipeline used to create the homogenization linkage uses PCA
-and polynomial regression objects for Scikit-learn. Using
-\texttt{GridSeachCV} from Scikit-learn, cross validation is used on the
-testing data to find the optimal number of principal components and
-degree of polynomial (based on the R-squared values) within a defined
-subspace for the hyper parameters for our model. A dictionary
+
+The default pipeline used to create the homogenization linkage uses
+PCA and polynomial regression objects for Scikit-learn. Using
+\texttt{GridSearchCV} from Scikit-learn, cross validation is used on
+the testing data to find the optimal number of principal components
+and degree of polynomial (based on the R-squared values) within a
+defined subspace for the hyper parameters for our model. A dictionary
 \texttt{params\_to\_tune} defines the subspace. For this example
 \texttt{n\_components} will be varied between 1 to 13 and
-\texttt{degree} of the polynomial regression will be varied between 1 to
-3. \texttt{StratifiedKFold} is used to ensure that microstructures from
-each of the classes are used for each fold during cross validation. The
-array \texttt{labels} is used to label each of the classes.
-
+\texttt{degree} of the polynomial regression will be varied between 1
+to 3. \texttt{StratifiedKFold} is used to ensure that microstructures
+from each of the classes are used for each fold during cross
+validation. The array \texttt{labels} is used to label each of the
+classes.
 
 \begin{_input}
 from sklearn.cross_validation import StratifiedKFold
@@ -1074,9 +1174,9 @@ gs = GridSearchCV(
 
 \end{_input}
 
-    The results of our parameter grid search can be examined by either
-printing or creating visualizations. The parameters and
-score of the best estimator can be printed as shown below.
+The results of our parameter grid search can be examined by either
+printing or creating visualizations. The parameters and score of the
+best estimator can be printed as shown below.
 
 \begin{_input}
 from __future__ import print_function
@@ -1140,7 +1240,7 @@ gs_deg_2 = [x for x in gs.grid_scores_ \
 gs_deg_3 = [x for x in gs.grid_scores_ \
             if x.parameters['degree'] == 3]
 
-draw_gridscores([gs_deg_1,  gs_deg_2, gs_deg_3], 'n_components', 
+draw_gridscores([gs_deg_1,  gs_deg_2, gs_deg_3], 'n_components',
                 data_labels=['1st Order',
                              '2nd Order', '3rd Order'],
                 param_label='Number of Components',
@@ -1161,7 +1261,7 @@ three orders of a polynomial function.}
 % \fimage{\adjustimage{max size={0.98\linewidth}{0.9\paperheight}}{pymks_paper_homogenization_files/pymks_paper_homogenization_15_0.png}}
 %     \end{center}
 %     { \hspace*{\fill} \\}
-    
+
     For the specified parameter range, the model with the highest R-squared
 value was found to have a 2nd order polynomial with 11 principal
 components. This model is calibrated using the entire training dataset and is
@@ -1189,12 +1289,12 @@ n_samples = [test_sample_size] * 16
 seed = 0
 
 X_new, y_new = make_elastic_stiffness(
-    n_samples=n_samples, size=size, 
+    n_samples=n_samples, size=size,
     grain_size=grain_size,
-    volume_fraction=volume_fraction, 
+    volume_fraction=volume_fraction,
     percent_variance=percent_variance,
-    elastic_modulus=elastic_modulus, 
-    poissons_ratio=poissons_ratio, 
+    elastic_modulus=elastic_modulus,
+    poissons_ratio=poissons_ratio,
     seed=seed)
 \end{_input}
     Effective stiffness values predicted by the model for the new
@@ -1219,7 +1319,7 @@ different data sources.
 \begin{_input}
 from pymks.tools import draw_components_scatter
 
-draw_components_scatter([model.reduced_fit_data[:, :2], 
+draw_components_scatter([model.reduced_fit_data[:, :2],
                          model.reduced_predict_data[:, :2]],
                         ['Training Data', 'Test Data'],
                         legend_outside=True)
@@ -1238,7 +1338,7 @@ draw_components_scatter([model.reduced_fit_data[:, :2],
 %     \fimage{\adjustimage{max size={0.98\linewidth}{0.9\paperheight}}{pymks_paper_homogenization_files/pymks_paper_homogenization_23_0.png}}
 %     \end{center}
 %     { \hspace*{\fill} \\}
-    
+
     To evaluate our model's predictions, a goodness-of-fit plot can
 be generated by importing \texttt{draw\_goodness\_of\_fit} from
 \texttt{pymks.tools}. The results from \texttt{draw\_goodness\_of\_fit}
@@ -1267,7 +1367,7 @@ draw_goodness_of_fit(fit_data, pred_data,
 % \fimage{\adjustimage{max size={0.98\linewidth}{0.9\paperheight}}{pymks_paper_homogenization_files/pymks_paper_homogenization_25_0.png}}
 %     \end{center}
 %     { \hspace*{\fill} \\}
-    
+
 \begin{_input}
 print('R-squared value', model.score(X_new, y_new))
 \end{_input}
@@ -1338,7 +1438,7 @@ draw_microstructure_strain(X_delta[0], strains_delta[0])
 %     \fimage{\adjustimage{max size={0.98\linewidth}{0.9\paperheight}}{pymks_paper_localization_files/pymks_paper_localization_5_0.png}}
 %     \end{center}
 %     { \hspace*{\fill} \\}
-    
+
     \subsubsection{Calibration of the Localization
 Model}\label{calibration-of-the-localization-model}
 
@@ -1394,7 +1494,7 @@ finite element simulation and our localization model for the same random
 microstructure. The \texttt{make\_elasticFEstrain\_random} function from
 \texttt{pymks.datasets} generates a random microstructure and its
 strain field results from finite element analysis. The output from
-\texttt{make\_elasticFEstrain\_random} are visualized using 
+\texttt{make\_elasticFEstrain\_random} are visualized using
 \texttt{draw\_microstructure\_strain} can be found in Fig.
 \ref{fig:drawMicroStrainRandom}.
 
@@ -1454,8 +1554,8 @@ draw_strains_compare(strain[0], strain_pred[0])
 %     \fimage{\adjustimage{max size={0.98\linewidth}{0.9\paperheight}}{pymks_paper_localization_files/pymks_paper_localization_14_0.png}}
 %     \end{center}
 %     { \hspace*{\fill} \\}
-    
-    These examples demonstrate the high level code that creates accurate and computationally efficient homogenization structure-property linkages using \texttt{MKSHomogenizationModel} and localization linkages using \texttt{MKSLocalizationModel} with PyMKS. 
+
+    These examples demonstrate the high level code that creates accurate and computationally efficient homogenization structure-property linkages using \texttt{MKSHomogenizationModel} and localization linkages using \texttt{MKSLocalizationModel} with PyMKS.
 
 \section{Conclusion}
 
@@ -1477,7 +1577,7 @@ The MKS framework offers a practical and computationally efficient approach for 
 
 \section*{Acknowledgements}
 
-DBB and SRK acknowledge support from NSF-IGERT Award 1258425 and NIST 70NANB14H191. 
+DBB and SRK acknowledge support from NSF-IGERT Award 1258425 and NIST 70NANB14H191.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                  The Bibliography                       %%
